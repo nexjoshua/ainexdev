@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Services — Joshua Mendoza | NexSale</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,400&family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="../images/logo-x.png" type="image/png" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  /* ===== AI Voice Agent card — page-specific hooky animation ===== */
+  .service-card.voice-agent{
+    position:relative;
+    background:radial-gradient(ellipse 120% 80% at 100% 0%, rgba(255,150,80,.10), transparent 60%), var(--panel);
+    border-color:rgba(255,150,80,.22);
+  }
+  .service-card.voice-agent:hover{border-color:rgba(255,150,80,.5)}
+  .voice-agent-head{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+  .voice-live-pill{
+    display:inline-flex;align-items:center;gap:.45rem;
+    font-family:var(--font-body);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;
+    color:#ffb648;border:1px solid rgba(255,150,80,.35);background:rgba(255,150,80,.08);
+    padding:.3rem .7rem;border-radius:99px;white-space:nowrap;
+  }
+  .voice-live-dot{width:6px;height:6px;border-radius:50%;background:#ffb648;position:relative}
+  .voice-live-dot::after{
+    content:"";position:absolute;inset:-4px;border-radius:50%;border:1px solid #ffb648;
+    animation:voicePulseRing 1.8s ease-out infinite;
+  }
+  @keyframes voicePulseRing{0%{transform:scale(.6);opacity:.9}100%{transform:scale(2.4);opacity:0}}
+
+  .voice-call-visual{
+    position:relative;display:flex;align-items:center;justify-content:center;
+    height:120px;margin:.5rem 0 .25rem;
+  }
+  .voice-ring{position:absolute;border-radius:50%;border:1px solid rgba(255,150,80,.4)}
+  .voice-ring{width:64px;height:64px;animation:voiceRingOut 2.4s ease-out infinite}
+  .voice-ring.r2{animation-delay:.6s}
+  .voice-ring.r3{animation-delay:1.2s}
+  @keyframes voiceRingOut{
+    0%{width:64px;height:64px;opacity:.7;border-color:rgba(255,150,80,.55)}
+    100%{width:150px;height:150px;opacity:0;border-color:rgba(255,150,80,0)}
+  }
+  .voice-call-btn{
+    position:relative;width:56px;height:56px;border-radius:50%;
+    background:linear-gradient(145deg,#ff8a5b,#ff5f8f);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 10px 30px -6px rgba(255,90,80,.55);
+    animation:voiceBtnPulse 2.4s ease-in-out infinite;
+  }
+  @keyframes voiceBtnPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+  .voice-call-btn svg{width:22px;height:22px;fill:#0d0d0e}
+
+  @media(prefers-reduced-motion:reduce){
+    .voice-ring, .voice-call-btn, .voice-live-dot::after{animation:none}
+  }
+</style>
+</head>
+<body>
+<div id="preloader">
+  <video src="../videos/landscape-logox.mp4" autoplay muted playsinline></video>
+  <span class="preloader-skip">click to skip</span>
+</div>
+
+<div class="glass-cursor" id="cursor">
+  <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" x2="14" y1="3" y2="10"></line><line x1="3" x2="10" y1="21" y2="14"></line></svg>
+</div>
+<div class="backdrop-blur-layer"></div>
+<div class="layout-gradient"></div>
+
+<div class="page">
+
+  <a class="brand" href="../index.html">
+    <img src="../images/ainex-logowhite.png" alt="NexSale — Joshua Mendoza" class="brand-logo">
+    <i class="brand-tri brand-tri-left"><svg viewBox="0 0 24 24" fill="#fff" width="6" height="6"><path d="M13.73 4a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path></svg></i>
+    <i class="brand-tri brand-tri-right"><svg viewBox="0 0 24 24" fill="#fff" width="6" height="6"><path d="M13.73 4a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path></svg></i>
+  </a>
+
+  <nav class="topnav">
+    <div class="nav-links">
+      <a href="../index.html" class="navlink"><span>Home</span></a>
+      <a href="./services.html" class="navlink is-active"><span>Services</span></a>
+      <a href="./portfolio.html" class="navlink"><span>Portfolio</span></a>
+      <a href="./automations.html" class="navlink"><span>Automations</span></a>
+      <a href="./about.html" class="navlink"><span>About</span></a>
+      <a href="./contact.html" class="nav-cta">Hire Me →</a>
+    </div>
+    <div class="topnav-actions">
+      <div class="topnav-social">
+        <a href="https://wa.me/639696171479" target="_blank" rel="noopener" class="topnav-social-icon" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12.031 6.172c-5.055 0-9.363 4.109-9.365 9.163a9.32 9.32 0 001.24 4.657l-1.313 4.792 4.917-1.288a9.36 9.36 0 004.514 1.15h.004c5.055 0 9.365-4.109 9.367-9.163a9.099 9.099 0 00-2.652-6.503 9.061 9.061 0 00-6.712-2.808zm5.518 13.028c-.235.663-1.377 1.267-1.898 1.336-.484.065-1.09.093-1.756-.11-.405-.121-.923-.284-1.594-.559-2.807-1.212-4.634-4.02-4.777-4.208-.14-.187-1.144-1.522-1.144-2.905 0-1.383.727-2.06.984-2.34.256-.279.56-.348.746-.348.187 0 .373.001.535.008.171.007.4-.065.628.481.235.56.797 1.943.867 2.087.07.14.117.303.023.489-.093.187-.14.302-.28.465-.14.164-.294.365-.42.49-.14.14-.286.29-.123.567.163.279.727 1.198 1.56 1.94 1.072.956 1.977 1.253 2.256 1.394.28.14.443.117.606-.07.163-.187.703-.82.89-1.1.187-.28.375-.234.634-.14.258.093 1.638.774 1.918.913.28.14.466.211.535.328.07.117.07.678-.163 1.34z"></path></svg>
+        </a>
+        <a href="https://www.instagram.com/shuamndz/" target="_blank" rel="noopener" class="topnav-social-icon" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+        </a>
+        <a href="https://www.facebook.com/shuamndz1123/" target="_blank" rel="noopener" class="topnav-social-icon" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/joshua-mendoza-461a23374/" target="_blank" rel="noopener" class="topnav-social-icon" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4V8h4v1.5A6 6 0 0 1 16 8z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+        </a>
+      </div>
+      <a href="./contact.html" class="nav-cta">Hire Me →</a>
+    </div>
+  </nav>
+  <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+
+  <main>
+    <section class="page-banner">
+      <h2 class="eyebrow-label" style="justify-content:center">What I Offer</h2>
+      <h1>Services</h1>
+      <p>Ten disciplines, one goal: systems that turn traffic into booked, paying clients — end to end.</p>
+    </section>
+
+    <div class="sections-flow" style="margin-top:2rem">
+
+      <div class="skills-3d-scene">
+        <div class="skills-3d-tilt">
+          <div class="skills-3d-world" id="skillsWorld"></div>
+        </div>
+      </div>
+      <!-- ============ 3D WEBSITE HIGHLIGHTS ============ -->
+      <section class="section" id="web-3d">
+        <div class="w3d-section">
+          <div class="section-head center w3d-head">
+            <span class="eyebrow-label" style="justify-content:center">3D Website Highlights</span>
+            <h2>Premium Websites, Built in 3D</h2>
+            <p>Scroll-driven 3D builds for local service businesses, recorded live in desktop view. Pick an industry below, or click the screen to watch it full size.</p>
+          </div>
+
+          <div class="w3d-stage" id="w3dStage">
+            <div class="w3d-glow" aria-hidden="true"></div>
+            <div class="w3d-float">
+              <div class="w3d-mac" id="w3dMac" data-cursor="expand" role="button" tabindex="0" aria-label="Watch the active 3D website full size">
+                <div class="pfm-mac-lid">
+                  <div class="pfm-mac-notch"></div>
+                  <div class="w3d-screen">
+                    <video class="w3d-video is-active" data-src="https://assets.cdn.filesafe.space/hNOfqrviXSOAm48tJDLo/media/6ab218d3de8ed1c29fbaef7c.mp4" muted playsinline preload="none"></video>
+                    <video class="w3d-video" data-src="https://assets.cdn.filesafe.space/hNOfqrviXSOAm48tJDLo/media/6abdd4a47f8e19690f823bfa.mov" muted playsinline preload="none"></video>
+                    <video class="w3d-video" data-src="https://assets.cdn.filesafe.space/hNOfqrviXSOAm48tJDLo/media/6abdd4a4dbed623a52188f28.mov" muted playsinline preload="none"></video>
+                    <span class="w3d-badge"><span class="w3d-badge-dot"></span><span class="w3d-badge-text">Stove Installers</span></span>
+                    <span class="w3d-expand">⤢ Watch full size</span>
+                  </div>
+                </div>
+                <div class="pfm-mac-hinge"></div>
+                <div class="pfm-mac-base"><span></span></div>
+              </div>
+            </div>
+            <div class="w3d-shadow" aria-hidden="true"></div>
+          </div>
+
+          <div class="w3d-tabs" role="tablist" aria-label="3D website industries">
+            <button class="w3d-tab is-active" type="button" role="tab" aria-selected="true">
+              <span class="w3d-tab-num">01</span>
+              <span class="w3d-tab-copy"><strong>Stove Installers</strong><small>Home heating · 3D scroll</small></span>
+              <span class="w3d-tab-bar"><i></i></span>
+            </button>
+            <button class="w3d-tab" type="button" role="tab" aria-selected="false">
+              <span class="w3d-tab-num">02</span>
+              <span class="w3d-tab-copy"><strong>Roofing Company</strong><small>Residential &amp; commercial</small></span>
+              <span class="w3d-tab-bar"><i></i></span>
+            </button>
+            <button class="w3d-tab" type="button" role="tab" aria-selected="false">
+              <span class="w3d-tab-num">03</span>
+              <span class="w3d-tab-copy"><strong>General Builder</strong><small>Construction &amp; renovation</small></span>
+              <span class="w3d-tab-bar"><i></i></span>
+            </button>
+          </div>
+
+          <div class="hero-actions">
+            <a href="contact.html" class="btn btn-light">Get a 3D website built</a>
+            <a href="portfolio.html#recent-builds" class="btn btn-outline">See recent builds</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ RECENT WEBSITES BUILT ============ -->
+      <section class="section" id="recent-builds">
+        <div class="section-head center">
+          <span class="eyebrow-label" style="justify-content:center">Recent Websites Built</span>
+          <h2>Fresh Off The Build</h2>
+          <p>The latest sites I've shipped across hospitality, home services, roofing, and personal brands. Every video is a real screen recording. Click one to watch it full size, or open the live site.</p>
+        </div>
+
+        <article class="rwb-feature">
+          <div class="pws-stage rwb-feature-stage">
+            <div class="pws-glow"></div>
+            <div class="pws-mac" data-cursor="expand" data-video-lightbox="https://assets.cdn.filesafe.space/hNOfqrviXSOAm48tJDLo/media/6ab218d3bdaa5e26a985c4d4.mp4" role="button" tabindex="0" aria-label="Watch the Ember and Flue desktop demo full size">
+              <div class="pfm-mac-lid">
+                <div class="pfm-mac-notch"></div>
+                <div class="pws-mac-screen">
+                  <video class="pws-mac-video lazy-vid" data-src="https://assets.cdn.filesafe.space/hNOfqrviXSOAm48tJDLo/media/6ab218d3bdaa5e26a985c4d4.mp4" muted loop playsinline preload="none"></video>
+                </div>
+              </div>
+              <div class="pfm-mac-hinge"></div>
+              <div class="pfm-mac-base"><span></span></div>
+            </div>
+            <div class="pws-phone" data-cursor="expand" data-video-lightbox="https://assets.cdn.filesafe.space/hNOfqrviXSOAm48tJDLo/media/6ab218d3de8ed1c29fbaef82.mp4" role="button" tabindex="0" aria-label="Watch the Ember and Flue mobile demo full size">
+              <div class="iphone-frame">
+                <div class="iphone-island"></div>
+                <div class="iphone-screen">
+                  <video class="aphone-video lazy-vid" data-src="https://assets.cdn.filesafe.space/hNOfqrviXSOAm48tJDLo/media/6ab218d3de8ed1c29fbaef82.mp4" muted loop playsinline preload="none"></video>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="rwb-feature-copy">
+            <span class="eyebrow-label">Featured Build · Home Services</span>
+            <h3>Ember &amp; Flue Stoves</h3>
+            <p>A HETAS-registered stove installation demo with a cinematic dark-and-ember palette, floating ember particles, and a "Book a Free Survey" funnel up front. Built to look just as premium on a phone as it does on a desktop.</p>
+            <div class="tags"><span class="tag">Desktop + Mobile</span><span class="tag">Survey Funnel</span><span class="tag">GitHub Pages</span></div>
+            <a href="https://nexjoshua.github.io/demo-stove/" target="_blank" rel="noopener" class="link-more">Visit live demo →</a>
+          </div>
+        </article>
+
+        <div class="rwb-grid">
+
+          <article class="rwb-card">
+            <div class="rwb-window" data-cursor="expand" data-video-lightbox="https://assets.cdn.filesafe.space/hNOfqrviXSOAm48tJDLo/media/6abdd4a410a2b7bc2b523bcd.mov" role="button" tabindex="0" aria-label="Watch the North City Roofing website recording">
+              <div class="rwb-bar"><span></span><span></span><span></span><em>northcityroofing.com</em></div>
+              <div class="rwb-screen">
+                <video class="lazy-vid" data-src="https://assets.cdn.filesafe.space/hNOfqrviXSOAm48tJDLo/media/6abdd4a410a2b7bc2b523bcd.mov" muted loop playsinline preload="none"></video>
+                <span class="rwb-expand">⤢ Watch full size</span>
+              </div>
+            </div>
+            <div class="rwb-body">
+              <span class="rwb-kind">Roofing · Bay Area, CA</span>
+              <h4>North City Roofing</h4>
+              <p>Bold industrial look for a Bay Area roofer, with a 24/7 call bar, a free-estimate CTA, an English/Spanish toggle, and an on-site chat assistant feeding leads straight into the CRM.</p>
+              <a href="https://northcityroofing.com/" target="_blank" rel="noopener" class="link-more">Visit live site →</a>
+            </div>
+          </article>
+
+          <article class="rwb-card">
+            <div class="rwb-window" data-cursor="expand" data-video-lightbox="https://assets.cdn.filesafe.space/hNOfqrviXSOAm48tJDLo/media/6abdd4a4dbed623a52188f1d.mov" role="button" tabindex="0" aria-label="Watch The Parnell Dublin website recording">
+              <div class="rwb-bar"><span></span><span></span><span></span><em>theparnelldublin.ie</em></div>
+              <div class="rwb-screen">
+                <video class="lazy-vid" data-src="https://assets.cdn.filesafe.space/hNOfqrviXSOAm48tJDLo/media/6abdd4a4dbed623a52188f1d.mov" muted loop playsinline preload="none"></video>
+                <span class="rwb-expand">⤢ Watch full size</span>
+              </div>
+            </div>
+            <div class="rwb-body">
+              <span class="rwb-kind">Restaurant &amp; Bar · Dublin</span>
+              <h4>The Parnell Dublin</h4>
+              <p>A pub and kitchen established in 1879, given heritage gold-on-black styling with a framed video hero and one-tap paths to food, cocktails, private events, and table bookings.</p>
+              <a href="https://theparnelldublin.ie/" target="_blank" rel="noopener" class="link-more">Visit live site →</a>
+            </div>
+          </article>
+
+          <article class="rwb-card">
+            <div class="rwb-window" data-cursor="expand" data-video-lightbox="https://assets.cdn.filesafe.space/hNOfqrviXSOAm48tJDLo/media/6abdd4a410a2b7bc2b523bd8.mov" role="button" tabindex="0" aria-label="Watch the Tucker Reilly's website recording">
+              <div class="rwb-bar"><span></span><span></span><span></span><em>tuckerreillys.ie</em></div>
+              <div class="rwb-screen">
+                <video class="lazy-vid" data-src="https://assets.cdn.filesafe.space/hNOfqrviXSOAm48tJDLo/media/6abdd4a410a2b7bc2b523bd8.mov" muted loop playsinline preload="none"></video>
+                <span class="rwb-expand">⤢ Watch full size</span>
+              </div>
+            </div>
+            <div class="rwb-body">
+              <span class="rwb-kind">Restaurant &amp; Bar · Camden Street</span>
+              <h4>Tucker Reilly's</h4>
+              <p>A city pub on Camden Street with vintage serif branding over a full-bleed bar hero, plus bookings, food &amp; drink, what's on, and a Spanish language toggle.</p>
+              <a href="https://www.tuckerreillys.ie/" target="_blank" rel="noopener" class="link-more">Visit live site →</a>
+            </div>
+          </article>
+
+          <article class="rwb-card">
+            <div class="rwb-window" data-cursor="expand" data-video-lightbox="https://assets.cdn.filesafe.space/hNOfqrviXSOAm48tJDLo/media/6abdd4fd10a2b7bc2b52453f.mov" role="button" tabindex="0" aria-label="Watch the JMX Next website recording">
+              <div class="rwb-bar"><span></span><span></span><span></span><em>jmxnext.com</em></div>
+              <div class="rwb-screen">
+                <video class="lazy-vid" data-src="https://assets.cdn.filesafe.space/hNOfqrviXSOAm48tJDLo/media/6abdd4fd10a2b7bc2b52453f.mov" muted loop playsinline preload="none"></video>
+                <span class="rwb-expand">⤢ Watch full size</span>
+              </div>
+            </div>
+            <div class="rwb-body">
+              <span class="rwb-kind">Portfolio · Graphics &amp; Tech</span>
+              <h4>JMX Next</h4>
+              <p>A personal brand for a GHL, AI automation, creative ads, and Amazon specialist. It pairs a neon-violet UI with a live phone carousel that cycles through real GHL builds.</p>
+              <a href="http://jmxnext.com/" target="_blank" rel="noopener" class="link-more">Visit live site →</a>
+            </div>
+          </article>
+
+        </div>
+      </section>
+      <section class="section" id="services-list">
+        <div class="services-grid">
+
+          <div class="service-card featured" id="dev">
+            <span class="card-num">01 / DEV</span>
+            <h3>Website Development &amp; Customization</h3>
+            <p>Build high-converting websites from scratch using GoHighLevel, custom HTML/CSS/JS, WordPress, Duda, and Framer — optimized for lead capture and conversion.</p>
+            <div class="step-list">
+              <div class="step"><span class="step-num">—</span><span>GoHighLevel (GHL) website builds and full customization</span></div>
+              <div class="step"><span class="step-num">—</span><span>WordPress website development</span></div>
+              <div class="step"><span class="step-num">—</span><span>Duda and Framer website builder support</span></div>
+              <div class="step"><span class="step-num">—</span><span>Custom HTML, CSS, and JavaScript websites from scratch</span></div>
+              <div class="step"><span class="step-num">—</span><span>GitHub and VS Code for clean, organized development</span></div>
+              <div class="step"><span class="step-num">—</span><span>Mobile-responsive, SEO-ready page structure</span></div>
+              <div class="step"><span class="step-num">—</span><span>Landing pages and sales funnels optimized for conversions</span></div>
+              <div class="step"><span class="step-num">—</span><span>Multi-step booking forms with custom validation</span></div>
+            </div>
+            <div class="tags"><span class="tag">GoHighLevel</span><span class="tag">HTML/CSS/JS</span><span class="tag">WordPress</span><span class="tag">Framer</span><span class="tag">GitHub</span></div>
+          </div>
+
+          <div class="service-card voice-agent" id="ai-voice-agent">
+            <div class="voice-agent-head">
+              <span class="card-num">02 / VOICE</span>
+              <span class="voice-live-pill"><span class="voice-live-dot"></span>Live 24/7</span>
+            </div>
+            <h3>AI Voice Agent — Your Phone, Always Answered</h3>
+            <p>An AI agent that picks up every call — day or night, weekends, holidays, mid-job — and actually gets things done instead of taking a message.</p>
+
+            <div class="voice-call-visual">
+              <div class="voice-ring r1"></div>
+              <div class="voice-ring r2"></div>
+              <div class="voice-ring r3"></div>
+              <div class="voice-call-btn">
+                <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.2 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.5 21 3 13.5 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.2 1.1L6.6 10.8Z"/></svg>
+              </div>
+            </div>
+
+            <div class="step-list">
+              <div class="step"><span class="step-num">—</span><span><strong>Answers every call</strong> — picks up in seconds, 24/7, no hold music, no voicemail</span></div>
+              <div class="step"><span class="step-num">—</span><span><strong>Books the appointment</strong> — finds an open slot and puts it straight on the calendar</span></div>
+              <div class="step"><span class="step-num">—</span><span><strong>Qualifies the lead</strong> — asks the right questions and flags who's ready to buy</span></div>
+              <div class="step"><span class="step-num">—</span><span><strong>Reschedules on request</strong> — moves a booking the moment a customer needs to shift it</span></div>
+              <div class="step"><span class="step-num">—</span><span><strong>Cancels cleanly</strong> — handles cancellations and clears the slot for someone else</span></div>
+              <div class="step"><span class="step-num">—</span><span><strong>Follows up on missed calls</strong> — a missed call still gets a callback or text within minutes</span></div>
+              <div class="step"><span class="step-num">—</span><span>Built and deployed live on the Meridian Plumbing demo site — see it answer a call in the Portfolio</span></div>
+            </div>
+            <div class="tags"><span class="tag">AI Voice Agent</span><span class="tag">Call Booking</span><span class="tag">Lead Qualification</span><span class="tag">Missed-Call Follow-up</span></div>
+            <a href="portfolio.html#meridian-plumbing" class="link-more" style="margin-top:auto">See it live on Meridian Plumbing →</a>
+          </div>
+
+          <div class="service-card" id="automations">
+            <span class="card-num">03 / AUTO</span>
+            <h3>Automations &amp; CRM Systems</h3>
+            <p>Build intelligent automation workflows that handle lead capture, follow-up, appointment booking, and pipeline management — 24/7 without manual work.</p>
+            <div class="step-list">
+              <div class="step"><span class="step-num">—</span><span>GoHighLevel workflow, pipeline, and opportunity setup</span></div>
+              <div class="step"><span class="step-num">—</span><span>Automation troubleshooting and optimization</span></div>
+              <div class="step"><span class="step-num">—</span><span>Forms, triggers, and CRM configuration</span></div>
+              <div class="step"><span class="step-num">—</span><span>AI chat and Elfsight widget integration</span></div>
+              <div class="step"><span class="step-num">—</span><span>JavaScript automations using EmailJS for email and SMS</span></div>
+              <div class="step"><span class="step-num">—</span><span>Lead management and opportunity tracking in CRM</span></div>
+              <div class="step"><span class="step-num">—</span><span>Tagging systems for lead segmentation</span></div>
+              <div class="step"><span class="step-num">—</span><span>AI chatbot setup via Appointwise platform</span></div>
+            </div>
+            <div class="tags"><span class="tag">GHL Workflows</span><span class="tag">AI Chat</span><span class="tag">Elfsight</span><span class="tag">EmailJS</span><span class="tag">Appointwise</span></div>
+          </div>
+
+          <div class="service-card" id="integrations">
+            <span class="card-num">04 / INT</span>
+            <h3>Integrations &amp; APIs</h3>
+            <p>Connect platforms, build webhook pipelines, create custom API integrations so tools work together seamlessly.</p>
+            <div class="step-list">
+              <div class="step"><span class="step-num">—</span><span>Zapier integrations and Make (formerly Integromat)</span></div>
+              <div class="step"><span class="step-num">—</span><span>Inbound and outbound webhook systems</span></div>
+              <div class="step"><span class="step-num">—</span><span>Custom inbound webhook data mapping to GHL contacts</span></div>
+              <div class="step"><span class="step-num">—</span><span>Automatic opportunity and contact creation via webhooks</span></div>
+              <div class="step"><span class="step-num">—</span><span>Third-party tool integrations and system connections</span></div>
+              <div class="step"><span class="step-num">—</span><span>n8n workflow automation</span></div>
+              <div class="step"><span class="step-num">—</span><span>REST API integrations (EmailJS, Google, Anthropic, custom APIs)</span></div>
+              <div class="step"><span class="step-num">—</span><span>GHL sub-account onboarding with snapshot deployment</span></div>
+              <div class="step"><span class="step-num">—</span><span>A2P 10DLC registration and compliance</span></div>
+            </div>
+            <div class="tags"><span class="tag">Zapier</span><span class="tag">Make</span><span class="tag">Webhooks</span><span class="tag">n8n</span><span class="tag">REST APIs</span></div>
+          </div>
+
+          <div class="service-card" id="ads">
+            <span class="card-num">05 / ADS</span>
+            <h3>Google, Facebook &amp; Instagram Ads</h3>
+            <p>Manage Google and Meta Ads campaigns end-to-end — creative strategy, audience targeting, funnel integration, performance reporting.</p>
+            <div class="step-list">
+              <div class="step"><span class="step-num">—</span><span>Google Ads campaign setup, management, and optimization</span></div>
+              <div class="step"><span class="step-num">—</span><span>Facebook and Instagram Ads campaign management</span></div>
+              <div class="step"><span class="step-num">—</span><span>AI-generated video ad creatives (Fal.ai, Nanobanana)</span></div>
+              <div class="step"><span class="step-num">—</span><span>AI-generated image ad creatives for social and display</span></div>
+              <div class="step"><span class="step-num">—</span><span>Audience targeting, testing, and campaign optimization</span></div>
+              <div class="step"><span class="step-num">—</span><span>Budget allocation and campaign structure planning</span></div>
+              <div class="step"><span class="step-num">—</span><span>Meta Pixel and Dataset ID integration for conversion tracking</span></div>
+              <div class="step"><span class="step-num">—</span><span>Retargeting campaigns and lookalike audience setup</span></div>
+            </div>
+            <div class="tags"><span class="tag">Google Ads</span><span class="tag">Meta Ads</span><span class="tag">Video Ads</span><span class="tag">Image Creatives</span><span class="tag">AI Creative API</span></div>
+          </div>
+
+          <div class="service-card" id="content">
+            <span class="card-num">06 / CONTENT</span>
+            <h3>Content Creation &amp; Design</h3>
+            <p>Scroll-stopping social media content, video edits, branded visuals using CapCut, Canva, and AI tools.</p>
+            <div class="step-list">
+              <div class="step"><span class="step-num">—</span><span>CapCut video editing for short-form videos, reels, social media</span></div>
+              <div class="step"><span class="step-num">—</span><span>Canva design for social posts, stories, ads, presentations</span></div>
+              <div class="step"><span class="step-num">—</span><span>Photo editing using Photoshop, PicsArt, and PixelLab</span></div>
+              <div class="step"><span class="step-num">—</span><span>AI-generated imagery for ads and landing pages (Fal.ai, Nanobanana)</span></div>
+              <div class="step"><span class="step-num">—</span><span>Social media automation and content generation via Claude AI</span></div>
+              <div class="step"><span class="step-num">—</span><span>Thumbnail and banner design for YouTube and social platforms</span></div>
+            </div>
+            <div class="tags"><span class="tag">CapCut</span><span class="tag">Canva</span><span class="tag">PicsArt</span><span class="tag">Photoshop</span><span class="tag">PixelLab</span></div>
+          </div>
+
+          <div class="service-card" id="seo">
+            <span class="card-num">07 / SEO</span>
+            <h3>Rank &amp; Rent / SEO Support</h3>
+            <p>Build SEO-optimized lead gen properties and rank-and-rent sites.</p>
+            <div class="step-list">
+              <div class="step"><span class="step-num">—</span><span>Website audits for rank-and-rent projects</span></div>
+              <div class="step"><span class="step-num">—</span><span>Basic on-page SEO checks and implementation</span></div>
+              <div class="step"><span class="step-num">—</span><span>Meta title and meta description optimization</span></div>
+              <div class="step"><span class="step-num">—</span><span>Local SEO setup for service-area businesses</span></div>
+              <div class="step"><span class="step-num">—</span><span>Google Business Profile optimization</span></div>
+              <div class="step"><span class="step-num">—</span><span>Keyword research and content structure planning</span></div>
+              <div class="step"><span class="step-num">—</span><span>Lead generation property builds for rank-and-rent income</span></div>
+            </div>
+            <div class="tags"><span class="tag">Rank &amp; Rent</span><span class="tag">On-Page SEO</span><span class="tag">Local SEO</span><span class="tag">Technical SEO</span></div>
+          </div>
+
+          <div class="service-card" id="ops">
+            <span class="card-num">08 / OPS</span>
+            <h3>Communication &amp; Operations</h3>
+            <p>Reliable executive support, professional communication, efficient project coordination — from 2 years of mission service.</p>
+            <div class="step-list">
+              <div class="step"><span class="step-num">—</span><span>Inbound and outbound calling support</span></div>
+              <div class="step"><span class="step-num">—</span><span>Clear, professional English communication (plus basic Spanish)</span></div>
+              <div class="step"><span class="step-num">—</span><span>ClickUp for project organization and task management</span></div>
+              <div class="step"><span class="step-num">—</span><span>Microsoft Word, Excel, PowerPoint, Google Docs &amp; Sheets</span></div>
+              <div class="step"><span class="step-num">—</span><span>Slack, Discord, Loom, Trello, Zoom, Google Meet</span></div>
+              <div class="step"><span class="step-num">—</span><span>Organized, detail-oriented, deadline-driven work ethic</span></div>
+              <div class="step"><span class="step-num">—</span><span>Executive assistance and scheduling coordination</span></div>
+            </div>
+            <div class="tags"><span class="tag">ClickUp</span><span class="tag">Slack</span><span class="tag">Loom</span><span class="tag">Google Workspace</span></div>
+          </div>
+
+          <div class="service-card" id="team-ops">
+            <span class="card-num">09 / TEAM OPS</span>
+            <h3>Team Notifications &amp; CRM Ops</h3>
+            <p>Connect your CRM directly to how your team actually works — real-time Slack alerts and organized monday.com tracking, so nothing sits unseen.</p>
+            <div class="step-list">
+              <div class="step"><span class="step-num">—</span><span>monday.com board setup for project tracking and task assignment</span></div>
+              <div class="step"><span class="step-num">—</span><span>Appointwise AI chatbot configuration for lead qualification and booking</span></div>
+              <div class="step"><span class="step-num">—</span><span>GHL-to-Slack notifications via API keys and webhooks</span></div>
+              <div class="step"><span class="step-num">—</span><span>Real-time call center alerts for new leads</span></div>
+              <div class="step"><span class="step-num">—</span><span>Real-time alerts for new inbound messages</span></div>
+              <div class="step"><span class="step-num">—</span><span>Automated follow-up reminder notifications</span></div>
+            </div>
+            <div class="tags"><span class="tag">monday.com</span><span class="tag">Slack API</span><span class="tag">Appointwise</span><span class="tag">Webhooks</span></div>
+          </div>
+
+          <div class="service-card" id="ai-agent">
+            <span class="card-num">10 / AI AGENT</span>
+            <h3>Social Media AI Agent</h3>
+            <p>Autonomous social media agent using Claude Code in VS Code — researches, generates content, creates visuals, publishes in 1 click.</p>
+            <div class="step-list">
+              <div class="step"><span class="step-num">—</span><span>Claude Code agentic build in VS Code — fully autonomous workflow</span></div>
+              <div class="step"><span class="step-num">—</span><span>Deep research via Genspark and Gemini for trending topic discovery</span></div>
+              <div class="step"><span class="step-num">—</span><span>Anthropic API for AI-written, platform-optimized post copy</span></div>
+              <div class="step"><span class="step-num">—</span><span>Fal.ai and Nanobanana for AI-generated images and video creatives</span></div>
+              <div class="step"><span class="step-num">—</span><span>Blotato and Postiz for 1-click multi-platform publishing</span></div>
+              <div class="step"><span class="step-num">—</span><span>Publishes to Facebook, Instagram, LinkedIn, TikTok, X, YouTube, and more</span></div>
+              <div class="step"><span class="step-num">—</span><span>Zero manual writing or scheduling — fully automated pipeline</span></div>
+            </div>
+            <div class="tags"><span class="tag">Claude Code</span><span class="tag">Blotato</span><span class="tag">Postiz</span><span class="tag">Genspark</span><span class="tag">Fal.ai</span></div>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="cta">
+        <div class="cta-dots"></div>
+        <p class="cta-title">Not sure which service you need?</p>
+        <p class="cta-sub">Tell me what's slowing your business down — I'll map it to the right system.</p>
+        <a href="contact.html" class="btn btn-light">Let's talk</a>
+      </section>
+
+    </div>
+
+    <footer class="footer">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h5>Website</h5>
+          <a href="../index.html">Home</a>
+          <a href="./services.html">Services</a>
+          <a href="./portfolio.html">Portfolio</a>
+          <a href="./automations.html">Automations</a>
+          <a href="./about.html">About</a>
+          <a href="./contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h5>Projects</h5>
+          <a href="portfolio.html#north-city-roofing">North City Roofing</a>
+          <a href="portfolio.html#meridian-plumbing">Meridian Plumbing — AI Voice Agent</a>
+          <a href="https://thumberacademy.com/" target="_blank" rel="noopener">Thumber Academy</a>
+          <a href="https://edigishark.com/" target="_blank" rel="noopener">eDigiShark</a>
+          <a href="portfolio.html#social-agent">Social Media AI Agent</a>
+        </div>
+        <div class="footer-col">
+          <h5>Social</h5>
+          <a href="contact.html">Contact Form</a>
+          <a href="mailto:shuakai15@gmail.com">Email</a>
+          <a href="tel:+639696171479">Phone</a>
+          <div class="icon-links">
+            <a href="https://wa.me/639696171479" target="_blank" rel="noopener" class="icon-link" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12.031 6.172c-5.055 0-9.363 4.109-9.365 9.163a9.32 9.32 0 001.24 4.657l-1.313 4.792 4.917-1.288a9.36 9.36 0 004.514 1.15h.004c5.055 0 9.365-4.109 9.367-9.163a9.099 9.099 0 00-2.652-6.503 9.061 9.061 0 00-6.712-2.808zm5.518 13.028c-.235.663-1.377 1.267-1.898 1.336-.484.065-1.09.093-1.756-.11-.405-.121-.923-.284-1.594-.559-2.807-1.212-4.634-4.02-4.777-4.208-.14-.187-1.144-1.522-1.144-2.905 0-1.383.727-2.06.984-2.34.256-.279.56-.348.746-.348.187 0 .373.001.535.008.171.007.4-.065.628.481.235.56.797 1.943.867 2.087.07.14.117.303.023.489-.093.187-.14.302-.28.465-.14.164-.294.365-.42.49-.14.14-.286.29-.123.567.163.279.727 1.198 1.56 1.94 1.072.956 1.977 1.253 2.256 1.394.28.14.443.117.606-.07.163-.187.703-.82.89-1.1.187-.28.375-.234.634-.14.258.093 1.638.774 1.918.913.28.14.466.211.535.328.07.117.07.678-.163 1.34z"></path></svg>
+            </a>
+            <a href="https://www.instagram.com/shuamndz/" target="_blank" rel="noopener" class="icon-link" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a href="https://www.facebook.com/shuamndz1123/" target="_blank" rel="noopener" class="icon-link" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/joshua-mendoza-461a23374/" target="_blank" rel="noopener" class="icon-link" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4V8h4v1.5A6 6 0 0 1 16 8z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>Copyright © 2026 Joshua Mendoza</span>
+        <img src="../images/logo-x.png" alt="" class="footer-mark">
+        <span>Web design from Antipolo, Rizal, PH</span>
+        <a href="https://docs.google.com/document/d/1_9f7_35_VIZ7tW7r9_ZqNNBKtGsROb4l/edit?usp=drive_link&ouid=113330667437187831590&rtpof=true&sd=true" target="_blank" rel="noopener" class="link-more">Click here to view my resume</a>
+        <div class="footer-legal"><a href="legal-notice.html">Legal notice</a><a href="privacy-policy.html">Privacy policy</a></div>
+      </div>
+    </footer>
+  </main>
+</div>
+
+<button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="26" height="26"><path d="m18 15-6-6-6 6"></path></svg>
+</button>
+<div class="popup" id="popup"><button class="popup-close" id="popupClose">✕</button><div class="popup-img" id="popupImg"></div></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/darkroomengineering/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,638 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Joshua Mendoza — Websites, Funnels & AI Automation</title>
+<meta name="description" content="I design high-converting websites, scalable ad systems, and automated workflows using GoHighLevel, AI, and custom integrations — turning traffic into qualified leads and paying clients.">
+<script>
+  (function () {
+    var t = null;
+    try { t = localStorage.getItem('theme'); } catch (e) {}
+    if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', t);
+    document.documentElement.classList.add('js');
+  })();
+</script>
+<link rel="icon" href="./images/logo-x.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Nunito:wght@400;600;700;800&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./site.css">
+</head>
+<body>
+
+<!-- ============ LOADER ============ -->
+<div class="loader" id="loader" aria-hidden="true">
+  <img src="./images/ainex-logowhite.png" alt="" class="loader-logo">
+  <div class="loader-meta"><span>Loading systems</span><b id="loaderCount">0</b></div>
+  <span class="loader-skip">click to skip</span>
+</div>
+
+<div class="cursor" id="cursor" aria-hidden="true"><span id="cursorLabel"></span></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ============ SIDEBAR (desktop) ============ -->
+<aside class="side" id="side">
+  <a href="#home" class="side-avatar" aria-label="Back to top">
+    <img src="./images/Contemplative Profile in Blue.png" alt="Joshua Mendoza" onerror="this.onerror=null;this.src='./images/logo-x.png';this.classList.add('is-logo')">
+  </a>
+  <p class="side-name">Joshua Mendoza</p>
+  <p class="side-role">Systems · Web · AI</p>
+  <nav class="side-nav" aria-label="Main">
+    <a href="#home" data-nav="home"><i>01</i><span>Home</span></a>
+    <a href="#case" data-nav="case"><i>02</i><span>Case Study</span></a>
+    <a href="#work" data-nav="work"><i>03</i><span>Work</span></a>
+    <a href="#services" data-nav="services"><i>04</i><span>Services</span></a>
+    <a href="#journey" data-nav="journey"><i>05</i><span>Journey</span></a>
+    <a href="#about" data-nav="about"><i>06</i><span>About Me</span></a>
+  </nav>
+  <p class="side-status"><span class="dot"></span>Open for projects</p>
+  <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme">
+    <span class="tt-icon" aria-hidden="true">
+      <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11Z"/></svg>
+    </span>
+    <span class="tt-label">Dark mode</span>
+  </button>
+  <div class="side-social" data-socials></div>
+</aside>
+
+<!-- ============ MOBILE TOP BAR + DOCK ============ -->
+<header class="topbar">
+  <a href="#home" class="topbar-logo"><img src="./images/logo-x.png" alt=""><span>Joshua Mendoza</span></a>
+  <div class="topbar-actions">
+    <button class="theme-toggle icon-only" type="button" data-theme-toggle aria-label="Switch theme">
+      <span class="tt-icon" aria-hidden="true">
+        <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11Z"/></svg>
+      </span>
+      <span class="tt-label">Dark mode</span>
+    </button>
+    <button class="btn btn-solid btn-sm" data-hire>Hire me</button>
+  </div>
+</header>
+<nav class="dock" aria-label="Quick navigation">
+  <a href="#home" data-nav="home">Home</a>
+  <a href="#case" data-nav="case">Case</a>
+  <a href="#work" data-nav="work">Work</a>
+  <a href="#services" data-nav="services">Services</a>
+  <a href="#about" data-nav="about">About</a>
+</nav>
+
+<div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+<button class="hire mag" id="hireBtn" data-hire>
+  <span>Work<br>with me</span>
+  <svg viewBox="0 0 60 12" aria-hidden="true"><path d="M0 6h56M50 1l6 5-6 5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+</button>
+
+<div class="narrator" id="narrator" aria-hidden="true">
+  <span class="narrator-sq"></span>
+  <div id="narratorLines"></div>
+</div>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="home" data-group="home">
+    <h1 class="sr">Joshua Mendoza — GoHighLevel expert, AI automation and web developer</h1>
+    <div class="hero-floats" id="heroFloats" aria-hidden="true">
+      <span class="float" data-depth="30"  style="--x:4%;--y:5%"><img src="./images/logos/zapier.png" alt=""></span>
+      <span class="float" data-depth="-24" style="--x:34%;--y:4%"><img src="./images/logos/claude.png" alt=""></span>
+      <span class="float" data-depth="18"  style="--x:60%;--y:5%"><img src="./images/logos/ghl.png" alt=""></span>
+      <span class="float" data-depth="-30" style="--x:93%;--y:46%"><img src="./images/logos/agentai.png" alt=""></span>
+      <span class="float" data-depth="-36" style="--x:6%;--y:91%"><img src="./images/logos/n8n.png" alt=""></span>
+      <span class="float" data-depth="26"  style="--x:26%;--y:93%"><img src="./images/logos/make.png" alt=""></span>
+      <span class="float" data-depth="-18" style="--x:70%;--y:92%"><img src="./images/logos/github.png" alt=""></span>
+      <span class="float" data-depth="40"  style="--x:88%;--y:90%"><img src="./images/logos/vscode.png" alt=""></span>
+    </div>
+
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <a class="badge" href="#work"><span class="dot"></span>Open for new projects</a>
+        <div class="tw" aria-hidden="true">
+          <span class="tw-sq"></span>
+          <div class="tw-line" style="--d:.3s"><b>01</b><span class="tw-text"><span class="tag">&lt;</span>Hello, I'm <em>Joshua</em>!<span class="tag">&gt;</span><i class="tw-mask"></i></span></div>
+          <div class="tw-line" style="--d:1.3s"><b>02</b><span class="tw-text"><span class="tag">&lt;</span>I build <em>systems</em><i class="tw-mask"></i></span></div>
+          <div class="tw-line" style="--d:2.3s"><b>03</b><span class="tw-text">&nbsp;that sell <em>24/7</em>.<span class="tag">&gt;</span><i class="tw-mask"></i></span></div>
+        </div>
+        <p class="hero-sub">GoHighLevel expert, AI automation and web developer. I design high-converting websites, scalable ad systems and automated workflows that turn traffic into paying clients — for dental, automotive, HVAC, home services, education and coaching since 2022.</p>
+        <div class="hero-actions">
+          <button class="btn btn-solid mag" data-hire>Start a project</button>
+          <a class="btn btn-ghost mag" href="#work">See my work</a>
+          <button class="copy-pill" id="copyEmail" data-cursor="Copy"><code>shuakai15@gmail.com</code>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4h11a1 1 0 0 1 1 1v12M5 8h11v12H5z" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="hero-slider" id="heroSlider" data-cursor="View" tabindex="0" role="button" aria-label="Open the featured screenshots"></div>
+    </div>
+
+    <a href="#story" class="cue"><span>Learn more</span><i>↓</i></a>
+  </section>
+
+  <div class="marquee" data-tools aria-label="Tools I use every day"></div>
+
+  <!-- ============ STORY ============ -->
+  <section class="sec" id="story" data-group="case" data-narrate="First, a business has a|*problem*...">
+    <div class="head center">
+      <p class="kicker">How a project starts</p>
+      <h2 class="split">A real conversation, <em>a real build.</em></h2>
+      <p>Based on the North City Roofing project. Here's how it started, and what came next.</p>
+    </div>
+    <div class="chat" id="chat">
+      <div class="msg them"><span class="av">NC</span><p class="bubble"><span class="dots"><i></i><i></i><i></i></span><span class="txt">We're a <em>roofing company</em> in the Bay Area. Leads come in from our <em>website</em> and <em>Yelp</em>, but too many go cold before anyone calls back.</span></p></div>
+      <div class="msg me"><span class="av"><img src="./images/logo-x.png" alt=""></span><p class="bubble"><span class="dots"><i></i><i></i><i></i></span><span class="txt">Got it. I'll connect every lead source into <em>one pipeline</em>, answer each lead in seconds, and give your team an <em>app</em> to run inspections from the roof.</span></p></div>
+      <div class="msg them"><span class="av">NC</span><p class="bubble"><span class="dots"><i></i><i></i><i></i></span><span class="txt">All of that? Perfect. When do we start? 🙂</span></p></div>
+      <div class="msg me"><span class="av"><img src="./images/logo-x.png" alt=""></span><p class="bubble"><span class="dots"><i></i><i></i><i></i></span><span class="txt"><em>Now.</em> Scroll down, I'll show you exactly what I built.</span></p></div>
+    </div>
+    <a href="#case" class="cue inline"><span>Now!</span><i>↓</i></a>
+  </section>
+
+  <!-- ============ CASE STUDY: NORTH CITY ROOFING ============ -->
+  <section class="sec" id="case" data-group="case">
+    <div class="case-hero" data-narrate="Then we find out what's|really *broken*...">
+      <div>
+        <p class="kicker">Case Study 01 · Oct 2026</p>
+        <h2 class="split big">North City Roofing — from first click to <em>signed job.</em></h2>
+        <p class="lead">An AI-powered lead engine and an installable operations app took a Bay Area roofer from five scattered tools and missed leads to one connected pipeline.</p>
+        <dl class="chips">
+          <div><dt>Client</dt><dd>North City Roofing · Santa Clara County, CA</dd></div>
+          <div><dt>Role</dt><dd>Automation architecture, product design, full-stack dev</dd></div>
+          <div><dt>Stack</dt><dd>GoHighLevel · Zapier · JobNimbus · React · Supabase</dd></div>
+        </dl>
+        <div class="actions">
+          <a class="btn btn-solid mag" href="./assets/case-studies/north-city-roofing/north-city-roofing-case-study.pdf" target="_blank" rel="noopener">View case study PDF</a>
+          <a class="btn btn-ghost mag" href="https://northcityroofing.com" target="_blank" rel="noopener">Visit live site</a>
+          <a class="link" href="https://nc-new.vibepreview.com/" target="_blank" rel="noopener">New site preview →<span class="new">New</span></a>
+        </div>
+        <p class="live"><span class="dot"></span>Live at dashboard.northcityroofing.com · private client app</p>
+      </div>
+      <figure class="mac" data-tilt data-lb="./assets/case-studies/north-city-roofing/ncr-dashboard-desktop.webp" data-lb-cap="Owner dashboard — Team Performance KPIs and 90-day analytics" data-cursor="View">
+        <div class="mac-lid"><div class="mac-screen"><img src="./assets/case-studies/north-city-roofing/ncr-dashboard-desktop.webp" alt="North City Roofing owner dashboard with KPI cards and a 90-day chart"></div></div>
+        <div class="mac-base"></div>
+      </figure>
+    </div>
+
+    <ul class="mini-stats">
+      <li class="rv"><strong data-count="17">17</strong><span>live automations</span></li>
+      <li class="rv"><strong data-count="100" data-suf="+">100+</strong><span>custom fields</span></li>
+      <li class="rv"><strong data-count="43000">43,000</strong><span>duplicates eliminated</span></li>
+      <li class="rv"><strong>5 → 1</strong><span>tools merged into one app</span></li>
+      <li class="rv"><strong>6-step</strong><span>mobile inspection</span></li>
+    </ul>
+
+    <div class="block" data-narrate="Leads were lost|before the *roof*...">
+      <div class="head"><p class="kicker">The problem</p><h3 class="split">Leads were lost before anyone reached a roof.</h3></div>
+      <ul class="grid-3">
+        <li class="card rv"><h4>Website leads waited on a callback</h4><p>Someone still had to follow up, find a time, and book the estimate by hand.</p></li>
+        <li class="card rv"><h4>Yelp leads stayed trapped in Yelp</h4><p>Many arrived after hours, often with no phone number. If no one replied fast, the homeowner hired the next roofer.</p></li>
+        <li class="card rv"><h4>Every qualified lead was retyped</h4><p>Leads were copied into JobNimbus by hand, where sales runs its jobs. Slow, and easy to get wrong.</p></li>
+        <li class="card rv"><h4>Five disconnected tools</h4><p>A CRM, paper forms, a separate calendar, an assignments spreadsheet, and a folder of PDFs no one could find.</p></li>
+        <li class="card rv"><h4>Paper inspections</h4><p>Forms filled out on rooftops were retyped later. Nobody knew which jobs were worth pursuing for weeks.</p></li>
+        <li class="card rv"><h4>43,000 duplicate contacts</h4><p>Repeated CRM syncs made the contact list unusable.</p></li>
+      </ul>
+    </div>
+
+    <div class="solution" aria-hidden="true"><span class="solution-word">Solution.</span></div>
+
+    <figure class="map" id="map" data-narrate="Then we map|the *system*...">
+      <div class="map-flow">
+        <div class="map-col">
+          <div class="node"><small>Source</small><strong>Website form</strong><span>4-step, booking-first</span></div>
+          <div class="node"><small>Source</small><strong>Yelp</strong><span>via Zapier</span></div>
+        </div>
+        <i class="link"></i>
+        <div class="node hub"><small>Hub</small><strong>GoHighLevel</strong><span>17 workflows · AI voice agent · SMS/email alerts</span></div>
+        <i class="link two"></i>
+        <div class="node"><small>Field</small><strong>Team App</strong><span>Supabase · 6-step inspection · two-way sync</span></div>
+        <i class="link"></i>
+        <div class="node"><small>Gate</small><strong>Qualified</strong><span>Inspector's one-tap verdict</span></div>
+        <i class="link"></i>
+        <div class="node"><small>Sales</small><strong>JobNimbus</strong><span>Lead created, no retyping</span></div>
+        <i class="link"></i>
+        <div class="node"><small>Alert</small><strong>Team SMS</strong><span>Sales knows instantly</span></div>
+      </div>
+      <figcaption>Website and Yelp leads flow into GoHighLevel, which syncs both ways with the team app. Qualified inspections go to JobNimbus, and the team gets an SMS alert.</figcaption>
+    </figure>
+
+    <div class="block" data-narrate="Every lead answered|in *seconds*.">
+      <div class="head"><p class="kicker">Layer 1 · Lead engine</p><h3 class="split">Every lead captured, answered, and routed in seconds.</h3><p>17 live GoHighLevel workflows and 100+ custom fields handle each lead from the website or Yelp, day or night.</p></div>
+
+      <div class="split-row">
+        <div class="rv">
+          <h4>A booking-first estimate form</h4>
+          <p>Eight services (roofing, repairs, gutters, cleaning, skylights, inspection, roof coating, and rejuvenation), plus a one-tap toggle for financing interest. On submit a booking calendar opens right away, so the homeowner leaves with an appointment instead of a "we'll call you."</p>
+          <figure class="shot thumb-shot" data-lb="./assets/case-studies/north-city-roofing/ncr-client-website.webp" data-lb-cap="The North City Roofing website" data-cursor="View"><img src="./assets/case-studies/north-city-roofing/ncr-client-website.webp" alt="North City Roofing website" loading="lazy"></figure>
+        </div>
+        <ol class="form-steps">
+          <li class="rv"><strong>Service</strong><span>Pick from eight roofing services</span></li>
+          <li class="rv"><strong>Property</strong><span>Type, size, and financing interest</span></li>
+          <li class="rv"><strong>Address</strong><span>Where the job is</span></li>
+          <li class="rv"><strong>Contact</strong><span>Then the calendar opens instantly</span></li>
+        </ol>
+      </div>
+
+      <div class="split-row flip">
+        <div class="rv"><h4>Yelp, straight into the CRM</h4><p>A Zapier integration creates or updates each new Yelp lead as a GoHighLevel contact, with the Yelp Lead ID, the requested service, and the homeowner's full project answers. A bot engages each lead immediately, even after hours.</p></div>
+        <figure class="shot wipe" data-lb="./assets/case-studies/north-city-roofing/ncr-zapier-yelp.webp" data-lb-cap="Zapier run pushing a new Yelp lead into GoHighLevel" data-cursor="View"><img src="./assets/case-studies/north-city-roofing/ncr-zapier-yelp.webp" alt="Zapier run: Yelp new lead feeding LeadConnector Add/Update Contact" loading="lazy"></figure>
+      </div>
+
+      <div class="grid-3" data-lb-group>
+        <article class="card group rv"><span class="count">6 workflows</span><h4>Website</h4><p>Create the contact and opportunity, assign a team member, tag by source, property, and service, fast-track emergencies and financing, and alert the team. An AI voice agent calls urgent-repair leads to finish intake.</p><ul class="tags"><li>Form Intake</li><li>AI Intake</li><li>AI Urgent Repairs</li><li>Calendar Form Webhook</li><li>Lead → Assign Bot</li><li>Appointment Booked</li></ul><button class="text-btn" type="button" data-lb="./assets/case-studies/north-city-roofing/ncr-workflows-website.webp" data-lb-cap="Website workflows in GoHighLevel" data-cursor="View">See the workflows →</button></article>
+        <article class="card group rv"><span class="count">7 workflows</span><h4>Yelp</h4><p>Engage every Yelp lead instantly, recover leads that go quiet or don't book, confirm bookings, and follow up on won jobs.</p><ul class="tags"><li>Lead → Assign Bot</li><li>Detect Abandoned</li><li>Abandoned Workflow</li><li>Bot – No Booking</li><li>Booking Confirmed</li><li>Send to JobNimbus</li><li>Won Workflow</li></ul><button class="text-btn" type="button" data-lb="./assets/case-studies/north-city-roofing/ncr-workflows-yelp.webp" data-lb-cap="Yelp workflows in GoHighLevel" data-cursor="View">See the workflows →</button></article>
+        <article class="card group rv"><span class="count">4 workflows</span><h4>Dashboard Sync</h4><p>Keep GoHighLevel and the team app in sync: contacts, calls, inspections, and assessments.</p><ul class="tags"><li>Contact to Dashboard</li><li>Call Completed</li><li>Visit Inspection Completed</li><li>Assessment Form Webhook</li></ul><button class="text-btn" type="button" data-lb="./assets/case-studies/north-city-roofing/ncr-workflows-supabase.webp" data-lb-cap="Dashboard sync workflows (GoHighLevel ⇄ Supabase)" data-cursor="View">See the workflows →</button></article>
+      </div>
+
+      <div class="deep">
+        <div class="head"><p class="kicker">Deep dive</p><h3>The JobNimbus handoff</h3><p>Qualified leads reach the sales team's job system with zero retyping and zero duplicates.</p></div>
+        <div class="deep-scroll" data-lenis-prevent>
+          <figure class="deep-fig" data-lb="./assets/case-studies/north-city-roofing/ncr-ghl-jobnimbus-workflow.webp" data-lb-cap="The JobNimbus handoff workflow" data-cursor="View">
+            <img src="./assets/case-studies/north-city-roofing/ncr-ghl-jobnimbus-workflow.webp" alt="GoHighLevel workflow: triggers, duplicate check, custom code, lead-source branch, webhooks to JobNimbus, and SMS alerts" loading="lazy">
+            <span class="pin" style="--x:7%;--y:46%">1</span><span class="pin" style="--x:20%;--y:30%">2</span><span class="pin" style="--x:45%;--y:22%">3</span><span class="pin" style="--x:52%;--y:34%">4</span><span class="pin" style="--x:85%;--y:20%">5</span>
+          </figure>
+        </div>
+        <ol class="callouts">
+          <li class="rv"><strong>Trigger</strong>A contact is tagged qualified, or its pipeline stage changes.</li>
+          <li class="rv"><strong>Duplicate guard</strong>If the contact already carries the <code>sent_to_jobnimbus</code> tag, the flow stops.</li>
+          <li class="rv"><strong>Format</strong>Custom code builds the payload.</li>
+          <li class="rv"><strong>Route by source</strong>A branch checks the Yelp Lead ID, so Yelp and website leads each arrive with the right data.</li>
+          <li class="rv"><strong>Send</strong>The contact is tagged as sent, a webhook creates the lead in JobNimbus, and the team gets an SMS.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="block" data-narrate="Then the team gets|an *app*.">
+      <div class="head"><p class="kicker">Layer 2 · Operations app</p><h3 class="split">One role-based app replaces five tools.</h3><p>The owner runs the business from a command center, and inspectors run assessments from the roof. Click a phone to watch it full size.</p></div>
+      <div class="phones-row" data-lb-group>
+        <figure class="rv" data-lb="./assets/case-studies/north-city-roofing/ncr-owner-mobile.mp4" data-lb-cap="Owner command center" data-cursor="Play"><div class="phone" data-tilt><video data-src="./assets/case-studies/north-city-roofing/ncr-owner-mobile.mp4" poster="./assets/case-studies/north-city-roofing/ncr-owner-mobile-poster.webp" muted loop playsinline preload="none" aria-label="Owner command center screen recording"></video></div><figcaption>Owner command center</figcaption></figure>
+        <figure class="rv" data-lb="./assets/case-studies/north-city-roofing/ncr-member-mobile.mp4" data-lb-cap="Member app, built for the roof" data-cursor="Play"><div class="phone" data-tilt><video data-src="./assets/case-studies/north-city-roofing/ncr-member-mobile.mp4" poster="./assets/case-studies/north-city-roofing/ncr-member-mobile-poster.webp" muted loop playsinline preload="none" aria-label="Inspector app screen recording"></video></div><figcaption>Member app, built for the roof</figcaption></figure>
+      </div>
+      <div class="grid-2">
+        <div class="card rv"><h4>Owner command center</h4><ul class="ticks">
+          <li><strong>Team Performance:</strong> live KPIs for today, this week, and this month, plus 7/30/90-day analytics. A server-side Postgres function keeps it fast across 31,000+ contacts.</li>
+          <li><strong>Top Performers:</strong> team members ranked by assigned and completed inspections.</li>
+          <li><strong>Leads pipeline:</strong> every assessed contact marked Qualified or Not Qualified, with a full assessment drawer and CSV export. Status syncs back to the CRM.</li>
+          <li><strong>Daily operations:</strong> Priorities, Contacts with tap-to-call, Team, live-synced Calendars, Appointments, Admin Booking, Sales Form, Announcements, and Files &amp; Completions.</li></ul></div>
+        <div class="card rv"><h4>Member app</h4><ul class="ticks">
+          <li><strong>Assignments</strong> move through Start → Continue → Completed.</li>
+          <li><strong>A 6-step wizard:</strong> project details, roofing material, wood damage, vents and flashings, materials and access, and final review. Large tap targets, autosave, and a sticky action bar make it usable on a phone in the sun.</li>
+          <li><strong>Instant qualification:</strong> "Is this a qualified lead?" updates the CRM in real time.</li>
+          <li><strong>Branded PDF reports</strong> are generated automatically, viewable in the app, and saved to the contact.</li></ul></div>
+      </div>
+    </div>
+
+    <div class="pwa">
+      <div class="pwa-visual rv" id="pwa"><div class="phone"><img src="./assets/case-studies/north-city-roofing/ncr-pwa-icon.webp" alt="The NC Roofing app icon on an iPhone home screen" loading="lazy"><span class="a2hs"><b>Add to Home Screen</b></span></div></div>
+      <div>
+        <p class="kicker">Installable</p><h3 class="split">Installs like a native app.</h3>
+        <p class="lead">The dashboard is an installable web app on iOS and Android, with its own branded icon. It opens full screen and needs no app store or update queue.</p>
+        <ul class="ticks"><li><strong>iOS:</strong> Safari → Share → Add to Home Screen</li><li><strong>Android:</strong> Chrome → Install app</li></ul>
+      </div>
+    </div>
+
+    <div class="block" data-narrate="The dashboard,|in your *pocket*.">
+      <div class="head"><p class="kicker">North City Roofing · Mobile</p><h3 class="split">The ops dashboard, in your pocket.</h3><p>Built mobile-first for the field team. Drag the rail, or hover its edges to let it glide. Click any screen to open it, then use the arrows to flip through.</p></div>
+      <div class="rail-wrap">
+        <span class="rail-edge" data-dir="prev" data-cursor="Prev"></span>
+        <div class="rail" id="ncRail" data-cursor="Drag" data-lb-group></div>
+        <span class="rail-edge" data-dir="next" data-cursor="Next"></span>
+        <div class="rail-btns"><button class="rail-btn" data-dir="prev" aria-label="Previous">←</button><button class="rail-btn" data-dir="next" aria-label="Next">→</button></div>
+      </div>
+      <a class="link" href="https://dashboard.northcityroofing.com" target="_blank" rel="noopener">Visit the live dashboard →</a>
+    </div>
+
+    <div class="apps-block">
+      <div class="head center"><p class="kicker">Not just a website</p><h3 class="split">An app they actually install.</h3><p>Every business runs differently, so every app I build is different too: priorities, team views, live analytics, whatever the job needs. This one is running on North City Roofing's field team's phones right now.</p></div>
+      <div class="install-pill"><span class="dot"></span>Install on Home Screen</div>
+      <div class="apps" id="apps" data-lb-group></div>
+      <p class="fine center">Built for a roofing company here. The same system works just as well for dental, HVAC, coaching, or whatever runs your business.</p>
+    </div>
+
+    <div class="block">
+      <div class="head"><p class="kicker">Technical highlights</p><h3 class="split">Built to stay fast and clean at scale.</h3></div>
+      <ul class="grid-3">
+        <li class="card rv"><h4>CRM sync that scales</h4><p>Upserts run in 500-row batches on a unique contact ID, with deduplication before every write and a guard against overlapping runs. 43,000 duplicates gone for good.</p></li>
+        <li class="card rv"><h4>Server-side analytics</h4><p>Chart counts run in Postgres, so the dashboard stays instant at any contact volume.</p></li>
+        <li class="card rv"><h4>100+ custom fields</h4><p>Mapped across GoHighLevel, the dashboard, and JobNimbus.</p></li>
+        <li class="card rv"><h4>One webhook, one payload</h4><p>Each assessment sends the full scope, the PDF link, the qualification answer, and the inspector's identity in one request.</p></li>
+        <li class="card rv"><h4>Real-time by default</h4><p>Supabase realtime keeps every view current without a refresh.</p></li>
+        <li class="card rv"><h4>Safe handoffs</h4><p>Tag guards make sure no lead is ever sent to JobNimbus twice.</p></li>
+      </ul>
+    </div>
+
+    <div class="results-row">
+      <div class="card big-card rv">
+        <p class="kicker">Results</p><h3>What changed</h3>
+        <ul class="checks">
+          <li><strong>No more lost leads.</strong> Website and Yelp leads land in one CRM with instant replies and booking, day or night.</li>
+          <li><strong>Abandoned leads are recovered</strong> automatically instead of forgotten.</li>
+          <li><strong>One app replaces five tools.</strong></li>
+          <li><strong>Paper to PDF in minutes.</strong> Inspections are captured on a phone, on the roof.</li>
+          <li><strong>Instant qualification.</strong> The office sees the verdict the moment an inspector submits, not weeks later.</li>
+          <li><strong>43,000 duplicates eliminated</strong> and prevented from returning.</li>
+          <li><strong>Zero double entry.</strong> Qualified leads flow into JobNimbus automatically.</li>
+        </ul>
+      </div>
+      <div class="card big-card rv">
+        <p class="kicker">What's next</p><h3>On the roadmap</h3>
+        <ul class="ticks"><li><strong>Offline mode</strong> for the inspection wizard, for rooftops with weak signal.</li><li><strong>Personal performance analytics</strong> for each inspector.</li></ul>
+        <p class="fine">Built end to end: automation architecture, product design, front-end engineering, CRM integration, and database optimization.</p>
+      </div>
+    </div>
+
+    <div class="block" id="legacy"></div>
+  </section>
+
+  <!-- ============ RESULTS ============ -->
+  <section class="sec results" id="results" data-group="case" data-narrate="And the numbers|*speak*...">
+    <div class="head center"><p class="kicker">Real results</p><h2 class="split">Systems that <em>generate revenue.</em></h2><p>Not promises. Live numbers from systems currently running for clients.</p></div>
+    <ul class="results-grid" id="results-list"></ul>
+    <ul class="stats" id="stats"></ul>
+  </section>
+
+  <!-- ============ WORK (inverts the theme) ============ -->
+  <section class="sec work" id="work" data-group="work" data-invert data-narrate="Then I *build* it|and *ship* it.">
+    <div class="head center"><p class="kicker">Selected work</p><h2 class="split big">Flagship <em>builds.</em></h2><p>Websites, AI agents and the automation systems running behind them.</p></div>
+    <div id="chapters"></div>
+
+    <!-- OpenTable → Make → GHL -->
+    <div class="spot" id="automation-spotlight" data-narrate="Every booking|triggers a *sequence*.">
+      <div class="head center"><p class="kicker">Valle Del Sol Cabo · Featured automation</p><h3 class="split">OpenTable → Make.com → GHL reservation campaigns.</h3><p>Every OpenTable reservation at Torote, the on-site restaurant for Valle Del Sol's development, flows into GoHighLevel and triggers a branching WhatsApp, email, and SMS sequence. It's one of several event-driven systems running behind <a class="link" href="https://valledelsolcabo.com" target="_blank" rel="noopener">valledelsolcabo.com →</a></p></div>
+      <div class="flow" id="spotFlow">
+        <div class="fnode"><b>OpenTable</b><small>Reservation trigger</small></div><i class="flink"></i>
+        <div class="fnode"><b>Make.com</b><small>Automation router</small></div><i class="flink"></i>
+        <div class="fnode hub"><b>GoHighLevel</b><small>Contact + pipeline</small></div><i class="flink"></i>
+        <div class="fbranch"><span>WhatsApp</span><span>Email</span><span>SMS</span><span>Team alert</span></div>
+      </div>
+      <ul class="spot-stats"><li><strong>3-Stage</strong><span>Countdown sequence</span></li><li><strong>4</strong><span>Channels triggered</span></li><li><strong>24/7</strong><span>Live &amp; fully automated</span></li></ul>
+      <div class="grid-2" data-lb-group>
+        <figure class="shot wipe" data-lb="./images/vds-automation-opentable-make-scenario.jpg" data-lb-cap="OpenTable → GHL contact sync in Make.com" data-cursor="View"><img src="./images/vds-automation-opentable-make-scenario.jpg" alt="Make.com scenario: Torote OpenTable reservations to GHL with HTTP requests, iterator, and skip filters" loading="lazy"><figcaption><strong>OpenTable → GHL contact sync</strong>The Make.com scenario polling OpenTable reservations, filtering cancelled/skipped guests, and pushing each one into GHL via <code>/contacts/upsert</code>.</figcaption></figure>
+        <figure class="shot wipe" data-lb="./images/complex-workflows.png" data-lb-cap="Full workflow, trigger to outcome" data-cursor="View"><img src="./images/complex-workflows.png" alt="GoHighLevel workflow builder with branching WhatsApp, email, and SMS sequences" loading="lazy"><figcaption><strong>Full workflow, trigger to outcome</strong>The complete tag-based trigger tree inside GHL: every branch, delay, and channel from the first reservation ping to a delivered confirmation.</figcaption></figure>
+      </div>
+      <div class="grid-2">
+        <div class="card rv"><h4>Reservation reminder &amp; confirmation sequence</h4><p>Fires on a 7-day, 24-hour, and 2-minute countdown to every reservation. It branches on the guest's reply ("Yes, Walk Me Through" / "No, Just Dinner" / timed out) and fans out into WhatsApp confirmations, backup emails, and an internal team notification the moment a guest responds. Delivery is tracked end to end on every channel.</p><ul class="tags"><li>Countdown Logic</li><li>Branching</li><li>Delivery Tracking</li></ul></div>
+        <div class="card rv"><h4>OpenTable → GHL contact sync</h4><p>Every new reservation instantly creates or updates the guest's contact record in GoHighLevel, tagged, timestamped, and ready for the sequence to fire without a single manual step.</p><ul class="tags"><li>Make.com</li><li>Webhook Sync</li><li>Auto-Tagging</li></ul></div>
+      </div>
+    </div>
+
+    <!-- Appointwise -->
+    <div class="spot" id="appointwise" data-narrate="A booking agent|that never *sleeps*.">
+      <div class="head center"><p class="kicker">Appointwise · Featured automation</p><h3 class="split">A booking agent wired straight into GoHighLevel.</h3><p>A conversational AI agent built entirely inside GoHighLevel's conversation builder. It qualifies leads, answers questions, handles objections, and books the call without a human ever touching the conversation.</p></div>
+      <div class="split-row">
+        <figure class="shot wipe" data-lb="./New%20videos/appointwise-workflow.jpg" data-lb-cap="The full Appointwise conversation builder" data-cursor="View"><img src="./New%20videos/appointwise-workflow.jpg" alt="Appointwise conversation builder inside GoHighLevel" loading="lazy"><figcaption><strong>The full conversation builder</strong>Every branch of the agent: qualification questions, objection handling, booking hand-off, and lost/won outcomes.</figcaption></figure>
+        <figure class="orbit-phone" data-lb="./New%20videos/appointwise-demo-video.mp4" data-lb-cap="Appointwise, live in conversation" data-cursor="Play"><span class="ring r1"></span><span class="ring r2"></span><div class="phone floaty"><video data-src="./New%20videos/appointwise-demo-video.mp4" muted loop playsinline preload="none"></video></div><figcaption><strong>Appointwise, live in conversation</strong>Qualifying the lead and booking the appointment automatically, no human in the loop.</figcaption></figure>
+      </div>
+    </div>
+
+    <!-- Automations in action -->
+    <div class="spot" id="automation-phones">
+      <div class="head center"><p class="kicker">Automations in action</p><h3 class="split">See it running, live.</h3><p>Automated Google review requests and missed-call text-backs. Both fire instantly, 24/7, with zero manual work on your end. Tap the phone to watch the demo.</p></div>
+      <div class="split-row">
+        <figure class="orbit-phone" data-lb="./videos/phone-demo.mp4" data-lb-cap="Automated Google reviews + missed call text back" data-cursor="Play"><span class="ring r1"></span><span class="ring r2"></span><div class="phone floaty"><video data-src="./videos/phone-demo.mp4" muted loop playsinline preload="none"></video></div></figure>
+        <div class="stack">
+          <div class="card rv"><h4>⭐ Automated Google reviews</h4><p>The moment a job is marked complete, the customer gets a text asking for a review, with a direct link straight to the Google listing. No app required.</p></div>
+          <div class="card rv"><h4>📞 Missed call text back</h4><p>Miss a call and the caller instantly gets a text back, so no lead ever goes cold just because nobody picked up in time.</p></div>
+          <button class="btn btn-solid mag" data-hire>Get this running on my business</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Funnel hub -->
+    <div class="spot" id="funnels" data-narrate="I build the funnel,|run the *ads*...">
+      <div class="head center"><p class="kicker">Full-funnel marketing</p><h3 class="split">I build the funnel. I run the ads. I wire it all together.</h3><p>Landing pages engineered to convert, Meta &amp; Google Ads driving traffic into them, and every platform (Meta, GoHighLevel, Zapier, Make, custom webhooks) wired together so no lead ever falls through the cracks.</p></div>
+      <ol class="stages">
+        <li class="stage" data-tilt><span>Stage 01</span><h4>Traffic &amp; ads</h4><p>Meta &amp; Google Ads campaigns with AI-generated creatives targeting the exact buyer.</p></li>
+        <li class="stage" data-tilt><span>Stage 02</span><h4>Landing page / funnel</h4><p>High-converting funnel pages built to capture the click and drive one clear action.</p></li>
+        <li class="stage" data-tilt><span>Stage 03</span><h4>Meta → GHL integration</h4><p>Meta Lead Ads, Conversions API, and pixel events synced straight into the CRM pipeline.</p></li>
+        <li class="stage" data-tilt><span>Stage 04</span><h4>Cross-platform automation</h4><p>Zapier, Make, and custom webhooks connecting GHL to any tool a business already runs on.</p></li>
+        <li class="stage final" data-tilt><span>Result</span><h4>Booked client</h4><p>Follow-up runs itself until the lead is qualified, booked, and sitting in the pipeline.</p></li>
+      </ol>
+      <div class="split-row">
+        <figure class="orbit-phone" data-lb="./videos/funnel-demo.mp4" data-lb-cap="The funnel, live on a real phone" data-cursor="Play"><span class="ring r1"></span><span class="ring r2"></span><div class="phone floaty"><video data-src="./videos/funnel-demo.mp4" muted loop playsinline preload="none"></video></div><figcaption><strong>The funnel, live on a real phone</strong>A walkthrough of the funnel and booking flow exactly as a lead sees it on their own device.</figcaption></figure>
+        <figure class="mac" data-tilt data-lb="./images/funnel-macbook-shot.jpg" data-lb-cap="Sales funnels for Trusted Home Service Pros and Trusted Roofing Pros" data-cursor="View">
+          <div class="mac-lid"><div class="mac-screen"><img src="./images/funnel-macbook-shot.jpg" alt="Sales funnels for Trusted Home Service Pros and Trusted Roofing Pros" loading="lazy"></div></div><div class="mac-base"></div>
+          <figcaption><strong>Sales funnels</strong>Nationwide, Angi-compliant lead-matching platforms: 15+ core pages, thousands of SEO landing pages, and the funnels that turn that traffic into booked jobs.</figcaption>
+        </figure>
+      </div>
+      <div class="collage" id="collage" data-lb-group>
+        <figure class="cshot c1" data-lb="./images/fnl-highlight-rayanova-xl.jpg" data-lb-cap="Rayanova booking funnel" data-cursor="View"><div class="cbar"><i></i><i></i><i></i><em>rayanova.io</em></div><img src="./images/fnl-highlight-rayanova-xl.jpg" alt="Rayanova booking funnel" loading="lazy"></figure>
+        <figure class="cshot c2" data-lb="./images/fnl-highlight-edigishark-xl.jpg" data-lb-cap="eDigiShark lead magnet funnel" data-cursor="View"><div class="cbar"><i></i><i></i><i></i><em>edigishark.com</em></div><img src="./images/fnl-highlight-edigishark-xl.jpg" alt="eDigiShark lead magnet funnel" loading="lazy"></figure>
+        <figure class="cshot c3" data-lb="./images/fnl-highlight-modal-xl.jpg" data-lb-cap="Rayanova booking form modal" data-cursor="View"><div class="cbar"><i></i><i></i><i></i><em>booking step</em></div><img src="./images/fnl-highlight-modal-xl.jpg" alt="Rayanova booking form modal" loading="lazy"></figure>
+      </div>
+      <p class="fine center">Three funnels, one frame. Hover to pull each one forward.</p>
+    </div>
+
+    <!-- Team ops -->
+    <div class="spot" id="team-ops">
+      <div class="head center"><p class="kicker">Behind the scenes</p><h3 class="split">Team ops &amp; real-time notifications.</h3><p>The internal system that keeps a whole team in sync, from a new lead hitting the CRM to a human replying in Slack.</p></div>
+      <ul class="grid-3" id="teamOps"></ul>
+    </div>
+
+    <!-- Automation library -->
+    <div class="spot" id="automation-library" data-narrate="And a whole|*library* of them.">
+      <div class="head center"><p class="kicker">Automation library</p><h3 class="split">Real workflows, straight from the builder.</h3><p>Screenshots of live GoHighLevel, Make, Zapier and Supabase builds. Click any one to open it full size, then use the arrows to flip through.</p></div>
+      <div class="gallery" id="galleryGrid" data-lb-group></div>
+      <p class="center-actions"><a class="link" href="./htmls/automations.html">See every automation explained →</a></p>
+    </div>
+  </section>
+
+  <!-- ============ WEBSITES ============ -->
+  <section class="sec" id="websites" data-group="work" data-narrate="And the *websites*|people remember.">
+    <div class="head center"><p class="kicker">3D website highlights</p><h2 class="split big">Premium websites, <em>built in 3D.</em></h2><p>Scroll-driven 3D builds for local service businesses, recorded live in desktop view. Pick an industry, or click the screen to watch it full size.</p></div>
+    <div class="w3d">
+      <figure class="mac w3d-mac" id="w3dMac" data-tilt data-cursor="Play" tabindex="0" role="button" aria-label="Watch the active 3D website full size">
+        <div class="mac-lid"><div class="mac-screen" id="w3dScreen"></div></div><div class="mac-base"></div>
+      </figure>
+      <div class="w3d-tabs" id="w3dTabs" role="tablist" aria-label="3D website industries"></div>
+    </div>
+  </section>
+
+  <section class="hscroll" id="recent-builds" data-group="work">
+    <div class="hscroll-pin" id="hPin">
+      <div class="hscroll-head"><p class="kicker">Recent websites built</p><h2 class="split">Fresh off <em>the build.</em></h2><p>Every video is a real screen recording. Click one to watch it full size.</p></div>
+      <div class="hscroll-track" id="hTrack" data-lb-group></div>
+    </div>
+  </section>
+
+  <section class="sec" id="premium-websites" data-group="work">
+    <div class="head center"><p class="kicker">Premium builds</p><h2 class="split">Premium websites, <em>brought to life.</em></h2><p>Every premium build gets the same polish on desktop and mobile. Here's one in motion on both, captured straight from a live client site.</p></div>
+    <div class="duo" data-lb-group>
+      <figure class="mac floaty-slow" data-lb="./New%20videos/premium-macbook-demo.mp4" data-lb-cap="Premium build — desktop" data-cursor="Play"><div class="mac-lid"><div class="mac-screen"><video data-src="./New%20videos/premium-macbook-demo.mp4" muted loop playsinline preload="none"></video></div></div><div class="mac-base"></div></figure>
+      <div class="phone duo-phone floaty" data-lb="./New%20videos/premium-phone-nc.mp4" data-lb-cap="Premium build — mobile" data-cursor="Play"><video data-src="./New%20videos/premium-phone-nc.mp4" muted loop playsinline preload="none"></video></div>
+    </div>
+  </section>
+
+  <section class="sec" id="all-sites" data-group="work" data-narrate="More sites,|more *systems*.">
+    <div class="head center"><p class="kicker">The archive</p><h2 class="split">Client sites, funnels &amp; <em>personal builds.</em></h2><p>Filter the rail, drag it, or hover the edges. Every card opens the live site.</p></div>
+    <div class="filters" id="siteFilters" role="group" aria-label="Filter sites">
+      <button class="is-on" data-f="all">All</button><button data-f="client">Client websites</button><button data-f="funnel">Sales funnels</button><button data-f="personal">Personal &amp; agency</button>
+    </div>
+    <div class="rail-wrap">
+      <span class="rail-edge" data-dir="prev" data-cursor="Prev"></span>
+      <div class="rail" id="siteRail"></div>
+      <span class="rail-edge" data-dir="next" data-cursor="Next"></span>
+      <div class="rail-btns"><button class="rail-btn" data-dir="prev" aria-label="Previous">←</button><button class="rail-btn" data-dir="next" aria-label="Next">→</button></div>
+    </div>
+  </section>
+
+  <!-- ============ AI VOICE AGENT ============ -->
+  <section class="sec" id="ai-voice-agent" data-group="work" data-narrate="Your phone rings,|something *answers*.">
+    <div class="voice">
+      <div>
+        <p class="kicker warm">AI Voice Agent</p>
+        <h2 class="split">Your phone rings. <em>Something always answers.</em></h2>
+        <p class="lead">An AI agent that picks up every call, day or night, weekends, holidays, mid-job, and actually gets things done instead of taking a message. It's live right now on the Meridian Plumbing demo.</p>
+        <ul class="voice-caps">
+          <li><strong>Answers every call</strong>Picks up in seconds, 24/7. No hold music, no voicemail.</li>
+          <li><strong>Books the appointment</strong>Finds an open slot and puts it straight on the calendar.</li>
+          <li><strong>Qualifies the lead</strong>Asks the right questions and flags who's ready to buy.</li>
+          <li><strong>Reschedules on request</strong>Moves a booking the moment a customer needs to shift it.</li>
+          <li><strong>Cancels cleanly</strong>Handles cancellations and clears the slot for someone else.</li>
+          <li><strong>Follows up on missed calls</strong>A missed call still gets a callback or text within minutes.</li>
+        </ul>
+        <div class="actions"><a class="btn btn-warm mag" href="https://go.rayanova.io/meridian-plumbing-demo-uk" target="_blank" rel="noopener">📞 Call the live demo</a><button class="btn btn-ghost mag" data-hire>Book a demo call with me →</button></div>
+        <p class="live"><span class="dot"></span>agent live · answering calls 24/7</p>
+      </div>
+      <div class="voice-visual" aria-hidden="true">
+        <span class="vring"></span><span class="vring"></span><span class="vring"></span>
+        <span class="vbtn"><svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.2 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.5 21 3 13.5 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.2 1.1L6.6 10.8Z"/></svg></span>
+        <span class="vbadge b1">🕑 24/7 coverage</span>
+        <span class="vbadge b2"><span class="wave"><i></i><i></i><i></i><i></i><i></i></span>answering now</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVICES ============ -->
+  <section class="sec" id="services" data-group="services" data-narrate="Here's everything|I can *build*.">
+    <div class="head center"><p class="kicker">What I do</p><h2 class="split big">Skills &amp; <em>services.</em></h2><p>Six core disciplines, ten services, one goal: systems that turn traffic into booked, paying clients.</p></div>
+    <div class="sphere-scene" id="sphereScene" data-cursor="Drag"><div class="sphere" id="sphere"></div></div>
+    <ul class="grid-3" id="skills"></ul>
+    <div class="svc-list" id="servicesList"></div>
+  </section>
+
+  <section class="sec faq" id="faq" data-group="services" data-narrate="You must be|*wondering*...">
+    <div class="head center"><p class="kicker">FAQ</p><h2 class="split">Good <em>questions.</em></h2></div>
+    <div class="faq-list" id="faqList"></div>
+  </section>
+
+  <!-- ============ JOURNEY ============ -->
+  <section class="sec" id="journey" data-group="journey" data-narrate="Where I've|*done* it.">
+    <div class="head center"><p class="kicker">Where I've worked</p><h2 class="split big">Industries <em>served.</em></h2></div>
+    <div class="tl"><span class="tl-fill" id="tlFill"></span><ol id="timeline"></ol></div>
+    <div class="block" id="regas">
+      <div class="head center"><p class="kicker">Current role · 2026–present</p><h3 class="split">Regas Media</h3></div>
+      <ul class="grid-3" id="regasList"></ul>
+    </div>
+  </section>
+
+  <section class="brand" id="brand" data-group="journey" data-invert>
+    <div class="shatter-scroll" id="shatterScroll">
+      <div class="shatter-pin" id="shatterPin">
+        <div class="shatter-glow" aria-hidden="true"></div>
+        <canvas id="shatter" aria-hidden="true"></canvas>
+        <video class="shatter-fallback" id="shatterVideo" data-fallback="./videos/shuttered-logo.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
+        <div class="shatter-copy" id="shatterCopy">
+          <p class="kicker">Behind the brand</p>
+          <div class="shatter-lines">
+            <h2 class="shatter-line is-on">Built to <em>break</em><br>the template.</h2>
+            <h2 class="shatter-line">Every pixel,<br><em>on purpose.</em></h2>
+            <h2 class="shatter-line">Systems that<br><em>hold together.</em></h2>
+          </div>
+        </div>
+        <div class="shatter-meter" aria-hidden="true"><span><i id="shatterBar"></i></span><b id="shatterPct">00</b></div>
+        <p class="shatter-hint" aria-hidden="true">Keep scrolling <i>↓</i></p>
+      </div>
+    </div>
+    <div class="sec">
+      <div class="head center"><p class="kicker">Logo in motion</p><h3>A closer look at the mark itself.</h3><p>Reveal animation, concept render, and the clean mark.</p></div>
+      <div class="grid-3" id="media" data-lb-group></div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="sec about" id="about" data-group="about" data-narrate="And finally,|who *I am*.">
+    <div class="about-grid">
+      <div>
+        <h2 class="about-name split">JOSHUA MENDOZA</h2>
+        <p class="about-loc">Antipolo, Rizal · Philippines</p>
+        <p class="about-big">I build websites, funnels and automations that keep working while you sleep.</p>
+        <p>I've been building GoHighLevel systems, websites and ad funnels since 2022, for dental clinics, roofers, HVAC and home service companies, restaurants, academies and coaches across the US, Canada, Mexico, Ireland, the UK and Australia.</p>
+        <p>Before that, I served a full-time mission for The Church of Jesus Christ of Latter-day Saints (2023–2025) as an Administrative Assistant, managing schedules and communication for leadership teams, keeping confidential records, and training new volunteers. Earlier, I worked as a Marketing Researcher with Bloom, Clear Insights (Lehi, Utah, remote), recognized for consistently exceeding quality and productivity standards.</p>
+        <p class="about-big">That's where the habits come from: organized, detail-oriented, deadline-driven, and clear communication in English (plus basic Spanish).</p>
+        <div class="actions">
+          <a class="link" href="https://docs.google.com/document/d/1_9f7_35_VIZ7tW7r9_ZqNNBKtGsROb4l/edit?usp=drive_link&ouid=113330667437187831590&rtpof=true&sd=true" target="_blank" rel="noopener">View my resume →</a>
+          <a class="link" href="https://www.linkedin.com/in/joshua-mendoza-461a23374/" target="_blank" rel="noopener">My journey on LinkedIn →</a>
+          <a class="link" href="./htmls/about.html">Full about page →</a>
+        </div>
+      </div>
+      <div class="about-side">
+        <figure class="portrait" data-tilt data-lb="./images/joshua-portrait-2.jpg" data-lb-cap="Joshua Mendoza" data-cursor="View">
+          <img src="./images/joshua-portrait-2.jpg" alt="Joshua Mendoza" onerror="this.closest('figure').remove()">
+        </figure>
+        <div class="about-tools">
+          <h4>.Systems &amp; automation</h4><ul class="tags"><li>GoHighLevel</li><li>Zapier</li><li>Make</li><li>n8n</li><li>Webhooks</li><li>REST APIs</li><li>Appointwise</li><li>monday.com</li><li>Slack API</li><li>Supabase</li><li>Firebase</li></ul>
+          <h4>.Web development</h4><ul class="tags"><li>HTML / CSS / JS</li><li>WordPress</li><li>Framer</li><li>Duda</li><li>GitHub</li><li>VS Code</li><li>Vercel</li><li>Hostinger</li></ul>
+          <h4>.AI</h4><ul class="tags"><li>Claude Code</li><li>Anthropic API</li><li>ChatGPT</li><li>Gemini</li><li>Genspark</li><li>Manus</li><li>Fal.ai</li><li>Nanobanana</li><li>Blotato</li><li>Postiz</li></ul>
+          <h4>.Ads &amp; creative</h4><ul class="tags"><li>Meta Ads</li><li>Google Ads</li><li>Canva</li><li>CapCut</li><li>Photoshop</li><li>PicsArt</li><li>PixelLab</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-cta"><p>Ready to build a system that scales?</p><button class="btn btn-solid mag" data-hire>Hire me →</button></div>
+    <div class="footer-row">
+      <span>© 2026 Joshua Mendoza</span>
+      <div class="footer-social" data-socials></div>
+      <span class="footer-links">
+        <a href="./htmls/automations.html">Automations</a>
+        <a href="./htmls/legal-notice.html">Legal notice</a>
+        <a href="./htmls/privacy-policy.html">Privacy policy</a>
+        <a href="https://docs.google.com/document/d/1_9f7_35_VIZ7tW7r9_ZqNNBKtGsROb4l/edit?usp=drive_link&ouid=113330667437187831590&rtpof=true&sd=true" target="_blank" rel="noopener">Resume</a>
+      </span>
+    </div>
+    <p class="footer-note">Web design from Antipolo, Rizal, PH · Psst… type “hire” anywhere.</p>
+  </footer>
+</main>
+
+<!-- ============ CONTACT DRAWER ============ -->
+<div class="drawer-back" id="drawerBack"></div>
+<aside class="drawer" id="drawer" aria-label="Contact" aria-hidden="true" data-lenis-prevent>
+  <button class="drawer-close" id="drawerClose"><span aria-hidden="true">←</span> Return</button>
+  <div class="drawer-inner">
+    <p class="kicker">Contact</p>
+    <a class="drawer-big" href="mailto:shuakai15@gmail.com">shuakai15@gmail.com</a>
+    <a class="drawer-big" href="https://wa.me/639696171479" target="_blank" rel="noopener">+63 969 617 1479</a>
+    <form id="contactForm" novalidate>
+      <label>Your full name<input name="name" id="f-name" required autocomplete="name" placeholder="Your full name"></label>
+      <label>Your email<input name="email" type="email" required autocomplete="email" placeholder="you@company.com"></label>
+      <label>Service<select name="service" id="f-service"><option value="">Choose a service (optional)</option></select></label>
+      <label>Your project<textarea name="message" rows="4" placeholder="What's slowing your business down?"></textarea></label>
+      <p class="form-err" id="formErr" role="alert"></p>
+      <button class="btn btn-solid full" type="submit" id="formBtn">Send message →</button>
+    </form>
+    <div class="sent" id="sent"><span class="sent-check">✓</span><h3>Message received.</h3><p>I personally read and reply to every message, usually within 24 hours.</p></div>
+    <div class="drawer-social" data-socials></div>
+  </div>
+</aside>
+
+<!-- ============ LIGHTBOX ============ -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Preview" data-lenis-prevent>
+  <button class="lb-close" id="lbClose" aria-label="Close preview">✕</button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous">←</button>
+  <div class="lb-body" id="lbBody"></div>
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Next">→</button>
+  <p class="lb-cap"><span id="lbCap"></span><span class="lb-count" id="lbCount"></span></p>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/darkroomengineering/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="./data.js"></script>
+<script src="./site.js"></script>
+</body>
+</html>
