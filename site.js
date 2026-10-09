@@ -72,7 +72,7 @@
     <div class="grid-3" data-lb-group>${L.dash.map(c => `<figure class="mini rv" data-lb="${c.img}" data-lb-cap="${esc(c.t)}" data-cursor="View"><img src="${c.img}" alt="North City Roofing ${esc(c.t)}" loading="lazy"><figcaption><strong>${esc(c.t)}</strong><span>${esc(c.d)}</span></figcaption>${tags(c.tags)}</figure>`).join('')}</div>
     <p class="note">${md(L.note)}</p>${tags(L.tags)}`);
 
-  const NARR = ['Then I *build* it|and *ship* it.', 'Even the posting|runs *itself*.', 'And the phone|answers *itself*.'];
+  const NARR = ['It all started with|*one client*.', 'Then I *build* it|and *ship* it.', 'Even the posting|runs *itself*.', 'And the phone|answers *itself*.'];
   fill('#chapters', S.chapters.map((c, i) => `
     <article class="chapter${i % 2 ? ' flip' : ''}" id="${c.id}" data-narrate="${NARR[i] || NARR[0]}">
       <div class="chapter-media"><span class="chapter-num">${pad(i + 1)}</span><figure class="frame wipe" data-lb="${c.img}" data-lb-cap="${esc(c.t)}" data-cursor="View"><img src="${c.img}" alt="${esc(c.alt)}" loading="lazy"></figure></div>
