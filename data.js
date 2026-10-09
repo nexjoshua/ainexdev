@@ -16,8 +16,10 @@ window.SITE = {
   heroShots: [
     { src: '../images/valle-del-sol.png', label: 'valledelsolcabo.com' },
     { src: '../images/ncr-client-website.webp', label: 'northcityroofing.com' },
+        { src: './images/thumber.png', label: 'thumberacademy.com' },
     { src: '../images/meridian-hero.jpg', label: 'meridian plumbing · AI voice agent' },
     { src: '../images/THSP.png', label: 'trustedhomeservicespros.com' },
+        { src: './images/igniteagency.png', label: 'igniteagency.xyz' },
   ],
 
   results: [
@@ -112,6 +114,12 @@ window.SITE = {
   },
 
   chapters: [
+        { id: 'thumber-academy', kicker: 'Where it started · My very first client', t: 'Thumber Academy — Real Students. Real Wins.', img: './images/thumber.png', alt: 'Thumber Academy homepage — Real Students. Real Wins.',
+      d: 'My very first client, and still a happy one. Thumber Academy is an application-only coaching program teaching high-ticket remote sales. I built them a proof-first website on GoHighLevel where every claim is backed by real student wins, full video interviews, and Discord screenshots, with an application flow that routes serious leads straight into the CRM.',
+      tags: ['GoHighLevel', 'Custom CSS', 'Typeform', 'Zapier', 'First Client'],
+      steps: ['**Built on GoHighLevel** — a custom-styled neon-grid site with Home, Wins, Testimonials, and Contact pages.', '**Proof-first layout** — a hero video, real Discord win screenshots, and full uncut student interviews placed before any sales pitch.', '**Application-only funnel** — every "Apply for Coaching" button opens a Typeform application, so only serious students get through.', '**Zapier + GHL workflows** — applications flow into the CRM automatically, with inquiry-management workflows handling follow-up.'],
+      note: 'This is where it all started. My first client trusted me with their brand, and the site is still live today.',
+      links: [{ t: 'Visit live site →', u: 'https://thumberacademy.com/' }, { t: 'See the student wins →', u: 'https://thumberacademy.com/all-wins' }] },
     { id: 'valle-del-sol', kicker: 'Flagship case study · Real estate & hospitality', t: "Valle Del Sol — Cabo's Secret Valley", img: '../images/valle-del-sol.png', alt: "Valle Del Sol homepage — Cabo's Secret Valley",
       d: 'A real estate & hospitality development above Cabo San Lucas: desert ranch homes, a working farm, and the award-winning Torote Restaurant. Built entirely from scratch in VS Code with custom HTML, CSS, and JavaScript, first hosted on Vercel, then migrated into GoHighLevel through vibe coding so the client can manage it long-term, preserving the original design and animation exactly.',
       tags: ['VS Code', 'Vercel', 'GHL Migration', 'Vibe Coding', 'OpenTable API', 'Make.com', 'Ad Campaign'],
@@ -159,6 +167,7 @@ window.SITE = {
       { t: 'The Parnell Dublin', kind: 'Restaurant & bar · Dublin', domain: 'theparnelldublin.ie', url: 'https://theparnelldublin.ie/', video: 'https://assets.cdn.filesafe.space/hNOfqrviXSOAm48tJDLo/media/6abdd4a4dbed623a52188f1d.mov', d: 'A pub and kitchen established in 1879, given heritage gold-on-black styling with a framed video hero and one-tap paths to food, cocktails, private events, and table bookings.' },
       { t: "Tucker Reilly's", kind: 'Restaurant & bar · Camden Street', domain: 'tuckerreillys.ie', url: 'https://www.tuckerreillys.ie/', video: 'https://assets.cdn.filesafe.space/hNOfqrviXSOAm48tJDLo/media/6abdd4a410a2b7bc2b523bd8.mov', d: "A city pub on Camden Street with vintage serif branding over a full-bleed bar hero, plus bookings, food & drink, what's on, and a Spanish language toggle." },
       { t: 'JMX Next', kind: 'Portfolio · Graphics & tech', domain: 'jmxnext.com', url: 'http://jmxnext.com/', video: 'https://assets.cdn.filesafe.space/hNOfqrviXSOAm48tJDLo/media/6abdd4fd10a2b7bc2b52453f.mov', d: 'A personal brand for a GHL, AI automation, creative ads, and Amazon specialist. It pairs a neon-violet UI with a live phone carousel that cycles through real GHL builds.' },
+            { t: 'Ignite', kind: 'Agency · UK trade businesses', domain: 'igniteagency.xyz', url: 'https://igniteagency.xyz/', video: './New%20videos/ignite-website.mp4', d: 'The site for my UK co-founded agency: a dark, mint-green build with a territory map, ROI calculator, live AI booking demos, and package pricing, made to turn trade owners into booked audits.' },
     ],
   },
 
@@ -167,7 +176,7 @@ window.SITE = {
     { cat: 'client', t: 'NewSmile', img: '../images/newsmile.png', url: 'https://preview-1782270856227934921.vibepreview.com/en', d: 'Dental clinic website build.', tags: ['GHL'] },
     { cat: 'client', t: 'Macdental PV', img: '../images/macdental.png', url: 'https://preview-1782097357182150126.vibepreview.com/', d: '5-page bilingual site with a custom AI chatbot ("Macdental PV Assistant") and in-chat appointment booking.', tags: ['GHL AI Studio', 'AI Chatbot'] },
     { cat: 'client', t: 'Pragnya Cultural Society', img: '../images/pragnya.png', url: 'https://pragnyayoungorators.org/', d: 'School/academy website with Firebase-backed student registration, login, and dashboards.', tags: ['Firebase', 'VS Code'] },
-    { cat: 'client', t: 'Thumber Academy', img: '../images/thumber.png', url: 'https://thumberacademy.com/', d: 'Student coaching site: lead capture, workflow automation, inquiry management. "Real Students. Real Wins."', tags: ['GHL', 'CSS', 'TypeForm', 'Zapier'] },
+    { cat: 'client', t: 'Thumber Academy — My First Client', img: './images/thumber.png', url: 'https://thumberacademy.com/', d: 'My very first client: a proof-first coaching site with real student wins, full video interviews, and a Typeform application flow wired into GHL.', tags: ['First Client', 'GHL', 'CSS', 'Typeform', 'Zapier'] },
     { cat: 'client', t: 'Diesel Tech', img: '../images/diesel-tech.png', url: 'https://app.gohighlevel.com/v2/preview/wGG407ep67ZU1KuIBdgk', d: '24/7 emergency diesel breakdown service, Northern Alberta. Mobile repair for highway trucks & oilfield equipment.', tags: ['GHL', 'CSS', 'From Scratch'] },
     { cat: 'client', t: 'MEGA Water Seal', img: '../images/funnel-mwts.png', url: 'https://app.gohighlevel.com/v2/preview/3vthcQzcbsohpopXCYlf', d: 'Waterproofing services, professional + DIY. No tile removal, no demolition.', tags: ['GHL', 'CSS'] },
     { cat: 'client', t: 'eDigiShark', img: '../images/edigishark.png', url: 'https://edigishark.com/', d: 'Digital marketing agency: AI automation, lead gen systems, Meta Ads, sales funnels.', tags: ['GHL', 'CSS', 'AI Automation'] },
@@ -188,6 +197,7 @@ window.SITE = {
     { cat: 'personal', t: 'Very First Portfolio Site', img: '../images/veryfirstoldsite.png', url: 'https://shuamndz.github.io/joshuamendoza/', d: 'Redesigned dark theme, cleaner layout, AI-assisted build with Claude.', tags: ['Framer', 'CSS', 'Claude'] },
     { cat: 'personal', t: 'NexSale — Portfolio Site', img: '../images/nexsale.png', url: 'https://nexsaledev.github.io/joshuamendoza/', d: 'My portfolio site for NexSale.', tags: [] },
     { cat: 'personal', t: 'New Brand & Portfolio — NEX', img: '../images/nex-josh.png', url: 'https://nexjosh.github.io/joshuamendoza/', d: 'Premium website with modern aesthetics and seamless user experience.', tags: [] },
+        { cat: 'personal', t: 'Ignite — UK Growth Agency', img: './images/igniteagency.png', url: 'https://igniteagency.xyz/', d: 'Co-founded UK growth agency for trade businesses: done-for-you websites, AI follow-up, and ads on GoHighLevel, capped at three trades per postcode area.', tags: ['Co-Founder', 'GoHighLevel', 'UK', 'AI Follow-up'] },
   ],
 
   timeline: [
@@ -208,6 +218,7 @@ window.SITE = {
     { t: 'Leadership — The Church of Jesus Christ of Latter-day Saints', m: '2023–2025 · Full-time Mission · Administrative Assistant', d: 'Managed schedules and communication for leadership teams, maintained confidential records, and trained and mentored new volunteers.' },
     { t: 'Bloom, Clear Insights', m: '2022–2023 · Lehi, Utah (Remote) · Marketing Researcher', d: 'Performed outbound customer surveys, recognized for consistently exceeding quality and productivity standards.' },
         { t: 'ainex — Founder', u: 'https://ainex.digital/', m: '2026–Present · Founder · AI systems agency', d: 'Founded ainex, an agency that designs and builds AI-powered automations, CRMs, and web experiences for founders who want to move faster without adding headcount.' },
+            { t: 'Ignite — Co-Founder (UK)', u: 'https://igniteagency.xyz/', m: '2026–Present · Co-Founder with Dennis Sewell · Ignite Growth Systems Ltd', d: 'Co-founded a UK growth agency for trade businesses: done-for-you websites, AI follow-up, and Meta and Google ads on GoHighLevel for electricians, waste clearance, solar, stove installers, and general builders.' },
   ],
 
   regas: [
