@@ -207,6 +207,7 @@ window.SITE = {
     { t: 'Tech / Software — Glazene Company', m: '2025', d: 'GHL automation workflows, front-end development in VS Code, and EmailJS integration for automated notifications.' },
     { t: 'Leadership — The Church of Jesus Christ of Latter-day Saints', m: '2023–2025 · Full-time Mission · Administrative Assistant', d: 'Managed schedules and communication for leadership teams, maintained confidential records, and trained and mentored new volunteers.' },
     { t: 'Bloom, Clear Insights', m: '2022–2023 · Lehi, Utah (Remote) · Marketing Researcher', d: 'Performed outbound customer surveys, recognized for consistently exceeding quality and productivity standards.' },
+        { t: 'ainex — Founder', u: 'https://ainex.digital/', m: '2026–Present · Founder · AI systems agency', d: 'Founded ainex, an agency that designs and builds AI-powered automations, CRMs, and web experiences for founders who want to move faster without adding headcount.' },
   ],
 
   regas: [
