@@ -312,7 +312,7 @@ figcaption strong{display:block;color:var(--ink);font-family:var(--fd);font-size
 .node.hub{flex:1.25;background:linear-gradient(150deg,rgba(127,184,204,.28),var(--bg) 70%);border-color:rgba(127,184,204,.6)}
 .node.hub.is-lit{animation:hub 3s ease-in-out 1.5s infinite}
 @keyframes hub{50%{box-shadow:0 0 60px 10px rgba(127,184,204,.4)}}
-.link{position:relative;flex:0 0 clamp(18px,2.4vw,38px);height:2px;background:var(--line);overflow:hidden}
+.map .link{position:relative;flex:0 0 clamp(18px,2.4vw,38px);height:2px;background:var(--line);overflow:hidden}
 .map .link{background-size:auto}
 .map .link::before{content:"";position:absolute;inset:0;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .6s var(--ease)}
 .map .link.is-lit::before{transform:scaleX(1)}
@@ -837,3 +837,40 @@ video.loader-logo{
   .ainex-card{grid-template-columns:minmax(0,1fr)}
   .ainex-reel{width:100%}
 }
+/* ---------- ignite (UK partnership) ---------- */
+.ignite-card{
+  --bg:#070b0a;--ink:#f1f0ee;--muted:#a3a8a6;--line:rgba(255,255,255,.1);
+  --primary:#3ee6b4;--on-primary:#04201a;--accent-ink:#3ee6b4;--accent:#3ee6b4;--shadow:rgba(0,0,0,.6);
+  position:relative;overflow:hidden;isolation:isolate;margin-top:1.5rem;
+  display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(2rem,4vw,4rem);align-items:center;
+  padding:clamp(2rem,5vw,4rem);border-radius:28px;background:var(--bg);color:var(--ink);
+  border:1px solid rgba(62,230,180,.28);
+}
+.ignite-card::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(circle at 20% 30%,rgba(62,230,180,.16),transparent 45%),radial-gradient(rgba(255,255,255,.06) 1px,transparent 1px) 0 0/22px 22px}
+.ignite-top{display:flex;flex-wrap:wrap;align-items:center;gap:1rem}
+.ignite-logo{height:34px;width:auto}
+.ignite-flag{display:inline-flex;align-items:center;gap:.55rem;font:500 .7rem var(--fm);letter-spacing:.12em;text-transform:uppercase;color:var(--primary);padding:.4rem .85rem;border-radius:99px;border:1px solid rgba(62,230,180,.4);background:rgba(62,230,180,.08)}
+.ignite-card h3{font-size:clamp(1.7rem,3.2vw,2.5rem);margin:1.2rem 0 1rem}
+.ignite-card h3 em{color:var(--primary)}
+.ignite-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem;margin:1.6rem 0 .4rem}
+.ignite-stats li{padding:1rem;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.03);display:flex;flex-direction:column;gap:.15rem}
+.ignite-stats strong{font:700 clamp(1.2rem,2vw,1.6rem)/1.1 var(--fd);color:var(--primary)}
+.ignite-stats span{font-size:.75rem;color:var(--muted)}
+.ignite-shot{margin:0}
+.ignite-shot .browser{border-color:rgba(62,230,180,.25);transition:transform .6s var(--ease),box-shadow .5s}
+.ignite-shot:hover .browser{transform:translateY(-6px);box-shadow:0 40px 80px -30px rgba(0,0,0,.8),0 0 50px 6px rgba(62,230,180,.2)}
+.ignite-shot figcaption{margin-top:.8rem;font:.72rem var(--fm);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:center}
+@media (max-width:1024px){.ignite-card{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:640px){.ignite-stats{grid-template-columns:1fr}}
+/* ---------- icon headings (replaces emoji) ---------- */
+.icon-h{display:flex;align-items:center;gap:.8rem}
+.ic{flex:none;width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:rgba(127,184,204,.12);border:1px solid rgba(127,184,204,.35);color:var(--accent-ink);transition:transform .5s var(--ease)}
+.ic svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ic.star{background:rgba(245,184,61,.12);border-color:rgba(245,184,61,.45);color:#f5b83d}
+.ic.star svg{fill:currentColor;fill-opacity:.25}
+.ic.call{background:rgba(255,122,89,.12);border-color:rgba(255,122,89,.45);color:#ff7a59}
+.card:hover .ic{transform:rotate(-8deg) scale(1.08)}
+.ignite-shot figcaption{display:flex;flex-direction:column;align-items:center;gap:.7rem}
+.ignite-credit{display:inline-flex;align-items:center;gap:.5rem;padding:.45rem .95rem;border-radius:99px;border:1px solid rgba(62,230,180,.4);background:rgba(62,230,180,.08);color:var(--primary);font:500 .7rem var(--fm);letter-spacing:.1em;text-transform:uppercase}
+.ignite-credit svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
