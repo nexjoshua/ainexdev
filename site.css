@@ -783,10 +783,57 @@ figcaption strong{display:block;color:var(--ink);font-family:var(--fd);font-size
   .chapter-num{display:block;font-size:3.4rem}
   .chapter-media{padding-top:2.2rem}
 }
-/* Logo reveal: lift the X and melt the video's hard edges into the frame */
-#media .media:first-child .media-frame{background:radial-gradient(circle at 50% 42%,#18202a,#000 72%)}
+/* Logo reveal: pull the X up into the center of the square frame */
+#media .media:first-child .media-frame{
+  --reveal-shift:-24%;   /* more negative = X moves higher */
+  --reveal-zoom:.82;     /* smaller = X gets smaller */
+  background:radial-gradient(circle at 50% 50%,#18202a,#000 72%);
+}
 #media .media:first-child video{
-  transform:scale(.86) translateY(-8%);
-  -webkit-mask-image:radial-gradient(ellipse 72% 70% at 50% 46%,#000 55%,transparent 100%);
-          mask-image:radial-gradient(ellipse 72% 70% at 50% 46%,#000 55%,transparent 100%);
+  object-fit:cover;
+  object-position:50% 100%;
+  transform-origin:50% 100%;
+  transform:translateY(var(--reveal-shift)) scale(var(--reveal-zoom));
+  -webkit-mask-image:radial-gradient(ellipse 75% 65% at 50% 70%,#000 50%,transparent 100%);
+          mask-image:radial-gradient(ellipse 75% 65% at 50% 70%,#000 50%,transparent 100%);
+}
+/* ---------- back to top ---------- */
+.to-top{position:fixed;right:2rem;bottom:2rem;z-index:44;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:var(--primary);color:var(--on-primary);box-shadow:0 18px 40px -16px var(--shadow);opacity:0;visibility:hidden;transform:translateY(16px) scale(.9);transition:opacity .4s var(--ease),transform .4s var(--ease),visibility .4s,background-color .9s,color .9s,box-shadow .3s}
+.to-top.is-on{opacity:1;visibility:visible;transform:none}
+.to-top:hover{box-shadow:0 0 0 4px rgba(127,184,204,.35)}
+.to-top-arrow{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .3s var(--ease)}
+.to-top:hover .to-top-arrow{transform:translateY(-3px)}
+.to-top-ring{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg)}
+.to-top-ring circle{fill:none;stroke:var(--accent);stroke-width:2;stroke-linecap:round;stroke-dasharray:138.2;stroke-dashoffset:calc(138.2 * (1 - var(--p,0)))}
+@media (max-width:1024px){.to-top{right:1rem;bottom:5.5rem;width:46px;height:46px}}
+video.loader-logo{
+  width:clamp(280px,46vw,640px);height:auto;animation:none;
+  -webkit-mask-image:radial-gradient(ellipse 60% 60% at 50% 50%,#000 55%,transparent 100%);
+          mask-image:radial-gradient(ellipse 60% 60% at 50% 50%,#000 55%,transparent 100%);
+}
+/* ---------- ainex agency ---------- */
+.ainex-card{
+  --bg:#05060a;--card:#0c0e12;--ink:#f1f0ee;--muted:#a3a1a6;--line:rgba(255,255,255,.1);
+  --primary:#9fd0e2;--on-primary:#0b0c0e;--accent-ink:#7fb8cc;--shadow:rgba(0,0,0,.6);
+  position:relative;overflow:hidden;isolation:isolate;
+  display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(2rem,4vw,4rem);align-items:center;
+  padding:clamp(2rem,5vw,4.5rem);border-radius:28px;background:var(--bg);color:var(--ink);
+  border:1px solid rgba(127,184,204,.25);
+}
+.ainex-card::before{content:"";position:absolute;inset:-30%;z-index:-1;pointer-events:none;
+  background:radial-gradient(circle at 72% 45%,rgba(127,184,204,.22),transparent 45%),radial-gradient(circle at 10% 100%,rgba(142,168,255,.12),transparent 40%)}
+.ainex-copy h2{font-size:clamp(2rem,4vw,3.2rem);margin:1rem 0}
+.ainex-points{display:grid;gap:.9rem;margin-top:1.8rem}
+.ainex-points li{display:flex;flex-direction:column;font-size:.88rem;color:var(--muted);padding-left:1rem;border-left:2px solid rgba(127,184,204,.5)}
+.ainex-points strong{color:var(--ink);font-size:.98rem}
+.ainex-reels{display:flex;flex-direction:column;gap:1.4rem}
+.ainex-reel{margin:0;width:88%}
+.ainex-reel:nth-child(2){margin-left:auto}
+.ainex-screen{position:relative;aspect-ratio:16/9;border-radius:16px;overflow:hidden;background:#000;border:1px solid var(--line);transition:transform .6s var(--ease),border-color .4s,box-shadow .5s}
+.ainex-screen video{width:100%;height:100%;object-fit:cover;filter:contrast(1.15)}
+.ainex-reel:hover .ainex-screen{transform:translateY(-6px);border-color:rgba(127,184,204,.55);box-shadow:0 30px 60px -24px rgba(0,0,0,.8),0 0 40px 4px rgba(127,184,204,.22)}
+.ainex-reel figcaption{margin-top:.8rem;font-size:.85rem;color:var(--muted)}
+@media (max-width:1024px){
+  .ainex-card{grid-template-columns:minmax(0,1fr)}
+  .ainex-reel{width:100%}
 }
