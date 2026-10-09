@@ -149,10 +149,11 @@
   (() => {
     const el = $('#loader'), n = $('#loaderCount');
     if (!el) { document.body.classList.add('is-ready'); return; }
+    const vid = RM ? null : $('video.loader-logo', el);
     document.body.classList.add('is-loading');
     lenis && lenis.stop();
-    const D = RM ? 300 : 2000, t0 = performance.now();
-    let done = false;
+    const t0 = performance.now(), D = RM ? 300 : 2000, MAX = 7000;
+    let done = false, useVid = !!vid;
     const finish = () => {
       if (done) return; done = true;
       n.textContent = '100';
@@ -160,13 +161,22 @@
       document.body.classList.remove('is-loading');
       document.body.classList.add('is-ready');
       lenis && lenis.start();
-      setTimeout(() => { el.remove(); ScrollTrigger.refresh(); }, 1100);
+      setTimeout(() => { vid && vid.pause(); el.remove(); ScrollTrigger.refresh(); }, 1100);
     };
+    if (vid) {
+      vid.addEventListener('ended', finish);
+      vid.addEventListener('error', () => { useVid = false; });
+      vid.play().catch(() => { useVid = false; });
+      setTimeout(finish, MAX);
+    }
     const tick = now => {
       if (done) return;
-      const p = Math.min((now - t0) / D, 1);
-      n.textContent = Math.round((1 - Math.pow(1 - p, 3)) * 100);
-      p < 1 ? requestAnimationFrame(tick) : finish();
+      const p = useVid
+        ? (vid.duration ? Math.min(vid.currentTime / vid.duration, 1) : 0)
+        : Math.min((now - t0) / D, 1);
+      n.textContent = Math.round((useVid ? p : 1 - Math.pow(1 - p, 3)) * 100);
+      if (!useVid && p >= 1) return finish();
+      requestAnimationFrame(tick);
     };
     requestAnimationFrame(tick);
     el.addEventListener('click', finish);
@@ -634,7 +644,24 @@
     keys = (keys + e.key.toLowerCase()).slice(-4);
     if (keys === 'hire') { toast('You found the shortcut 👀'); openDrawer(); keys = ''; }
   });
-
+  /* =========================================================
+     16b. BACK TO TOP
+  ========================================================= */
+  (() => {
+    const btn = $('#toTop');
+    if (!btn) return;
+    ScrollTrigger.create({
+      start: 0, end: 'max',
+      onUpdate: s => {
+        btn.style.setProperty('--p', s.progress.toFixed(4));
+        btn.classList.toggle('is-on', s.scroll() > innerHeight * .8);
+      },
+    });
+    btn.addEventListener('click', () => {
+      if (lenis) lenis.scrollTo(0, { duration: 1.6 });
+      else scrollTo({ top: 0, behavior: RM ? 'auto' : 'smooth' });
+    });
+  })();
   /* =========================================================
      17. KEEP TRIGGERS IN SYNC
   ========================================================= */
