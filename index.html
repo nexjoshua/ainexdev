@@ -14,7 +14,10 @@
     document.documentElement.classList.add('js');
   })();
 </script>
-<link rel="icon" href="./images/logo-x.png" type="image/png">
+<link rel="icon" href="./images/favicons/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="./images/favicons/icon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="./images/favicons/apple-touch-icon.png">
+<meta name="theme-color" content="#13235c">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Nunito:wght@400;600;700;800&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -23,8 +26,9 @@
 <body>
 
 <!-- ============ LOADER ============ -->
-<div class="loader" id="loader" aria-hidden="true">
-  <img src="./images/ainex-logowhite.png" alt="" class="loader-logo">
+<div class="loader" id="loader" aria-hidden="true" style="background:#000">
+  <video class="loader-logo" src="./New videos/logo-animatedhero.mp4" autoplay muted playsinline preload="auto" aria-hidden="true"
+    style="width:clamp(320px,52vw,760px);height:auto;animation:none;filter:contrast(1.3);mix-blend-mode:screen;-webkit-mask-image:radial-gradient(ellipse 70% 70% at 50% 50%,#000 60%,transparent 100%);mask-image:radial-gradient(ellipse 70% 70% at 50% 50%,#000 60%,transparent 100%)"></video>
   <div class="loader-meta"><span>Loading systems</span><b id="loaderCount">0</b></div>
   <span class="loader-skip">click to skip</span>
 </div>
@@ -82,6 +86,10 @@
 </nav>
 
 <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+<button class="to-top" id="toTop" type="button" aria-label="Back to top" data-cursor="Top">
+  <svg class="to-top-ring" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22"/></svg>
+  <svg class="to-top-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
 
 <button class="hire mag" id="hireBtn" data-hire>
   <span>Work<br>with me</span>
@@ -144,9 +152,9 @@
     </div>
     <div class="chat" id="chat">
       <div class="msg them"><span class="av">NC</span><p class="bubble"><span class="dots"><i></i><i></i><i></i></span><span class="txt">We're a <em>roofing company</em> in the Bay Area. Leads come in from our <em>website</em> and <em>Yelp</em>, but too many go cold before anyone calls back.</span></p></div>
-      <div class="msg me"><span class="av"><img src="./images/logo-x.png" alt=""></span><p class="bubble"><span class="dots"><i></i><i></i><i></i></span><span class="txt">Got it. I'll connect every lead source into <em>one pipeline</em>, answer each lead in seconds, and give your team an <em>app</em> to run inspections from the roof.</span></p></div>
+      <div class="msg me"><span class="av"><img src="./images/favicons/icon-512.png" alt=""></span><p class="bubble"><span class="dots"><i></i><i></i><i></i></span><span class="txt">Got it. I'll connect every lead source into <em>one pipeline</em>, answer each lead in seconds, and give your team an <em>app</em> to run inspections from the roof.</span></p></div>
       <div class="msg them"><span class="av">NC</span><p class="bubble"><span class="dots"><i></i><i></i><i></i></span><span class="txt">All of that? Perfect. When do we start? 🙂</span></p></div>
-      <div class="msg me"><span class="av"><img src="./images/logo-x.png" alt=""></span><p class="bubble"><span class="dots"><i></i><i></i><i></i></span><span class="txt"><em>Now.</em> Scroll down, I'll show you exactly what I built.</span></p></div>
+      <div class="msg me"><span class="av"><img src="./images/favicons/icon-512.png" alt=""></span><p class="bubble"><span class="dots"><i></i><i></i><i></i></span><span class="txt"><em>Now.</em> Scroll down, I'll show you exactly what I built.</span></p></div>
     </div>
     <a href="#case" class="cue inline"><span>Now!</span><i>↓</i></a>
   </section>
@@ -551,7 +559,35 @@
       <div class="grid-3" id="media" data-lb-group></div>
     </div>
   </section>
-
+  <!-- ============ AINEX AGENCY ============ -->
+  <section class="sec" id="ainex" data-group="journey" data-narrate="And now I'm|building *ainex*.">
+    <div class="ainex-card">
+      <div class="ainex-copy">
+        <p class="kicker">Founder · 2026</p>
+        <h2 class="split">I'm founding an agency. <em>Meet ainex.</em></h2>
+        <p class="lead">Everything on this page, now as an agency. ainex designs and builds AI-powered automations, CRMs, and web experiences for founders who want to move faster without adding headcount.</p>
+        <ul class="ainex-points">
+          <li><strong>AI automations</strong>Workflows, agents, and voice that run 24/7.</li>
+          <li><strong>CRM systems</strong>GoHighLevel builds wired into every tool you already use.</li>
+          <li><strong>Web experiences</strong>Fast, premium sites built to convert.</li>
+        </ul>
+        <div class="actions">
+          <a class="btn btn-solid mag" href="https://ainex.digital/" target="_blank" rel="noopener">Visit ainex.digital →</a>
+          <button class="btn btn-ghost mag" data-hire>Work with ainex</button>
+        </div>
+      </div>
+      <div class="ainex-reels" data-lb-group>
+        <figure class="ainex-reel" data-lb="./New%20videos/logo-animatedhero.mp4" data-lb-cap="ainex — logo reveal" data-cursor="Play">
+          <div class="ainex-screen"><video data-src="./New%20videos/logo-animatedhero.mp4" muted loop playsinline preload="none"></video></div>
+          <figcaption><strong>The reveal</strong>Opening animation for the ainex mark</figcaption>
+        </figure>
+        <figure class="ainex-reel" data-lb="./New%20videos/newlogoainex-animated.mp4" data-lb-cap="ainex — animated logo" data-cursor="Play">
+          <div class="ainex-screen"><video data-src="./New%20videos/newlogoainex-animated.mp4" muted loop playsinline preload="none"></video></div>
+          <figcaption><strong>The new mark</strong>The ainex logo in motion</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
   <!-- ============ ABOUT ============ -->
   <section class="sec about" id="about" data-group="about" data-narrate="And finally,|who *I am*.">
     <div class="about-grid">
@@ -592,6 +628,7 @@
         <a href="./htmls/legal-notice.html">Legal notice</a>
         <a href="./htmls/privacy-policy.html">Privacy policy</a>
         <a href="https://docs.google.com/document/d/1_9f7_35_VIZ7tW7r9_ZqNNBKtGsROb4l/edit?usp=drive_link&ouid=113330667437187831590&rtpof=true&sd=true" target="_blank" rel="noopener">Resume</a>
+                <a href="https://ainex.digital/" target="_blank" rel="noopener">ainex.digital</a>
       </span>
     </div>
     <p class="footer-note">Web design from Antipolo, Rizal, PH · Psst… type “hire” anywhere.</p>
