@@ -471,7 +471,7 @@
     if (isIntersecting) { if (!v.getAttribute('src')) v.src = v.dataset.src; v.muted = true; if (!RM) v.play().catch(() => {}); }
     else if (!v.paused) v.pause();
   }), { rootMargin: '250px 0px', threshold: .1 });
-  $$('video[data-src]').forEach(v => vio.observe(v));
+  $$('video[data-src]:not(.cn-vid)').forEach(v => vio.observe(v));   // .cn-vid (3D showcase) is controlled by showcase3d.js
 
   /* =========================================================
      11. 3D WEBSITE PLAYER
