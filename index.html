@@ -22,6 +22,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Nunito:wght@400;600;700;800&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./site.css">
+<link rel="stylesheet" href="./showcase3d.css">
 </head>
 <body>
 
@@ -158,7 +159,72 @@
     </div>
     <a href="#case" class="cue inline"><span>Now!</span><i>↓</i></a>
   </section>
+  <!-- ============ 3D DEVICE SHOWCASE (iPhone + MacBook) ============ -->
+  <section class="cine" id="showcase" data-group="work" data-narrate="Premium sites|that *stand out*.">
+    <div class="cn-bg" aria-hidden="true"></div>
+    <div class="cine-in">
+      <div class="head center">
+        <p class="kicker">Premium websites</p>
+        <h2 class="split">A premium website like this, <em>built for your business.</em></h2>
+        <p>I design and build sites that look nothing like a template, so your business is the one people remember. Cinematic on a laptop, just as sharp in your customer's hand.</p>
+      </div>
 
+      <div class="cn-wrap" id="cnStage">
+        <div class="cn-cam">
+          <div class="cn-orbit" id="cnOrbit"><div class="cn-look" id="cnLook"><div class="cn-scene">
+            <i class="cn-floor"></i><i class="cn-sh cn-sh-mac"></i><i class="cn-sh cn-sh-ph"></i>
+
+            <!-- MacBook -->
+            <div class="cn-dev cn-mac" data-dev="mac" data-src="./showcase/showcase-macbook.mp4" data-cursor="Full screen">
+              <div class="cn-lift"><div class="cn-tilt">
+                <i class="cn-bloom"></i>
+                <div class="cn-hinge" id="cnHinge"><div class="cn-lid">
+                  <div class="cn-lid-front">
+                    <button type="button" class="cn-screen" aria-label="Watch the desktop website demo full screen">
+                      <video class="cn-vid" data-src="./showcase/showcase-macbook.mp4" poster="./showcase/showcase-macbook.jpg" muted loop playsinline preload="none"></video>
+                      <span class="cn-off"></span><span class="cn-dim"></span><span class="cn-gloss"></span><span class="cn-sweep"></span><span class="cn-flare"></span>
+                      <span class="cn-pill"><svg viewBox="0 0 24 24" width="1.1em" height="1.1em" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>Watch full screen</span>
+                    </button>
+                  </div>
+                  <div class="cn-lid-back"><img src="./images/logo-x.png" alt="" onerror="this.style.display='none'"></div>
+                  <i class="cn-lid-l"></i><i class="cn-lid-r"></i><i class="cn-lid-t"></i>
+                </div></div>
+                <div class="cn-deck"><i class="cn-kb"></i><i class="cn-tp"></i></div>
+                <i class="cn-base-f"></i><i class="cn-base-l"></i><i class="cn-base-r"></i>
+              </div></div>
+            </div>
+
+            <!-- iPhone -->
+            <div class="cn-dev cn-ph" data-dev="phone" data-src="./showcase/showcase-iphone.mp4" data-cursor="Full screen">
+              <div class="cn-float"><div class="cn-lift"><div class="cn-tilt">
+                <i class="cn-bloom"></i>
+                <div class="cn-sls"><i class="cn-sl" style="--i:1"></i><i class="cn-sl" style="--i:2"></i><i class="cn-sl" style="--i:3"></i><i class="cn-sl" style="--i:4"></i><i class="cn-sl" style="--i:5"></i><i class="cn-sl" style="--i:6"></i><i class="cn-sl" style="--i:7"></i><i class="cn-sl" style="--i:8"></i><i class="cn-sl" style="--i:9"></i><i class="cn-sl" style="--i:10"></i></div>
+                <div class="cn-ph-back"></div>
+                <div class="cn-ph-front">
+                  <button type="button" class="cn-screen" aria-label="Watch the mobile website demo full screen">
+                    <video class="cn-vid" data-src="./showcase/showcase-iphone.mp4" poster="./showcase/showcase-iphone.jpg" muted loop playsinline preload="none"></video>
+                    <span class="cn-off"></span><span class="cn-dim"></span><span class="cn-gloss"></span><span class="cn-sweep"></span><span class="cn-flare"></span>
+                    <span class="cn-pill"><svg viewBox="0 0 24 24" width="1.1em" height="1.1em" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>Full screen</span>
+                  </button>
+                </div>
+              </div></div></div>
+            </div>
+          </div></div></div>
+        </div>
+      </div>
+      <p class="cn-hint"><span class="cn-hint-fine">Hover a screen, then click to watch it full screen.</span><span class="cn-hint-touch">Tap a screen to watch it full screen.</span></p>
+
+      <ul class="cn-proof">
+        <li><h3>Stands out from your competitors</h3><p>A design nobody mistakes for a template, so you're the business they remember.</p></li>
+        <li><h3>Sharp on every screen</h3><p>Desktop and phone get the same care, because most of your customers find you on their phone.</p></li>
+        <li><h3>Built to bring in work</h3><p>Fast, clear and wired into your lead system, so visitors turn into enquiries.</p></li>
+      </ul>
+      <div class="cn-cta">
+        <button class="btn btn-solid" type="button" data-hire>Get a website like this</button>
+        <a class="btn btn-ghost" href="#websites">See more of my sites</a>
+      </div>
+    </div>
+  </section>
   <!-- ============ CASE STUDY: NORTH CITY ROOFING ============ -->
   <section class="sec" id="case" data-group="case">
     <div class="case-hero" data-narrate="Then we find out what's|really *broken*...">
@@ -699,5 +765,6 @@
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script src="./data.js"></script>
 <script src="./site.js"></script>
+<script src="./showcase3d.js"></script>
 </body>
 </html>
