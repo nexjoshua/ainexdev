@@ -5,22 +5,13 @@
 ===================================================================== */
 window.SITE = {
   socials: [
-    { name: 'WhatsApp', url: 'https://wa.me/639696171479', svg: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-5.055 0-9.363 4.109-9.365 9.163a9.32 9.32 0 001.24 4.657l-1.313 4.792 4.917-1.288a9.36 9.36 0 004.514 1.15h.004c5.055 0 9.365-4.109 9.367-9.163a9.099 9.099 0 00-2.652-6.503 9.061 9.061 0 00-6.712-2.808zm5.518 13.028c-.235.663-1.377 1.267-1.898 1.336-.484.065-1.09.093-1.756-.11-.405-.121-.923-.284-1.594-.559-2.807-1.212-4.634-4.02-4.777-4.208-.14-.187-1.144-1.522-1.144-2.905 0-1.383.727-2.06.984-2.34.256-.279.56-.348.746-.348.187 0 .373.001.535.008.171.007.4-.065.628.481.235.56.797 1.943.867 2.087.07.14.117.303.023.489-.093.187-.14.302-.28.465-.14.164-.294.365-.42.49-.14.14-.286.29-.123.567.163.279.727 1.198 1.56 1.94 1.072.956 1.977 1.253 2.256 1.394.28.14.443.117.606-.07.163-.187.703-.82.89-1.1.187-.28.375-.234.634-.14.258.093 1.638.774 1.918.913.28.14.466.211.535.328.07.117.07.678-.163 1.34z"/></svg>' },
-    { name: 'Instagram', url: 'https://www.instagram.com/shuamndz/', svg: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>' },
+    { name: 'WhatsApp', url: 'https://wa.me/639696171479', svg: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-5.055 0-9.363 4.109-9.365 9.163a9.32 9.32 0 001.24 4.657l-1.313 4.792 4.917-1.288a9.36 9.36 0 004.514 1.15h.004c5.055 0 9.365-4.109 9.367-9.163a9.099 9.099 0 00-2.652-6.503 9.061 9.061 0 00-6.712-2.808zm5.518 13.028c-.235.663-1.377 1.267-1.898 1.336-.484.065-1.09.093-1.756-.11-.405-.121-.923-.284-1.594-.559-2.807-1.212-4.634-4.020-4.777-4.208-.14-.187-1.144-1.522-1.144-2.905 0-1.383.727-2.06.984-2.34.256-.279.56-.348.746-.348.187 0 .373.001.535.008.171.007.4-.065.628.481.235.56.797 1.943.867 2.087.07.14.117.303.023.489-.093.187-.14.302-.28.465-.14.164-.294.365-.42.49-.14.14-.286.29-.123.567.163.279.727 1.198 1.56 1.94 1.072.956 1.977 1.253 2.256 1.394.28.14.443.117.606-.07.163-.187.703-.82.89-1.1.187-.28.375-.234.634-.14.258.093 1.638.774 1.918.913.28.14.466.211.535.328.07.117.07.678-.163 1.34z"/></svg>' },
+    { name: 'Instagram', url: 'https://www.instagram.com/ainexdev/', svg: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>' },
     { name: 'Facebook', url: 'https://www.facebook.com/shuamndz1123/', svg: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>' },
     { name: 'LinkedIn', url: 'https://www.linkedin.com/in/joshua-mendoza-461a23374/', svg: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4V8h4v1.5A6 6 0 0 1 16 8z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>' },
   ],
 
   tools: ['GoHighLevel', 'Claude', 'ChatGPT', 'Gemini', 'GitHub', 'VS Code', 'Vercel', 'n8n', 'Make', 'Zapier', 'Canva', 'CapCut', 'Hostinger', 'Manus', 'Agent AI'],
-
-  heroShots: [
-    { src: '../images/valle-del-sol.png', label: 'valledelsolcabo.com' },
-    { src: '../images/ncr-client-website.webp', label: 'northcityroofing.com' },
-        { src: './images/thumber.png', label: 'thumberacademy.com' },
-    { src: '../images/meridian-hero.jpg', label: 'meridian plumbing · AI voice agent' },
-    { src: '../images/THSP.png', label: 'trustedhomeservicespros.com' },
-        { src: './images/igniteagency.png', label: 'igniteagency.xyz' },
-  ],
 
   results: [
     { n: 10206, suf: '+', l: 'Leads generated', sub: 'WebHarvest funnel system' },
@@ -114,7 +105,7 @@ window.SITE = {
   },
 
   chapters: [
-        { id: 'thumber-academy', kicker: 'Where it started · My very first client', t: 'Thumber Academy — Real Students. Real Wins.', img: './images/thumber.png', alt: 'Thumber Academy homepage — Real Students. Real Wins.',
+    { id: 'thumber-academy', kicker: 'Where it started · My very first client', t: 'Thumber Academy — Real Students. Real Wins.', img: './images/thumber.png', alt: 'Thumber Academy homepage — Real Students. Real Wins.',
       d: 'My very first client, and still a happy one. Thumber Academy is an application-only coaching program teaching high-ticket remote sales. I built them a proof-first website on GoHighLevel where every claim is backed by real student wins, full video interviews, and Discord screenshots, with an application flow that routes serious leads straight into the CRM.',
       tags: ['GoHighLevel', 'Custom CSS', 'Typeform', 'Zapier', 'First Client'],
       steps: ['**Built on GoHighLevel** — a custom-styled neon-grid site with Home, Wins, Testimonials, and Contact pages.', '**Proof-first layout** — a hero video, real Discord win screenshots, and full uncut student interviews placed before any sales pitch.', '**Application-only funnel** — every "Apply for Coaching" button opens a Typeform application, so only serious students get through.', '**Zapier + GHL workflows** — applications flow into the CRM automatically, with inquiry-management workflows handling follow-up.'],
@@ -156,6 +147,7 @@ window.SITE = {
     { src: 'https://assets.cdn.filesafe.space/hNOfqrviXSOAm48tJDLo/media/6abdd4a4dbed623a52188f28.mov', name: 'General Builder', sub: 'Construction & renovation' },
   ],
 
+  /* recent.feature + recent.items also feed the 3D MacBook in the hero */
   recent: {
     feature: { t: 'Ember & Flue Stoves', kind: 'Featured build · Home services', url: 'https://nexjoshua.github.io/demo-stove/',
       d: 'A HETAS-registered stove installation demo with a cinematic dark-and-ember palette, floating ember particles, and a "Book a Free Survey" funnel up front. Built to look just as premium on a phone as it does on a desktop.',
@@ -163,16 +155,19 @@ window.SITE = {
       mobile: 'https://assets.cdn.filesafe.space/hNOfqrviXSOAm48tJDLo/media/6ab218d3de8ed1c29fbaef82.mp4',
       tags: ['Desktop + Mobile', 'Survey Funnel', 'GitHub Pages'] },
     items: [
+            { t: 'Lord of the Bins', kind: 'Demo · Waste clearance, Sussex UK', domain: 'lotb-ltd.com', url: 'https://nexjoshua.github.io/lord-of-the-bins-demo/index.html', video: './New%20videos/clearance.mp4', d: 'A licensed Sussex clearance company, rebuilt with a "how big is your load" van estimator, drag-to-compare before/after jobs, a postcode coverage checker and a photo-first quote form.' },
+      { t: 'Coastal Air & Electrical', kind: 'Demo · Air con & electrical, Seaford SA', domain: 'coastalairandelectrical.com.au', url: 'https://nexjoshua.github.io/coastal-v2/', video: './New%20videos/coastalair.mp4', d: 'An air con, electrical and solar team, rebuilt with a scroll-told install story, a drag-to-set temperature dial, a split-or-ducted finder quiz and myth-vs-fact flip cards.' },
       { t: 'North City Roofing', kind: 'Roofing · Bay Area, CA', domain: 'northcityroofing.com', url: 'https://northcityroofing.com/', video: 'https://assets.cdn.filesafe.space/hNOfqrviXSOAm48tJDLo/media/6abdd4a410a2b7bc2b523bcd.mov', d: 'Bold industrial look for a Bay Area roofer, with a 24/7 call bar, a free-estimate CTA, an English/Spanish toggle, and an on-site chat assistant feeding leads straight into the CRM.' },
       { t: 'The Parnell Dublin', kind: 'Restaurant & bar · Dublin', domain: 'theparnelldublin.ie', url: 'https://theparnelldublin.ie/', video: 'https://assets.cdn.filesafe.space/hNOfqrviXSOAm48tJDLo/media/6abdd4a4dbed623a52188f1d.mov', d: 'A pub and kitchen established in 1879, given heritage gold-on-black styling with a framed video hero and one-tap paths to food, cocktails, private events, and table bookings.' },
       { t: "Tucker Reilly's", kind: 'Restaurant & bar · Camden Street', domain: 'tuckerreillys.ie', url: 'https://www.tuckerreillys.ie/', video: 'https://assets.cdn.filesafe.space/hNOfqrviXSOAm48tJDLo/media/6abdd4a410a2b7bc2b523bd8.mov', d: "A city pub on Camden Street with vintage serif branding over a full-bleed bar hero, plus bookings, food & drink, what's on, and a Spanish language toggle." },
       { t: 'JMX Next', kind: 'Portfolio · Graphics & tech', domain: 'jmxnext.com', url: 'http://jmxnext.com/', video: 'https://assets.cdn.filesafe.space/hNOfqrviXSOAm48tJDLo/media/6abdd4fd10a2b7bc2b52453f.mov', d: 'A personal brand for a GHL, AI automation, creative ads, and Amazon specialist. It pairs a neon-violet UI with a live phone carousel that cycles through real GHL builds.' },
-            { t: 'Ignite', kind: 'Agency · UK trade businesses', domain: 'igniteagency.xyz', url: 'https://igniteagency.xyz/', video: './New%20videos/ignite-website.mp4', d: 'The site for my UK co-founded agency: a dark, mint-green build with a territory map, ROI calculator, live AI booking demos, and package pricing, made to turn trade owners into booked audits.' },
+      { t: 'Ignite', kind: 'Agency · UK trade businesses', domain: 'igniteagency.xyz', url: 'https://igniteagency.xyz/', video: './New%20videos/ignite-website.mp4', d: 'The site for my UK co-founded agency: a dark, mint-green build with a territory map, ROI calculator, live AI booking demos, and package pricing, made to turn trade owners into booked audits.' },
     ],
   },
 
   sites: [
-    { cat: 'client', t: 'Bridenti Dental Clinic', img: '../images/bridenti.png', url: 'https://bridenti.com', d: 'Full GHL AI Studio build with treatment gallery, bilingual booking automation, and calendar integration.', tags: ['GHL AI Studio', 'Bilingual'] },
+       { cat: 'demo', t: 'Lord of the Bins — Waste Clearance', video: './New%20videos/clearance.mp4', url: 'https://nexjoshua.github.io/lord-of-the-bins-demo/index.html', d: 'Demo rebuild for a licensed Sussex clearance company: a "how big is your load" van estimator, drag-to-compare before/after jobs, a postcode coverage checker and a photo-first quote form.', tags: ['Demo', 'Waste Clearance', 'UK', 'Quote Funnel'] },
+    { cat: 'demo', t: 'Coastal Air & Electrical', video: './New%20videos/coastalair.mp4', url: 'https://nexjoshua.github.io/coastal-v2/', d: 'Demo rebuild for a Seaford SA air con, electrical and solar team: a scroll-told install story, a drag-to-set temperature dial, a split-or-ducted finder quiz and myth-vs-fact flip cards.', tags: ['Demo', 'HVAC', 'Australia', 'Interactive'] },
     { cat: 'client', t: 'NewSmile', img: '../images/newsmile.png', url: 'https://preview-1782270856227934921.vibepreview.com/en', d: 'Dental clinic website build.', tags: ['GHL'] },
     { cat: 'client', t: 'Macdental PV', img: '../images/macdental.png', url: 'https://preview-1782097357182150126.vibepreview.com/', d: '5-page bilingual site with a custom AI chatbot ("Macdental PV Assistant") and in-chat appointment booking.', tags: ['GHL AI Studio', 'AI Chatbot'] },
     { cat: 'client', t: 'Pragnya Cultural Society', img: '../images/pragnya.png', url: 'https://pragnyayoungorators.org/', d: 'School/academy website with Firebase-backed student registration, login, and dashboards.', tags: ['Firebase', 'VS Code'] },
@@ -197,7 +192,7 @@ window.SITE = {
     { cat: 'personal', t: 'Very First Portfolio Site', img: '../images/veryfirstoldsite.png', url: 'https://shuamndz.github.io/joshuamendoza/', d: 'Redesigned dark theme, cleaner layout, AI-assisted build with Claude.', tags: ['Framer', 'CSS', 'Claude'] },
     { cat: 'personal', t: 'NexSale — Portfolio Site', img: '../images/nexsale.png', url: 'https://nexsaledev.github.io/joshuamendoza/', d: 'My portfolio site for NexSale.', tags: [] },
     { cat: 'personal', t: 'New Brand & Portfolio — NEX', img: '../images/nex-josh.png', url: 'https://nexjosh.github.io/joshuamendoza/', d: 'Premium website with modern aesthetics and seamless user experience.', tags: [] },
-        { cat: 'personal', t: 'Ignite — UK Growth Agency', img: './images/igniteagency.png', url: 'https://igniteagency.xyz/', d: 'Co-founded UK growth agency for trade businesses: done-for-you websites, AI follow-up, and ads on GoHighLevel, capped at three trades per postcode area.', tags: ['Co-Founder', 'GoHighLevel', 'UK', 'AI Follow-up'] },
+    { cat: 'personal', t: 'Ignite — UK Growth Agency', img: './images/igniteagency.png', url: 'https://igniteagency.xyz/', d: 'Co-founded UK growth agency for trade businesses: done-for-you websites, AI follow-up, and ads on GoHighLevel, capped at three trades per postcode area.', tags: ['Co-Founder', 'GoHighLevel', 'UK', 'AI Follow-up'] },
   ],
 
   timeline: [
@@ -217,8 +212,8 @@ window.SITE = {
     { t: 'Tech / Software — Glazene Company', m: '2025', d: 'GHL automation workflows, front-end development in VS Code, and EmailJS integration for automated notifications.' },
     { t: 'Leadership — The Church of Jesus Christ of Latter-day Saints', m: '2023–2025 · Full-time Mission · Administrative Assistant', d: 'Managed schedules and communication for leadership teams, maintained confidential records, and trained and mentored new volunteers.' },
     { t: 'Bloom, Clear Insights', m: '2022–2023 · Lehi, Utah (Remote) · Marketing Researcher', d: 'Performed outbound customer surveys, recognized for consistently exceeding quality and productivity standards.' },
-        { t: 'ainex — Founder', u: 'https://ainex.digital/', m: '2026–Present · Founder · AI systems agency', d: 'Founded ainex, an agency that designs and builds AI-powered automations, CRMs, and web experiences for founders who want to move faster without adding headcount.' },
-            { t: 'Ignite — Co-Founder (UK)', u: 'https://igniteagency.xyz/', m: '2026–Present · Co-Founder with Dennis Sewell · Ignite Growth Systems Ltd', d: 'Co-founded a UK growth agency for trade businesses: done-for-you websites, AI follow-up, and Meta and Google ads on GoHighLevel for electricians, waste clearance, solar, stove installers, and general builders.' },
+    { t: 'ainex — Founder', u: 'https://ainex.digital/', m: '2026–Present · Founder · AI systems agency', d: 'Founded ainex, an agency that designs and builds AI-powered automations, CRMs, and web experiences for founders who want to move faster without adding headcount.' },
+    { t: 'Ignite — Co-Founder (UK)', u: 'https://igniteagency.xyz/', m: '2026–Present · Co-Founder with Dennis Sewell · Ignite Growth Systems Ltd', d: 'Co-founded a UK growth agency for trade businesses: done-for-you websites, AI follow-up, and Meta and Google ads on GoHighLevel for electricians, waste clearance, solar, stove installers, and general builders.' },
   ],
 
   regas: [
@@ -241,6 +236,49 @@ window.SITE = {
     { src: '../videos/video.mp4', video: true, t: 'Logo reveal', d: 'Ambient loop render' },
     { src: '../videos/shuttered-logo.mp4', video: true, t: 'Shatter concept', d: 'Reference render for the shatter effect' },
     { src: '../images/logo-x.png', t: 'The mark', d: 'Clean logo, transparent background' },
+  ],
+
+  /* ===== Testimonials =====
+     Photos: images/testimonials/ (any square-ish photo, shown small and round).
+     *asterisks* highlight words in the quote. tag = the big word behind the card.
+     draft: true hides a card until the person has approved the wording. */
+  testimonials: [
+    { name: 'Rudy McGraw', role: 'Owner', company: 'North City Roofing', url: 'https://northcityroofing.com',
+      photo: './images/testimonials/rudy-mcgraw.jpg', tag: 'Grateful',
+      q: "I'm *grateful to have Joshua*. He built our whole system, and whenever something technical comes up, he's *always ready to help*.",
+      work: 'AI lead engine, 17 GHL workflows, the JobNimbus handoff and the field-team app' },
+    { name: 'Cam Davis', role: 'Owner', company: 'Regas Media', url: 'https://regasmedia.com',
+      photo: './images/testimonials/cam-davis.jpg', tag: 'Legend',
+      q: '*Legend!* Well done, Josh.',
+      work: 'Client onboarding: the intake survey forms and the workflows behind them' },
+    { name: 'Adriana Slattery', role: 'Co-owner', company: 'Regas Media', url: 'https://regasmedia.com',
+      photo: './images/testimonials/adriana-slattery.jpg', tag: 'Like a robot',
+      q: 'Josh is *fast*. He works *like a robot*.',
+      work: 'Pipeline fixes, package switches and sending domains across 17 sub-accounts' },
+    { name: 'Mackenzie Davis', role: 'Owner', company: 'Regas Media', url: 'https://regasmedia.com',
+      photo: './images/testimonials/mackenzie-davis.jpg', tag: 'Always ready',
+      q: "I'm grateful for how many workflows Josh takes on. He's *always ready* to answer our clients, troubleshoot, and run the *onboarding* with them.",
+      work: 'Workflows, client support, troubleshooting and onboarding' },
+    { name: 'Chetana Gandhara', role: 'Owner', company: 'eDigiShark', url: 'https://edigishark.com/',
+      photo: './images/testimonials/chetana-gandhara.jpg', tag: 'One-man team',
+      q: "I'm grateful to have Joshua on my side. He's a *one-man team*.",
+      work: 'GHL funnels, automations, CRM, web development, ads and design' },
+    { name: 'Russell Sage', role: 'Owner', company: 'Thumber Academy', url: 'https://thumberacademy.com/',
+      photo: './images/testimonials/russell-sage.jpg', tag: 'Great work',
+      q: "*Great work*, Josh. We're really *happy with the website*.",
+      work: 'A proof-first GHL website with a Typeform application funnel' },
+    { name: 'Ken', role: 'Owner', company: 'Pinnacle Energy Partners', url: '',
+      photo: './images/testimonials/ken.jpg', tag: 'Great to work with',
+      q: 'I liked the work, so I can tell them *how great you were to work with*.',
+      work: 'SEO rank-and-rent websites, plus logo and branding' },
+    { draft: true, name: 'Rob Mabon', role: 'Owner', company: 'Rayanova', url: 'https://rayanova.io/',
+      photo: './images/testimonials/rob-mabon.jpg', tag: 'End to end',
+      q: 'Josh runs our *campaigns, ads, websites and automations* end to end. Whatever a client needs, he gets it built.',
+      work: 'Campaigns, ads, websites and automations for Rayanova clients' },
+    { draft: true, name: 'Nabil', role: 'Owner', company: 'Rayanova', url: 'https://rayanova.io/',
+      photo: './images/testimonials/nabil.jpg', tag: 'Delivers',
+      q: 'From the ad campaign to the automations behind it, Josh *delivers fast* and picks up whatever we throw at him.',
+      work: 'Campaigns, ads, websites and automations for Rayanova clients' },
   ],
 };
 /* ===== Tool logos (files in images/logos) ===== */
