@@ -23,6 +23,7 @@
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Nunito:wght@400;600;700;800&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./site.css">
 <link rel="stylesheet" href="./showcase3d.css">
+<link rel="stylesheet" href="./extras.css">
 </head>
 <body>
 
@@ -48,10 +49,17 @@
   <nav class="side-nav" aria-label="Main">
     <a href="#home" data-nav="home"><i>01</i><span>Home</span></a>
     <a href="#case" data-nav="case"><i>02</i><span>Case Study</span></a>
-    <a href="#work" data-nav="work"><i>03</i><span>Work</span></a>
-    <a href="#services" data-nav="services"><i>04</i><span>Services</span></a>
-    <a href="#journey" data-nav="journey"><i>05</i><span>Journey</span></a>
-    <a href="#about" data-nav="about"><i>06</i><span>About Me</span></a>
+    <a href="#testimonials" data-nav="testimonials"><i>03</i><span>Testimonials</span></a>
+    <div class="side-group">
+      <a href="#work" data-nav="work" aria-haspopup="true"><i>04</i><span>Work</span><b class="side-caret" aria-hidden="true"></b></a>
+      <div class="side-sub"><div>
+        <a href="#automation-spotlight" data-sub="automations">Automations</a>
+        <a href="#websites" data-sub="websites">Website works</a>
+      </div></div>
+    </div>
+    <a href="#services" data-nav="services"><i>05</i><span>Services</span></a>
+    <a href="#journey" data-nav="journey"><i>06</i><span>Journey</span></a>
+    <a href="#about" data-nav="about"><i>07</i><span>About Me</span></a>
   </nav>
   <p class="side-status"><span class="dot"></span>Open for projects</p>
   <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme">
@@ -136,7 +144,7 @@
           </button>
         </div>
       </div>
-      <div class="hero-slider" id="heroSlider" data-cursor="View" tabindex="0" role="button" aria-label="Open the featured screenshots"></div>
+      <div class="hero-slider hm" id="heroSlider" data-cursor="Play" tabindex="0" role="button" aria-label="Watch the featured websites full size"></div>
     </div>
 
     <a href="#story" class="cue"><span>Learn more</span><i>↓</i></a>
@@ -289,7 +297,7 @@
         <i class="link"></i>
         <div class="node"><small>Alert</small><strong>Team SMS</strong><span>Sales knows instantly</span></div>
       </div>
-              <figcaption><span class="ignite-credit"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg>Website designed &amp; built independently by me</span>Click the screen to watch it full size</figcaption>
+      <figcaption>From first click to signed job: every handoff in the system runs automatically.</figcaption>
     </figure>
 
     <div class="block" data-narrate="Every lead answered|in *seconds*.">
@@ -362,7 +370,7 @@
       <div class="pwa-visual rv" id="pwa"><div class="phone"><img src="./assets/case-studies/north-city-roofing/ncr-pwa-icon.webp" alt="The NC Roofing app icon on an iPhone home screen" loading="lazy"><span class="a2hs"><b>Add to Home Screen</b></span></div></div>
       <div>
         <p class="kicker">Installable</p><h3 class="split">Installs like a native app.</h3>
-        <p class="lead">Together with UK contractor Dennis Sewell, I co-founded Ignite Growth Systems: done-for-you websites, AI follow-up, and ad campaigns on GoHighLevel, built for electricians, waste clearance, solar, stove installers, and general builders. We proved the system on our own contracting business before opening it up to other trades. I designed and built the Ignite website independently, end to end.</p>
+        <p class="lead">The team app installs straight to the home screen with its own icon and opens full screen, just like a native app. No app store, no updates to chase: every rep is always on the latest version.</p>
         <ul class="ticks"><li><strong>iOS:</strong> Safari → Share → Add to Home Screen</li><li><strong>Android:</strong> Chrome → Install app</li></ul>
       </div>
     </div>
@@ -427,6 +435,117 @@
     <ul class="stats" id="stats"></ul>
   </section>
 
+  <!-- ============ CASE STUDY 02: CRM → SERVICEM8 ============ -->
+  <section class="cs2" id="servicem8" data-group="case" data-narrate="Case study 02:|leads that *never wait*.">
+    <div class="cs2-bg" aria-hidden="true"></div>
+    <div class="cs2-in">
+
+      <div class="cs2-top">
+        <div class="cs2-copy">
+          <p class="kicker">Case Study 02 · Oct 2026</p>
+          <h2 class="split big">Getting new leads to the right person, <em>instantly.</em></h2>
+          <p class="lead">A CRM to ServiceM8 automation for a growing HVAC &amp; refrigeration business. Every new lead now becomes a job, lands in its own queue and pings the owner's phone. Requested, built and tested in one afternoon.</p>
+          <dl class="chips">
+            <div><dt>Industry</dt><dd>HVAC &amp; Refrigeration</dd></div>
+            <div><dt>Location</dt><dd>Newcastle, NSW, Australia</dd></div>
+            <div><dt>Stack</dt><dd>LeadConnector (GHL) · Zapier · ServiceM8 API</dd></div>
+          </dl>
+          <div class="actions">
+            <a class="btn btn-solid mag" href="./assets/case-studies/servicem8/crm-servicem8-case-study.pdf" target="_blank" rel="noopener">Read the full case study (PDF)</a>
+            <a class="link" href="#cs2Stage">See it run ↓</a>
+          </div>
+        </div>
+
+        <a class="cs2-doc" href="./assets/case-studies/servicem8/crm-servicem8-case-study.pdf" target="_blank" rel="noopener" data-cursor="Open PDF" aria-label="Open the CRM to ServiceM8 case study PDF">
+          <div class="cs2-stack">
+            <i class="cs2-under u2"></i><i class="cs2-under u1"></i>
+            <div class="cs2-sheet">
+              <p class="cs2-sheet-k">Case study | CRM &amp; job management automation</p>
+              <h4>Getting New Leads to the Right Person, Instantly</h4>
+              <p class="cs2-sheet-s">CRM to ServiceM8 automation for an HVAC business</p>
+              <div class="cs2-sheet-meta"><span>HVAC &amp; Refrigeration</span><span>Newcastle, NSW</span><span>GHL · Zapier · API</span></div>
+              <i class="ln"></i><i class="ln"></i><i class="ln s"></i><i class="ln"></i><i class="ln m"></i>
+              <div class="cs2-sheet-stats"><b>1 afternoon</b><b>Instant</b><b>0</b></div>
+              <i class="ln"></i><i class="ln s"></i>
+              <p class="cs2-sheet-f">Prepared by Joshua Mendoza</p>
+            </div>
+          </div>
+          <span class="cs2-open">Open PDF ↗</span>
+        </a>
+      </div>
+
+      <div class="cs2-stage" id="cs2Stage" data-mode="after">
+        <canvas id="cs2Canvas" aria-hidden="true"></canvas>
+        <div class="cs2-labels" id="cs2Labels" aria-hidden="true"></div>
+        <div class="cs2-hud">
+          <div class="cs2-toggle" role="group" aria-label="Compare the old and new workflow">
+            <button type="button" data-mode="before" aria-pressed="false">Before</button>
+            <button type="button" data-mode="after" aria-pressed="true" class="is-on">After</button>
+          </div>
+          <p class="cs2-status" id="cs2Status" aria-live="polite"></p>
+        </div>
+      </div>
+      <ol class="cs2-steps" id="cs2Steps">
+        <li><strong>Stage change</strong>A lead moves to "Send to ServiceM8" in the CRM.</li>
+        <li><strong>Job created</strong>A ServiceM8 job is created with the customer's details.</li>
+        <li><strong>Allocated</strong>The job is assigned to the owner, so his phone gets a notification.</li>
+        <li><strong>Leads queue</strong>The job moves into a dedicated queue for new enquiries.</li>
+        <li><strong>Client record</strong>Created last, and only if the client doesn't already exist.</li>
+      </ol>
+
+      <div class="cs2-block">
+        <div class="head"><p class="kicker">The challenge</p><h3 class="split">The automation existed. It just had gaps.</h3><p>Leads were already being pushed to ServiceM8, but four problems were costing the owner time and confidence.</p></div>
+        <ul class="cs2-issues">
+          <li class="card rv cs2-issue"><h4>Silent arrivals</h4><p class="bad"><b>Before</b>Jobs landed with no notification, so the owner searched for every lead by name.</p><p class="fix"><b>Now</b>Each job is allocated to him, which fires ServiceM8's own push alert.</p></li>
+          <li class="card rv cs2-issue"><h4>Repeat customers broke it</h4><p class="bad"><b>Before</b>ServiceM8 needs unique client names, so a returning customer stopped the whole run.</p><p class="fix"><b>Now</b>The job is created first, and the client record moves to the last step.</p></li>
+          <li class="card rv cs2-issue"><h4>No home for new leads</h4><p class="bad"><b>Before</b>New enquiries were mixed in with every other job.</p><p class="fix"><b>Now</b>Every lead lands in a dedicated "Leads" queue.</p></li>
+          <li class="card rv cs2-issue"><h4>Messy client names</h4><p class="bad"><b>Before</b>Names arrived joined together, like "JohnSmith".</p><p class="fix"><b>Now</b>Full Name is used, so records read "John Smith" and are easy to find.</p></li>
+        </ul>
+      </div>
+
+      <div class="cs2-block">
+        <div class="head"><p class="kicker">The solution</p><h3 class="split">Custom API actions, where Zapier stops.</h3></div>
+        <div class="grid-2">
+          <div class="card rv"><h4>Past the native integration</h4><p>Zapier's ServiceM8 app can only create clients and jobs: no queues, no staff allocation. I built two custom API actions that talk to ServiceM8 directly. One allocates each job to the right staff member in a time window, which triggers the native notification. The other moves the job into the new Leads queue.</p></div>
+          <div class="card rv"><h4>Built so it can't be blocked</h4><p>The workflow was reordered so the job is created, allocated and queued before the client step. A duplicate client no longer stops anything. I also confirmed the trigger only fires from the correct pipeline stage, so leads moving between other stages never create duplicate jobs.</p></div>
+        </div>
+      </div>
+
+      <div class="cs2-block">
+        <div class="head center"><p class="kicker">The results</p><h3 class="split">Tested and confirmed <em>the same day.</em></h3><p>A test lead moved in the CRM appeared in the new queue, assigned to the owner, with a notification on his phone moments later.</p></div>
+        <ul class="cs2-results">
+          <li class="cs2-stat rv"><strong>1</strong><span>afternoon</span><small>from request to a live, tested solution</small></li>
+          <li class="cs2-stat rv"><strong>Instant</strong><span>owner alerts</span><small>on every new lead sent across</small></li>
+          <li class="cs2-stat rv"><strong>0</strong><span>leads lost</span><small>to duplicate-name errors</small></li>
+        </ul>
+        <p class="note cs2-why"><strong>Why it matters.</strong> For a trade business, speed to lead is everything. A lead that sits unnoticed for a day often goes to a competitor. Now the owner knows about every enquiry the moment it's ready, and the team works from one organised view.</p>
+        <div class="cs2-cta">
+          <a class="btn btn-solid mag" href="./assets/case-studies/servicem8/crm-servicem8-case-study.pdf" target="_blank" rel="noopener">View case study PDF</a>
+          <button class="btn btn-ghost mag" type="button" data-hire>Fix my lead handoff</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <section class="sec" id="testimonials" data-group="testimonials" data-narrate="And what they|*say*...">
+    <div class="head center">
+      <p class="kicker">Clients &amp; partners</p>
+      <h2 class="split">In their <em>own words.</em></h2>
+      <p>Owners I build for and work alongside every week. Drag the card, use the arrows, or pick a face.</p>
+    </div>
+    <div class="tq" id="tq" tabindex="0" aria-roledescription="carousel" aria-label="Testimonials">
+      <span class="tq-word" id="tqWord" aria-hidden="true"></span>
+      <div class="tq-stack" id="tqStack" aria-live="polite"></div>
+      <div class="tq-nav">
+        <button class="tq-arrow" type="button" data-dir="-1" aria-label="Previous testimonial">←</button>
+        <div class="tq-faces" id="tqFaces" role="tablist" aria-label="Choose a testimonial"></div>
+        <button class="tq-arrow" type="button" data-dir="1" aria-label="Next testimonial">→</button>
+      </div>
+      <p class="tq-count" id="tqCount"></p>
+    </div>
+  </section>
+
   <!-- ============ WORK (inverts the theme) ============ -->
   <section class="sec work" id="work" data-group="work" data-invert data-narrate="Then I *build* it|and *ship* it.">
     <div class="head center"><p class="kicker">Selected work</p><h2 class="split big">Flagship <em>builds.</em></h2><p>Websites, AI agents and the automation systems running behind them.</p></div>
@@ -473,7 +592,90 @@
         </div>
       </div>
     </div>
+    <!-- Hiring automation: Cool-A-Bah -->
+    <div class="spot" id="hiring-automation" data-narrate="Even hiring|runs *itself*.">
+      <div class="head center">
+        <p class="kicker">Cool-A-Bah · Hiring automation</p>
+        <h3 class="split">A hiring pipeline that sorts every applicant for you.</h3>
+        <p>Built in GoHighLevel for a Tweed Heads air-con, refrigeration and electrical business hiring installers and service techs. Every Facebook applicant is sorted, tagged, followed up and chased automatically, so the team only steps in once someone shows real potential.</p>
+      </div>
+      <ul class="spot-stats">
+        <li><strong>5</strong><span>Published workflows</span></li>
+        <li><strong>3</strong><span>Applicant categories</span></li>
+        <li><strong>7-day</strong><span>Automatic chase</span></li>
+      </ul>
 
+      <div class="hs" id="hs">
+        <form class="hs-form card" id="hsForm" onsubmit="return false" aria-label="Applicant simulator">
+          <p class="hs-k">Try it · You're the applicant</p>
+          <fieldset><legend>Role applied for</legend><div class="seg">
+            <label><input type="radio" name="role" value="AC Installer" checked><span>AC Installer</span></label>
+            <label><input type="radio" name="role" value="Service Technician"><span>Service Tech</span></label>
+            <label><input type="radio" name="role" value="Both"><span>Both</span></label>
+          </div></fieldset>
+          <fieldset><legend>Location</legend><div class="seg">
+            <label><input type="radio" name="loc" value="Local" checked><span>Tweed &amp; Gold Coast</span></label>
+            <label><input type="radio" name="loc" value="Other"><span>Other / not local</span></label>
+          </div></fieldset>
+          <fieldset><legend>Right to work in AU</legend><div class="seg">
+            <label><input type="radio" name="rtw" value="Yes" checked><span>Yes</span></label>
+            <label><input type="radio" name="rtw" value="No"><span>No</span></label>
+          </div></fieldset>
+          <fieldset><legend>ARC refrigerant licence</legend><div class="seg">
+            <label><input type="radio" name="arc" value="Yes" checked><span>Yes</span></label>
+            <label><input type="radio" name="arc" value="No"><span>No</span></label>
+          </div></fieldset>
+          <fieldset><legend>Years in HVAC <output id="hsYearsOut">4</output></legend>
+            <input class="hs-range" type="range" name="years" min="0" max="10" value="4" aria-label="Years of HVAC experience">
+          </fieldset>
+          <fieldset><legend>Commercial refrigeration experience</legend><div class="seg">
+            <label><input type="radio" name="com" value="Yes"><span>Yes</span></label>
+            <label><input type="radio" name="com" value="No" checked><span>No</span></label>
+          </div></fieldset>
+        </form>
+
+        <div class="hs-out">
+          <div class="hs-tree card" id="hsTree">
+            <div class="hs-trig"><span class="hs-ic">FB</span><div><b>Facebook Lead Form submitted</b><small>"Regas Hiring V3" · wait 1 min · tag <code>coolabah-applicant</code></small></div></div>
+            <p class="hs-sort">{ } Sort applicant</p>
+            <ol class="hs-branches">
+              <li data-b="basics"><span>01</span><div><strong>Unsuitable – Basics</strong><small>No right to work, or outside the area</small></div></li>
+              <li data-b="nolic"><span>02</span><div><strong>Unsuitable – Tech, no licence</strong><small>Service tech without an ARC licence</small></div></li>
+              <li data-b="pst"><span>03</span><div><strong>Priority – Service Tech</strong><small>Licensed, experienced technician</small></div></li>
+              <li data-b="pin"><span>04</span><div><strong>Priority – Installer</strong><small>Experienced installer</small></div></li>
+              <li data-b="pot"><span>05</span><div><strong>None of the above → Potential</strong><small>Worth a closer look</small></div></li>
+            </ol>
+          </div>
+          <div class="hs-result card" id="hsResult" aria-live="polite"></div>
+        </div>
+      </div>
+
+      <div class="hs-chase card" id="hsChase">
+        <div class="hs-chase-head">
+          <div><p class="hs-k">Workflows 2 &amp; 3 · Info Received + Chase</p><h4>Then what happens?</h4></div>
+          <div class="seg" role="group" aria-label="Did the applicant reply?">
+            <label><input type="radio" name="reply" value="yes" form="hsForm" checked><span>They replied</span></label>
+            <label><input type="radio" name="reply" value="no" form="hsForm"><span>They went quiet</span></label>
+          </div>
+        </div>
+        <ol class="hs-time" id="hsTime"></ol>
+      </div>
+
+      <div class="hs-media" data-lb-group>
+        <figure class="hs-phone" data-lb="./automations/coolabah/form-applicant-followup.png" data-lb-cap="Applicant follow-up form (GHL form, custom CSS)" data-cursor="View">
+          <div class="phone floaty"><img src="./automations/coolabah/form-applicant-followup.png" alt="Cool-A-Bah applicant follow-up form" loading="lazy"></div>
+          <figcaption><strong>The follow-up form</strong>Branded GHL form with custom CSS: experience, equipment, qualifications and an optional resume.</figcaption>
+        </figure>
+        <div class="hs-shots">
+          <figure class="shot wipe hs-wide" data-lb="./automations/coolabah/wf1-intake-sort.png" data-lb-cap="Workflow 1 — Intake & Sort" data-cursor="View"><img src="./automations/coolabah/wf1-intake-sort.png" alt="GHL Workflow 1 Intake and Sort with five branches" loading="lazy"><figcaption><strong>1 · Intake &amp; Sort</strong>Five branches decide Priority, Potential or Unsuitable.</figcaption></figure>
+          <figure class="shot wipe" data-lb="./automations/coolabah/wf1b-role-tags.png" data-lb-cap="Workflow 1b — Role Tags" data-cursor="View"><img src="./automations/coolabah/wf1b-role-tags.png" alt="GHL Workflow 1b Role Tags" loading="lazy"><figcaption><strong>1b · Role Tags</strong>Installer, Service Tech or Both.</figcaption></figure>
+          <figure class="shot wipe" data-lb="./automations/coolabah/wf2-info-received.png" data-lb-cap="Workflow 2 — Info Received" data-cursor="View"><img src="./automations/coolabah/wf2-info-received.png" alt="GHL Workflow 2 Info Received" loading="lazy"><figcaption><strong>2 · Info Received</strong>Moves to Needs Review and alerts the team.</figcaption></figure>
+          <figure class="shot wipe" data-lb="./automations/coolabah/wf3-chase.png" data-lb-cap="Workflow 3 — Chase" data-cursor="View"><img src="./automations/coolabah/wf3-chase.png" alt="GHL Workflow 3 Chase" loading="lazy"><figcaption><strong>3 · Chase</strong>Day 2 SMS, day 5 email, day 7 close-out.</figcaption></figure>
+          <figure class="shot wipe" data-lb="./automations/coolabah/workflows-list.png" data-lb-cap="All five hiring workflows, published" data-cursor="View"><img src="./automations/coolabah/workflows-list.png" alt="List of five published hiring workflows" loading="lazy"><figcaption><strong>All five, published</strong>Ready to go live with the hiring campaign.</figcaption></figure>
+        </div>
+      </div>
+      <p class="live center-live"><span class="dot"></span>Built and published · goes live with the hiring ad campaign</p>
+    </div>
     <!-- Funnel hub -->
     <div class="spot" id="funnels" data-narrate="I build the funnel,|run the *ads*...">
       <div class="head center"><p class="kicker">Full-funnel marketing</p><h3 class="split">I build the funnel. I run the ads. I wire it all together.</h3><p>Landing pages engineered to convert, Meta &amp; Google Ads driving traffic into them, and every platform (Meta, GoHighLevel, Zapier, Make, custom webhooks) wired together so no lead ever falls through the cracks.</p></div>
@@ -542,7 +744,7 @@
   <section class="sec" id="all-sites" data-group="work" data-narrate="More sites,|more *systems*.">
     <div class="head center"><p class="kicker">The archive</p><h2 class="split">Client sites, funnels &amp; <em>personal builds.</em></h2><p>Filter the rail, drag it, or hover the edges. Every card opens the live site.</p></div>
     <div class="filters" id="siteFilters" role="group" aria-label="Filter sites">
-      <button class="is-on" data-f="all">All</button><button data-f="client">Client websites</button><button data-f="funnel">Sales funnels</button><button data-f="personal">Personal &amp; agency</button>
+      <button class="is-on" data-f="all">All</button><button data-f="client">Client websites</button><button data-f="demo">Demo builds</button><button data-f="funnel">Sales funnels</button><button data-f="personal">Personal &amp; agency</button>
     </div>
     <div class="rail-wrap">
       <span class="rail-edge" data-dir="prev" data-cursor="Prev"></span>
@@ -653,13 +855,13 @@
         </figure>
       </div>
     </div>
-        <div class="ignite-card">
+    <div class="ignite-card">
       <figure class="ignite-shot" data-lb="./New%20videos/ignite-website.mp4" data-lb-cap="Ignite — igniteagency.xyz" data-cursor="Play">
         <div class="browser">
           <div class="browser-bar"><i></i><i></i><i></i><em>igniteagency.xyz</em></div>
           <div class="browser-screen"><video data-src="./New%20videos/ignite-website.mp4" poster="./images/igniteagency.png" muted loop playsinline preload="none"></video></div>
         </div>
-        <figcaption>Live site · click to watch full size</figcaption>
+        <figcaption><span class="ignite-credit"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg>Website designed &amp; built independently by me</span>Live site · click to watch full size</figcaption>
       </figure>
       <div class="ignite-copy">
         <div class="ignite-top">
@@ -721,8 +923,8 @@
         <a href="./htmls/legal-notice.html">Legal notice</a>
         <a href="./htmls/privacy-policy.html">Privacy policy</a>
         <a href="https://docs.google.com/document/d/1_9f7_35_VIZ7tW7r9_ZqNNBKtGsROb4l/edit?usp=drive_link&ouid=113330667437187831590&rtpof=true&sd=true" target="_blank" rel="noopener">Resume</a>
-                <a href="https://ainex.digital/" target="_blank" rel="noopener">ainex.digital</a>
-                        <a href="https://igniteagency.xyz/" target="_blank" rel="noopener">Ignite (UK)</a>
+        <a href="https://ainex.digital/" target="_blank" rel="noopener">ainex.digital</a>
+        <a href="https://igniteagency.xyz/" target="_blank" rel="noopener">Ignite (UK)</a>
       </span>
     </div>
     <p class="footer-note">Web design from Antipolo, Rizal, PH · Psst… type “hire” anywhere.</p>
@@ -763,8 +965,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/darkroomengineering/lenis@1.1.13/dist/lenis.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="./data.js"></script>
 <script src="./site.js"></script>
 <script src="./showcase3d.js"></script>
+<script src="./extras.js"></script>
 </body>
 </html>
