@@ -47,7 +47,27 @@
     el.innerHTML = `<div class="marquee-track"><div>${row}</div><div aria-hidden="true">${row}</div></div>`;
   });
 
-  fill('#heroSlider', `<div class="browser"><div class="browser-bar"><i></i><i></i><i></i><em id="heroUrl">${esc(S.heroShots[0].label)}</em></div><div class="browser-screen">${S.heroShots.map((h, i) => `<img src="${h.src}" alt="${esc(h.label)} screenshot" class="${i ? '' : 'is-on'}">`).join('')}</div></div>`);
+  /* hero: 3D MacBook playing the website videos (from S.recent) */
+  const HERO = [
+    { src: S.recent.feature.desktop, label: 'nexjoshua.github.io/demo-stove', cap: S.recent.feature.t, poster: '' },
+    ...S.recent.items.map(r => ({ src: r.video, label: r.domain, cap: r.t, poster: r.poster || '' })),
+  ];
+  fill('#heroSlider', `
+    <div class="hm-scene"><div class="hm-mac" id="hmMac">
+      <div class="hm-lid">
+        <span class="hm-cam"></span>
+        <div class="hm-screen">
+          <span class="hm-bar"><i></i><i></i><i></i><em id="heroUrl">${esc(HERO[0].label)}</em></span>
+          <div class="hm-view">
+            ${HERO.map((h, i) => `<video class="hm-vid${i ? '' : ' is-on'}" data-src="${h.src}"${h.poster ? ` poster="${h.poster}"` : ''} muted playsinline preload="none"></video>`).join('')}
+            <span class="hm-glare"></span>
+          </div>
+        </div>
+      </div>
+      <div class="hm-deck"><i class="hm-kb"></i><i class="hm-tp"></i><i class="hm-lip"></i></div>
+    </div></div>
+    <i class="hm-shadow"></i>
+    <div class="hm-dots" id="hmDots">${HERO.map((h, i) => `<button type="button" aria-label="Show ${esc(h.cap)}"${i ? '' : ' class="is-on"'}><i></i></button>`).join('')}</div>`);
 
   fill('#results-list', S.results.map(o => `<li class="result rv">${num(o)}<span>${esc(o.l)}</span><small>${esc(o.sub)}</small></li>`).join(''));
   fill('#stats', S.stats.map(o => `<li class="rv">${num(o)}<span>${esc(o.l)}</span></li>`).join(''));
@@ -103,11 +123,11 @@
       <div class="h-copy"><p class="kicker">${esc(F.kind)}</p><h3>${esc(F.t)}</h3><p>${esc(F.d)}</p>${tags(F.tags)}<a class="link" href="${F.url}" target="_blank" rel="noopener">Visit live demo →</a></div>
     </article>` + S.recent.items.map(r => `
     <article class="h-card">
-      <div class="browser" data-lb="${r.video}" data-lb-type="video" data-lb-cap="${esc(r.t)}" data-cursor="Play"><div class="browser-bar"><i></i><i></i><i></i><em>${esc(r.domain)}</em></div><div class="browser-screen"><video data-src="${r.video}" muted loop playsinline preload="none"></video></div></div>
+      <div class="browser" data-lb="${r.video}" data-lb-type="video" data-lb-cap="${esc(r.t)}" data-cursor="Play"><div class="browser-bar"><i></i><i></i><i></i><em>${esc(r.domain)}</em></div><div class="browser-screen"><video data-src="${r.video}"${r.poster ? ` poster="${r.poster}"` : ''} muted loop playsinline preload="none"></video></div></div>
       <div class="h-copy"><p class="kicker">${esc(r.kind)}</p><h3>${esc(r.t)}</h3><p>${esc(r.d)}</p><a class="link" href="${r.url}" target="_blank" rel="noopener">Visit live site →</a></div>
     </article>`).join(''));
 
-  const CATS = { client: 'Client website', funnel: 'Sales funnel', personal: 'Personal & agency' };
+  const CATS = { client: 'Client website', funnel: 'Sales funnel', personal: 'Personal & agency', demo: 'Demo build' };
   fill('#siteRail', S.sites.map(s => `
     <article class="site" data-cat="${s.cat}">
       <a class="site-thumb" href="${s.url}" target="_blank" rel="noopener" data-cursor="Open" draggable="false">${s.video ? `<video data-src="${s.video}" muted loop playsinline preload="none"></video>` : `<img src="${s.img}" alt="${esc(s.t)} website" loading="lazy" draggable="false">`}</a>
@@ -131,10 +151,25 @@
     gsap.ticker.add(t => lenis.raf(t * 1000));
     gsap.ticker.lagSmoothing(0);
   }
-  const goTo = target => {
+  const goTo = (target, tries = 0) => {
     const el = typeof target === 'string' ? $(target) : target;
     if (!el) return;
-    lenis ? lenis.scrollTo(el, { offset: -10, duration: 1.4 }) : el.scrollIntoView({ behavior: 'smooth' });
+    if (tries === 0) {
+      // load every lazy image above the target first, so the page stops growing mid-scroll
+      $$('img[loading="lazy"]').forEach(im => {
+        if (im.compareDocumentPosition(el) & Node.DOCUMENT_POSITION_FOLLOWING) im.loading = 'eager';
+      });
+    }
+    if (!lenis) { el.scrollIntoView({ behavior: RM ? 'auto' : 'smooth' }); return; }
+    lenis.scrollTo(el, {
+      offset: -10,
+      duration: tries ? .6 : 1.4,
+      onComplete: () => {
+        // if anything above it changed height on the way, land exactly on it
+        const miss = el.getBoundingClientRect().top - 10;
+        if (Math.abs(miss) > 6 && tries < 3) goTo(el, tries + 1);
+      },
+    });
   };
   document.addEventListener('click', e => {
     const a = e.target.closest('a[href^="#"]');
@@ -319,14 +354,51 @@
   lb.addEventListener('touchend', e => { if (sx0 == null) return; const dx = e.changedTouches[0].clientX - sx0; if (Math.abs(dx) > 50) stepLb(dx < 0 ? 1 : -1); sx0 = null; });
 
   /* =========================================================
-     8. HERO
+     8. HERO — 3D MacBook video player
   ========================================================= */
   (() => {
-    const slider = $('#heroSlider'), imgs = $$('#heroSlider img'), url = $('#heroUrl');
-    let i = 0;
-    const show = n => { imgs.forEach((im, k) => im.classList.toggle('is-on', k === n)); url.textContent = S.heroShots[n].label; };
-    if (!RM) setInterval(() => { i = (i + 1) % imgs.length; show(i); }, 3200);
-    const open = () => openLb(S.heroShots.map(h => ({ src: h.src, cap: h.label })), i);
+    const slider = $('#heroSlider'), vids = $$('.hm-vid', slider), dots = $$('#hmDots button'), url = $('#heroUrl'), mac = $('#hmMac');
+    const MAX = 12000; // longest a site stays on screen (ms)
+    let i = 0, live = false, timer = 0;
+    const load = v => { if (!v.getAttribute('src')) { v.preload = 'auto'; v.src = v.dataset.src; } v.muted = true; };
+    const fillDot = (k, p) => { const b = dots[k] && $('i', dots[k]); if (b) b.style.width = (p * 100) + '%'; };
+    const play = () => {
+      clearTimeout(timer);
+      const v = vids[i];
+      load(v);
+      if (!live || RM) { v.pause(); return; }
+      v.play().catch(() => {});
+      timer = setTimeout(() => show(i + 1), MAX);
+    };
+    const show = n => {
+      vids[i].pause(); fillDot(i, 0);
+      i = (n + vids.length) % vids.length;
+      vids.forEach((v, k) => v.classList.toggle('is-on', k === i));
+      dots.forEach((d, k) => d.classList.toggle('is-on', k === i));
+      url.textContent = HERO[i].label;
+      try { vids[i].currentTime = 0; } catch (e) {}
+      play();
+      load(vids[(i + 1) % vids.length]); // warm up the next one
+    };
+    vids.forEach((v, k) => {
+      v.addEventListener('ended', () => { if (k === i) show(i + 1); });
+      v.addEventListener('error', () => { if (k === i) setTimeout(() => show(i + 1), 1500); });
+      v.addEventListener('timeupdate', () => { if (k === i && v.duration) fillDot(k, Math.min(v.currentTime / Math.min(v.duration, MAX / 1000), 1)); });
+    });
+    dots.forEach((d, k) => d.addEventListener('click', e => { e.stopPropagation(); show(k); }));
+    ScrollTrigger.create({ trigger: '#home', start: 'top bottom', end: 'bottom top', onToggle: s => { live = s.isActive; play(); } });
+    load(vids[0]);
+
+    if (FINE && !RM) {
+      slider.addEventListener('pointermove', e => {
+        const r = slider.getBoundingClientRect(), px = (e.clientX - r.left) / r.width - .5, py = (e.clientY - r.top) / r.height - .5;
+        mac.style.setProperty('--ry', `${-20 + px * 16}deg`);
+        mac.style.setProperty('--rx', `${16 - py * 10}deg`);
+      });
+      slider.addEventListener('pointerleave', () => { mac.style.removeProperty('--ry'); mac.style.removeProperty('--rx'); });
+    }
+
+    const open = () => openLb(HERO.map(h => ({ src: h.src, cap: h.cap, type: 'video' })), i);
     slider.addEventListener('click', open);
     slider.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
 
@@ -471,7 +543,8 @@
     if (isIntersecting) { if (!v.getAttribute('src')) v.src = v.dataset.src; v.muted = true; if (!RM) v.play().catch(() => {}); }
     else if (!v.paused) v.pause();
   }), { rootMargin: '250px 0px', threshold: .1 });
-  $$('video[data-src]:not(.cn-vid)').forEach(v => vio.observe(v));   // .cn-vid (3D showcase) is controlled by showcase3d.js
+  // .cn-vid (3D showcase) and .hm-vid (hero MacBook) manage their own playback
+  $$('video[data-src]:not(.cn-vid):not(.hm-vid)').forEach(v => vio.observe(v));
 
   /* =========================================================
      11. 3D WEBSITE PLAYER
