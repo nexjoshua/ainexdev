@@ -313,3 +313,42 @@ window.SITE.gallery = [
   { img: './images/claude-code-output.png', t: 'Claude Code agent output' },
   { img: './images/web-form-nc.png', t: 'North City Roofing web form' },
 ];
+/* ===== Premium website samples (section #premium-samples, right after the hero) =====
+   desktop / mobile = your screen recordings.
+   accent / glow    = the section's colours while that site is showing.
+   macZoom / macShift: if a desktop recording includes the browser bar or macOS menu bar,
+   crop it, e.g. macZoom: 1.15, macShift: '-3%'. */
+window.SITE.premium = [
+  {
+    t: 'Coastal Air & Electrical', tab: 'Air con · Seaford SA',
+    kind: 'Air con, electrical & batteries · Seaford SA', status: 'Live client site',
+    domain: 'coastalairandelectrical.com.au', url: 'https://coastalairandelectrical.com.au/',
+desktop: './videos/coastal-video.mp4', mobile: './videos/coastal-phone.mp4',
+    accent: '#7fd3e6', glow: '#1f7fa3', ghost: 'Coastal Air',
+    macZoom: 1, macShift: '0%',
+    d: 'A cinematic build for a southern Adelaide air con, electrical and battery team. The homepage tells the install story as you scroll, then lets visitors play with it, and every path leads to a free quote.',
+    feats: [
+      'Scroll-told install story, from first bracket to switch-on',
+      'Drag-to-set temperature dial that changes the room',
+      'Split-or-ducted finder quiz and myth-vs-fact flip cards',
+      'Free-quote funnel with a text-your-photos shortcut',
+    ],
+    stats: [{ n: '5.0★', l: 'Google rating, 136 reviews' }, { n: '05', l: 'Scroll-driven install steps' }, { n: '22°', l: 'Interactive comfort dial' }],
+  },
+  {
+    t: 'Lovesick Wedding Photography', tab: 'Weddings · Photo + film',
+    kind: 'Wedding photography + film · Australia', status: 'Live preview',
+    domain: 'nexjoshua.github.io/lovesick', url: 'https://nexjoshua.github.io/lovesick/index.html',
+    desktop: './videos/lovesick-video.mp4', mobile: './videos/lovesick-phone.mp4',
+    accent: '#f2a9b8', glow: '#7f3242', ghost: 'Lovesick',
+    macZoom: 1, macShift: '0%',
+    d: 'An editorial site for a wedding photo and film team, designed to feel like looking through the lens: a "loading the lens" intro, a camera-viewfinder hero and a wine-and-cream palette that matches the work itself.',
+    feats: [
+      'Viewfinder hero with a live REC, f-stop and ISO overlay',
+      'Drag-and-swipe story carousel with a full-screen viewer',
+      'Photo, Photo + Film and Film collections side by side',
+      '"Is your date still free?" enquiry with a 24-hour reply',
+    ],
+    stats: [{ n: '4K', l: 'Viewfinder-style hero' }, { n: '08', l: 'Frames in the story rail' }, { n: '24h', l: 'Date-check reply' }],
+  },
+];
