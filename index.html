@@ -24,6 +24,7 @@
 <link rel="stylesheet" href="./site.css">
 <link rel="stylesheet" href="./showcase3d.css">
 <link rel="stylesheet" href="./extras.css">
+<link rel="stylesheet" href="./premium.css">
 </head>
 <body>
 
@@ -149,7 +150,32 @@
 
     <a href="#story" class="cue"><span>Learn more</span><i>↓</i></a>
   </section>
+  <!-- ============ PREMIUM WEBSITE SAMPLES (3D MacBook + iPhone) ============ -->
+  <section class="pw" id="premium-samples" data-group="home" data-narrate="Premium sites,|built to *impress*." aria-label="Premium website samples">
+    <div class="pw-bg" aria-hidden="true"></div>
+    <div class="pw-ghost" id="pwGhost" aria-hidden="true"></div>
+    <div class="pw-in">
+      <div class="head center">
+        <p class="kicker">Premium website samples</p>
+        <h2 class="split">Fresh builds, <em>on every screen.</em></h2>
+        <p>Two recent sites, recorded live on a laptop and a phone. Pick one, or click a screen to watch it full size.</p>
+      </div>
 
+      <div class="pw-main" id="pwMain">
+        <div class="pw-tabs" id="pwTabs" role="tablist" aria-label="Choose a website"></div>
+        <div class="pw-stage" id="pwStage" data-lb-group>
+          <span class="pw-chip"><span class="dot"></span><b id="pwChip">Live site</b></span>
+        </div>
+        <div class="pw-copy" id="pwCopy" aria-live="polite"></div>
+      </div>
+
+      <div class="pw-foot">
+        <span class="pw-hint-fine">Move your mouse over the devices · click a screen to watch it full size</span>
+        <span class="pw-hint-touch">Tap a screen to watch it full size</span>
+        <button class="btn btn-solid" type="button" data-hire>Get a website like this</button>
+      </div>
+    </div>
+  </section>
   <div class="marquee" data-tools aria-label="Tools I use every day"></div>
 
   <!-- ============ STORY ============ -->
@@ -970,5 +996,6 @@
 <script src="./site.js"></script>
 <script src="./showcase3d.js"></script>
 <script src="./extras.js"></script>
+<script src="./premium.js"></script>
 </body>
 </html>
