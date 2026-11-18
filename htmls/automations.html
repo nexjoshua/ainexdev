@@ -1,536 +1,442 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Sample Automations — Ainex</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sample Automations · AINEX</title>
+<meta name="description" content="Real GoHighLevel, Make.com and Zapier automations built for client accounts: booking agents, lead engines, reservation campaigns and CRM syncs.">
+<link rel="icon" href="/images/logo-x.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,400&family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-<link rel="icon" href="/images/logo-x.png" type="image/png" />
-<link rel="stylesheet" href="/styles.css" />
+<link href="https://fonts.googleapis.com/css2?family=Inria+Sans:wght@400;700&family=JetBrains+Mono:wght@400;500;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/site.css">
 <style>
-  /* Fallback sizing so icons never blow up if the stylesheet is slow */
-  .topnav-social-icon svg, .icon-link svg { width:18px; height:18px; }
-  .brand-tri svg { width:6px; height:6px; }
-  .glass-cursor svg { width:16px; height:16px; }
-  .scroll-top svg { width:26px; height:26px; }
+  /* ---- Page-specific additions (built on site.css tokens) ---- */
+  .page-hero{border-bottom:1px solid var(--line);background:radial-gradient(900px 520px at 15% 0%,rgba(91,125,140,.2),transparent 60%)}
+  .page-hero .wrap{padding-block:clamp(64px,9vw,120px)}
+  .page-hero .h-display{font-size:clamp(2.4rem,5.4vw,4.6rem)}
+  .page-hero .hero-ctas{margin-top:30px}
 
-  /* ---------- Tools marquee ---------- */
-  .nx-marquee-section{
-    position:relative; width:100%; padding:56px 0; overflow:hidden; text-align:center;
-  }
-  .nx-marquee-label{
-    margin:0 0 32px; font-family:'Nunito',sans-serif; font-weight:400;
-    font-size:16px; color:#e6e6e6;
-  }
-  @media(min-width:640px){ .nx-marquee-label{ font-size:19px; } }
-  .nx-marquee-viewport{
-    position:relative; width:100%; overflow:hidden;
-    -webkit-mask-image:linear-gradient(to right, transparent, #fff 8%, #fff 92%, transparent);
-    mask-image:linear-gradient(to right, transparent, #fff 8%, #fff 92%, transparent);
-  }
-  .nx-marquee-track{
-    display:flex; align-items:center; width:max-content; gap:18px;
-    animation:nxMarqueeScroll 36s linear infinite;
-  }
-  .nx-marquee-viewport:hover .nx-marquee-track{ animation-play-state:paused; }
-  .nx-chip{
-    flex:none; padding:.7rem 1.4rem; border-radius:99px;
-    border:1px solid var(--panel-border); background:rgba(255,255,255,.03);
-    font-family:'Nunito',sans-serif; font-weight:700; font-size:.95rem;
-    color:#d9d5d4; letter-spacing:.01em; white-space:nowrap;
-    transition:border-color .25s, color .25s;
-  }
-  .nx-chip:hover{ border-color:var(--accent-bright); color:var(--accent-bright); }
-  @keyframes nxMarqueeScroll{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
-  @media(prefers-reduced-motion: reduce){
-    .nx-marquee-track{ animation:none; flex-wrap:wrap; justify-content:center; width:100%; }
-    .nx-marquee-viewport{ -webkit-mask-image:none; mask-image:none; }
-    .nx-marquee-dup{ display:none; }
-  }
+  .sec-head{max-width:760px}
+  .sec-head .h-mix{max-width:28ch;margin-top:14px}
 
-  /* ---------- North City Roofing section ---------- */
-  .ncr-groups{ margin-top:.5rem; }
-  .ncr-groups .automation-caption strong{ font-size:1rem; }
-  .ncr-count{
-    display:inline-block; font-size:.68rem; font-weight:700; letter-spacing:.08em;
-    text-transform:uppercase; color:var(--accent-bright); margin-bottom:.35rem;
+  /* Screenshot cards */
+  .gal{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:44px}
+  .gal--3{grid-template-columns:repeat(3,1fr)}
+  .gal .wide{grid-column:1/-1}
+  .shot-card{display:flex;flex-direction:column;--brk-bg:var(--bg2)}
+  .shot-btn{display:block;width:100%;padding:0;border:0;background:var(--deep);cursor:zoom-in;overflow:hidden;border-bottom:1px solid var(--line);aspect-ratio:16/10}
+  .wide .shot-btn{aspect-ratio:21/9}
+  .shot-btn img{width:100%;height:100%;object-fit:cover;object-position:top center;transition:transform .8s var(--ease)}
+  .shot-card:hover .shot-btn img{transform:scale(1.03)}
+  .shot-body{padding:20px 22px 24px;display:flex;flex-direction:column;gap:10px}
+  .shot-body h3{font:700 1.3rem/1.2 var(--font-display)}
+  .shot-body p{color:var(--muted);font-size:.93rem;line-height:1.6}
+  .shot-count{font:700 .7rem var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--accent-bright)}
+
+  /* Appointwise feature */
+  .feature{display:grid;grid-template-columns:1.25fr .75fr;gap:22px;margin-top:44px;align-items:stretch}
+  .phone-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:32px 22px;--brk-bg:var(--deep)}
+  .phone{width:220px;aspect-ratio:9/19;border-radius:38px;padding:10px;background:linear-gradient(155deg,#3a3a3e,#0a0a0b 45%,#38383c);box-shadow:inset 0 0 0 1px rgba(255,255,255,.08),0 30px 60px -20px rgba(0,0,0,.8),0 0 60px -10px rgba(127,184,204,.35)}
+  .phone video{width:100%;height:100%;object-fit:cover;border-radius:30px;background:#000;display:block}
+  .phone-wrap p{color:var(--muted);font-size:.9rem;text-align:center;max-width:32ch}
+
+  /* Flow diagram */
+  .flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:10px;margin-top:44px}
+  .flow-node{flex:1 1 140px;padding:18px 16px;display:flex;flex-direction:column;gap:4px;--brk-bg:var(--bg)}
+  .flow-node b{font:700 1.08rem/1.2 var(--font-display)}
+  .flow-node small{font:400 .72rem var(--font-mono);color:var(--muted-2)}
+  .flow-node .label{font-size:.62rem}
+  .flow-node--hub{--brk-bg:var(--ice-12)}
+  .flow-arrow{align-self:center;color:var(--accent-bright);font:700 1rem var(--font-mono)}
+
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,48px);align-items:center;margin-top:56px}
+  .split h3{font:700 clamp(1.5rem,2.6vw,2rem)/1.15 var(--font-display);margin:12px 0 14px}
+  .split > div > p{color:var(--muted)}
+  .actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:40px}
+
+  /* Tools marquee */
+  .tools-band .wrap{padding-block:34px}
+
+  /* Lightbox */
+  .lb{border:0;padding:0;background:transparent;max-width:min(1200px,94vw);max-height:92vh}
+  .lb::backdrop{background:rgba(5,5,6,.9);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+  .lb img{max-width:100%;max-height:84vh;object-fit:contain;display:block;margin:auto;border:1px solid var(--line-2)}
+  .lb p{color:var(--muted);font:400 .8rem var(--font-mono);text-align:center;margin-top:12px}
+  .lb-close{position:fixed;top:18px;right:18px;width:44px;height:44px;border-radius:50%;border:1px solid var(--line-2);background:var(--bg2);color:var(--text);font-size:1.1rem;cursor:pointer}
+
+  @media (max-width:960px){
+    .feature,.split,.gal,.gal--3{grid-template-columns:1fr}
+    .flow-arrow{transform:rotate(90deg);flex-basis:100%;text-align:center}
   }
-  .ncr-checks{ list-style:none; padding:0; margin:.5rem 0 0; display:flex; flex-direction:column; gap:.75rem; }
-  .ncr-checks li{ color:var(--muted); font-size:.88rem; line-height:1.6; padding-left:1.4rem; position:relative; }
-  .ncr-checks li::before{ content:"✓"; position:absolute; left:0; color:var(--accent-bright); font-weight:700; }
-  .ncr-checks strong{ color:var(--text); }
-  .ncr-copy h3{ font-size:1.3rem; margin-bottom:.6rem; }
-  .ncr-copy p{ color:var(--muted); font-size:.92rem; line-height:1.65; }
 </style>
 </head>
-<body class="has-bg-video">
+<body>
+<a class="skip" href="#main">Skip to content</a>
 
-<div class="page-bg-video" aria-hidden="true">
-  <video src="/videos/video.mp4" autoplay muted loop playsinline></video>
-  <div class="page-bg-overlay"></div>
-</div>
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="/" aria-label="AINEX home">
+      <span class="logo-word">AINE<span class="logo-x">X</span></span>
+      <span class="logo-sub">Automations</span>
+    </a>
+    <nav id="site-nav" class="nav brk" aria-label="Main">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="#appointwise">Appointwise</a></li>
+        <li><a href="#ncr-lead-engine">Lead Engine</a></li>
+        <li><a href="#valle-del-sol">Reservations</a></li>
+        <li><a href="#more">More</a></li>
+      </ul>
+      <a class="btn btn-cta nav-mobile-cta" href="https://wa.me/639696171479" target="_blank" rel="noopener">Chat on WhatsApp</a>
+    </nav>
+    <a class="btn btn-cta header-cta" href="https://wa.me/639696171479" target="_blank" rel="noopener">Book a call</a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu"><span class="bars"></span></button>
+  </div>
+</header>
 
-<div id="preloader">
-  <video src="/videos/landscape-logox.mp4" autoplay muted playsinline></video>
-  <span class="preloader-skip">click to skip</span>
-</div>
+<main id="main">
 
-<div class="glass-cursor" id="cursor">
-  <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" x2="14" y1="3" y2="10"></line><line x1="3" x2="10" y1="21" y2="14"></line></svg>
-</div>
-<div class="backdrop-blur-layer"></div>
-<div class="layout-gradient"></div>
-
-<div class="page">
-
-  <a class="brand" href="/index.html">
-    <img src="/images/ainex-logowhite.png" alt="NexSale — Joshua Mendoza" class="brand-logo">
-    <i class="brand-tri brand-tri-left"><svg viewBox="0 0 24 24" fill="#fff" width="6" height="6"><path d="M13.73 4a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path></svg></i>
-    <i class="brand-tri brand-tri-right"><svg viewBox="0 0 24 24" fill="#fff" width="6" height="6"><path d="M13.73 4a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path></svg></i>
-  </a>
-
-  <nav class="topnav">
-    <div class="nav-links">
-      <a href="/index.html" class="navlink"><span>Home</span></a>
-      <a href="/htmls/services.html" class="navlink"><span>Services</span></a>
-      <a href="/htmls/portfolio.html" class="navlink"><span>Portfolio</span></a>
-      <a href="/htmls/automations.html" class="navlink is-active"><span>Automations</span></a>
-      <a href="/htmls/about.html" class="navlink"><span>About</span></a>
-      <a href="/htmls/contact.html" class="nav-cta">Hire Me →</a>
+  <!-- ============ HERO ============ -->
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="tag brk">Inside The Build</span>
+      <h1 class="h-display"><span>Sample</span><span class="hl">Automations</span></h1>
+      <p class="sub">Real GoHighLevel workflows, pipelines and webhook logic built for live client accounts. <strong>Click any screenshot to view it full size.</strong></p>
+      <div class="hero-ctas">
+        <a class="btn btn-cta btn-lg" href="https://wa.me/639696171479" target="_blank" rel="noopener">Get one built for you</a>
+        <a class="btn btn-stripe btn-lg" href="#ncr-lead-engine">See the case study</a>
+      </div>
     </div>
-    <div class="topnav-actions">
-      <div class="topnav-social">
-        <a href="https://wa.me/639696171479" target="_blank" rel="noopener" class="topnav-social-icon" aria-label="WhatsApp">
-          <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12.031 6.172c-5.055 0-9.363 4.109-9.365 9.163a9.32 9.32 0 001.24 4.657l-1.313 4.792 4.917-1.288a9.36 9.36 0 004.514 1.15h.004c5.055 0 9.365-4.109 9.367-9.163a9.099 9.099 0 00-2.652-6.503 9.061 9.061 0 00-6.712-2.808zm5.518 13.028c-.235.663-1.377 1.267-1.898 1.336-.484.065-1.09.093-1.756-.11-.405-.121-.923-.284-1.594-.559-2.807-1.212-4.634-4.02-4.777-4.208-.14-.187-1.144-1.522-1.144-2.905 0-1.383.727-2.06.984-2.34.256-.279.56-.348.746-.348.187 0 .373.001.535.008.171.007.4-.065.628.481.235.56.797 1.943.867 2.087.07.14.117.303.023.489-.093.187-.14.302-.28.465-.14.164-.294.365-.42.49-.14.14-.286.29-.123.567.163.279.727 1.198 1.56 1.94 1.072.956 1.977 1.253 2.256 1.394.28.14.443.117.606-.07.163-.187.703-.82.89-1.1.187-.28.375-.234.634-.14.258.093 1.638.774 1.918.913.28.14.466.211.535.328.07.117.07.678-.163 1.34z"></path></svg>
-        </a>
-        <a href="https://www.instagram.com/shuamndz/" target="_blank" rel="noopener" class="topnav-social-icon" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-        </a>
-        <a href="https://www.facebook.com/shuamndz1123/" target="_blank" rel="noopener" class="topnav-social-icon" aria-label="Facebook">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-        </a>
-        <a href="https://www.linkedin.com/in/joshua-mendoza-461a23374/" target="_blank" rel="noopener" class="topnav-social-icon" aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4V8h4v1.5A6 6 0 0 1 16 8z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-        </a>
+  </section>
+
+  <!-- ============ TOOLS ============ -->
+  <section class="sec band tools-band" aria-label="Tools">
+    <div class="wrap">
+      <div class="marquee">
+        <div data-marquee style="--dur:40s">
+          <span class="logo-item">GoHighLevel</span>
+          <span class="logo-item">Make.com</span>
+          <span class="logo-item">Zapier</span>
+          <span class="logo-item">n8n</span>
+          <span class="logo-item">Supabase</span>
+          <span class="logo-item">JobNimbus</span>
+          <span class="logo-item">OpenTable</span>
+          <span class="logo-item">monday.com</span>
+          <span class="logo-item">Claude</span>
+          <span class="logo-item">ChatGPT</span>
+          <span class="logo-item">Vercel</span>
+        </div>
       </div>
-      <a href="/htmls/contact.html" class="nav-cta">Hire Me →</a>
     </div>
-  </nav>
-  <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </section>
 
-  <main>
-    <section class="page-banner">
-      <h2 class="eyebrow-label" style="justify-content:center">Inside The Build</h2>
-      <h1>Sample Automations</h1>
-      <p>A look at real GoHighLevel workflows, pipelines, and webhook logic built for client accounts.</p>
-    </section>
-
-    <!-- ============ FEATURED AUTOMATION: APPOINTWISE ============ -->
-    <section class="section" id="appointwise" style="margin-top:2rem">
-      <div class="autospot-section">
-        <div class="autospot-head">
-          <span class="eyebrow-label" style="justify-content:center">Appointwise · Featured Automation</span>
-          <h2>Appointwise — A Booking Agent Wired Straight Into GoHighLevel</h2>
-          <p>Appointwise is a conversational AI agent built entirely inside GoHighLevel's conversation builder — qualifying leads, answering questions, handling objections, and booking the call without a human ever touching the conversation.</p>
-        </div>
-
-        <div class="autospot-shots">
-          <div class="autospot-shot-col">
-            <div class="autospot-shot" data-cursor="expand">
-              <img src="/New videos/appointwise-workflow.jpg" alt="Appointwise conversation builder inside GoHighLevel — qualification flow, booking logic, and objection handling wired end to end">
-              <span class="autospot-shot-tag">GHL Wired</span>
-            </div>
-            <p class="autospot-shot-caption"><strong>The Full Conversation Builder</strong>Every branch of the Appointwise agent — qualification questions, objection handling, booking hand-off, and lost/won outcomes — built entirely inside GoHighLevel's conversation builder.</p>
+  <!-- ============ APPOINTWISE ============ -->
+  <section class="sec" id="appointwise">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="label">Appointwise · Featured Automation</p>
+        <h2 class="h-mix">A booking agent wired straight into <span class="hl">GoHighLevel</span></h2>
+        <p class="sub">A conversational AI agent built inside GoHighLevel's conversation builder. It qualifies leads, answers questions, handles objections and books the call without a human touching the conversation.</p>
+      </div>
+      <div class="feature reveal">
+        <figure class="shot-card brk">
+          <button class="shot-btn" type="button" data-full="/New%20videos/appointwise-workflow.jpg" data-cap="Appointwise conversation builder">
+            <img src="/New%20videos/appointwise-workflow.jpg" alt="Appointwise conversation builder inside GoHighLevel" loading="lazy">
+          </button>
+          <figcaption class="shot-body">
+            <h3>The full conversation builder</h3>
+            <p>Every branch of the agent: qualification questions, objection handling, booking hand-off, and lost/won outcomes.</p>
+          </figcaption>
+        </figure>
+        <div class="phone-wrap brk">
+          <div class="phone">
+            <video src="/New%20videos/appointwise-demo-video.mp4" autoplay muted loop playsinline></video>
           </div>
-
-          <div class="autospot-shot-col" style="align-items:center;text-align:center">
-            <div class="aphone-orbit" data-cursor="expand" style="margin:0 auto">
-              <div class="aphone-glow"></div>
-              <div class="aphone-ring r1"></div>
-              <div class="aphone-ring r2"></div>
-              <div class="aphone-ring r3"></div>
-              <div class="aphone-device">
-                <div class="iphone-frame">
-                  <div class="iphone-island"></div>
-                  <div class="iphone-screen">
-                    <video class="aphone-video" src="/New videos/appointwise-demo-video.mp4" autoplay muted loop playsinline></video>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <p class="autospot-shot-caption" style="margin-top:1rem"><strong>Appointwise, Live in Conversation</strong>A real conversation with the agent — qualifying the lead and booking the appointment automatically, no human in the loop.</p>
-          </div>
+          <p>A real conversation: the agent qualifies the lead and books the appointment automatically.</p>
         </div>
       </div>
-    </section>
-
-    <!-- ============ TOOLS MARQUEE ============ -->
-    <section class="nx-marquee-section">
-      <p class="nx-marquee-label">Powered by the tools I use every day:</p>
-      <div class="nx-marquee-viewport">
-        <div class="nx-marquee-track">
-          <span class="nx-chip">GoHighLevel</span>
-          <span class="nx-chip">Claude</span>
-          <span class="nx-chip">ChatGPT</span>
-          <span class="nx-chip">Gemini</span>
-          <span class="nx-chip">GitHub</span>
-          <span class="nx-chip">VS Code</span>
-          <span class="nx-chip">Vercel</span>
-          <span class="nx-chip">n8n</span>
-          <span class="nx-chip">Make</span>
-          <span class="nx-chip">Zapier</span>
-          <span class="nx-chip">Canva</span>
-          <span class="nx-chip">CapCut</span>
-          <span class="nx-chip">Hostinger</span>
-          <span class="nx-chip">Manus</span>
-          <span class="nx-chip">Agent AI</span>
-          <!-- duplicate set for the seamless loop -->
-          <span class="nx-chip nx-marquee-dup" aria-hidden="true">GoHighLevel</span>
-          <span class="nx-chip nx-marquee-dup" aria-hidden="true">Claude</span>
-          <span class="nx-chip nx-marquee-dup" aria-hidden="true">ChatGPT</span>
-          <span class="nx-chip nx-marquee-dup" aria-hidden="true">Gemini</span>
-          <span class="nx-chip nx-marquee-dup" aria-hidden="true">GitHub</span>
-          <span class="nx-chip nx-marquee-dup" aria-hidden="true">VS Code</span>
-          <span class="nx-chip nx-marquee-dup" aria-hidden="true">Vercel</span>
-          <span class="nx-chip nx-marquee-dup" aria-hidden="true">n8n</span>
-          <span class="nx-chip nx-marquee-dup" aria-hidden="true">Make</span>
-          <span class="nx-chip nx-marquee-dup" aria-hidden="true">Zapier</span>
-          <span class="nx-chip nx-marquee-dup" aria-hidden="true">Canva</span>
-          <span class="nx-chip nx-marquee-dup" aria-hidden="true">CapCut</span>
-          <span class="nx-chip nx-marquee-dup" aria-hidden="true">Hostinger</span>
-          <span class="nx-chip nx-marquee-dup" aria-hidden="true">Manus</span>
-          <span class="nx-chip nx-marquee-dup" aria-hidden="true">Agent AI</span>
-        </div>
-      </div>
-    </section>
-
-    <div class="sections-flow" style="margin-top:2rem">
-
-      <!-- ============ CASE STUDY: NORTH CITY ROOFING LEAD ENGINE ============ -->
-      <section class="section" id="ncr-lead-engine">
-        <div class="autospot-section">
-          <div class="autospot-head">
-            <span class="eyebrow-label" style="justify-content:center">Case Study · North City Roofing</span>
-            <h2>A 17-Workflow Lead Engine for a Roofing Company</h2>
-            <p>Website and Yelp leads used to land in separate inboxes and get retyped into JobNimbus by hand. Now 17 GoHighLevel workflows catch every lead, keep the field team's app in sync, and hand each qualified job to sales exactly once.</p>
-          </div>
-
-          <div class="autospot-flow">
-            <div class="autospot-node"><span>Website + Yelp</span><small>Form &amp; Zapier sync</small></div>
-            <div class="autospot-line"></div>
-            <div class="autospot-node is-hub"><span>GoHighLevel</span><small>17 live workflows</small></div>
-            <div class="autospot-line"></div>
-            <div class="autospot-node"><span>Ops Dashboard</span><small>React + Supabase</small></div>
-            <div class="autospot-line"></div>
-            <div class="autospot-node"><span>Qualified Job</span><small>6-step inspection</small></div>
-            <div class="autospot-line"></div>
-            <div class="autospot-node"><span>JobNimbus</span><small>Sent once, tag-guarded</small></div>
-            <div class="autospot-line"></div>
-            <div class="autospot-node"><span>Team Alerts</span><small>Sales knows instantly</small></div>
-          </div>
-
-          <div class="autospot-stats">
-            <div class="autospot-stat"><strong>17</strong><span>Live workflows</span></div>
-            <div class="autospot-stat"><strong>43,000</strong><span>Duplicates eliminated</span></div>
-            <div class="autospot-stat"><strong>5 → 1</strong><span>Tools merged</span></div>
-          </div>
-
-          <div class="site-grid cols-3 ncr-groups">
-            <div class="automation-card">
-              <div class="shot" data-cursor="expand">
-                <div class="shot-glow" style="background:var(--accent-bright)"></div>
-                <img src="/assets/case-studies/north-city-roofing/ncr-workflows-website.webp" loading="lazy" alt="GoHighLevel folder holding the six website lead workflows" onerror="this.style.display='none'">
-                <span class="shot-label">ncr-workflows-website.webp</span>
-              </div>
-              <div class="automation-caption">
-                <span class="ncr-count">6 workflows</span>
-                <strong>Website leads</strong>Every booking-form submission becomes a tagged contact and opportunity the moment it arrives, with booking and follow-up handled automatically.
-              </div>
-              <div class="tags"><span class="tag">Webhook intake</span><span class="tag">Opportunities</span><span class="tag">Auto follow-up</span></div>
-            </div>
-
-            <div class="automation-card">
-              <div class="shot" data-cursor="expand">
-                <div class="shot-glow" style="background:var(--accent-bright)"></div>
-                <img src="/assets/case-studies/north-city-roofing/ncr-workflows-yelp.webp" loading="lazy" alt="GoHighLevel folder holding the seven Yelp lead workflows" onerror="this.style.display='none'">
-                <span class="shot-label">ncr-workflows-yelp.webp</span>
-              </div>
-              <div class="automation-caption">
-                <span class="ncr-count">7 workflows</span>
-                <strong>Yelp leads</strong>Zapier pulls leads out of the Yelp inbox and into GoHighLevel, so they get the same instant follow-up as website leads instead of sitting unseen.
-              </div>
-              <div class="tags"><span class="tag">Zapier</span><span class="tag">Yelp sync</span><span class="tag">Tag guards</span></div>
-            </div>
-
-            <div class="automation-card">
-              <div class="shot" data-cursor="expand">
-                <div class="shot-glow" style="background:var(--accent-bright)"></div>
-                <img src="/assets/case-studies/north-city-roofing/ncr-workflows-supabase.webp" loading="lazy" alt="GoHighLevel folder holding the four Supabase dashboard sync workflows" onerror="this.style.display='none'">
-                <span class="shot-label">ncr-workflows-supabase.webp</span>
-              </div>
-              <div class="automation-caption">
-                <span class="ncr-count">4 workflows</span>
-                <strong>Dashboard sync</strong>Keeps the Supabase-backed ops app in step with GoHighLevel, so new contacts, assignments and completed inspections show up for the team in real time.
-              </div>
-              <div class="tags"><span class="tag">Supabase</span><span class="tag">Realtime</span><span class="tag">Batch upserts</span></div>
-            </div>
-          </div>
-
-          <div class="autospot-shots">
-            <div class="autospot-shot-col ncr-copy">
-              <span class="eyebrow-label">Deep Dive</span>
-              <h3>The JobNimbus handoff, without duplicates</h3>
-              <p>When an inspector marks a job qualified in the field app, one webhook carries the full assessment into GoHighLevel, which creates the matching JobNimbus job. A tag check runs before every send, so the same lead can't be pushed twice.</p>
-              <ul class="ncr-checks">
-                <li><strong>One payload per assessment.</strong> The whole inspection travels together, so nothing is retyped and nothing arrives half-filled.</li>
-                <li><strong>Tag guards on every send.</strong> A job that's already been handed off is skipped, even if a workflow fires again.</li>
-                <li><strong>43,000 duplicates eliminated.</strong> The old duplicate backlog was cleared, and the guards keep it from coming back.</li>
-              </ul>
-            </div>
-            <div class="autospot-shot-col">
-              <div class="autospot-shot" data-cursor="expand">
-                <img src="/assets/case-studies/north-city-roofing/ncr-ghl-jobnimbus-workflow.webp" loading="lazy" alt="GoHighLevel workflow that sends qualified jobs to JobNimbus, with tag checks before each send">
-                <span class="autospot-shot-tag">GHL → JobNimbus</span>
-              </div>
-              <p class="autospot-shot-caption"><strong>The handoff workflow</strong>A tag check runs before each send.</p>
-            </div>
-          </div>
-
-          <div class="hero-actions">
-            <a class="btn btn-light" href="/case-study-north-city-roofing.html">Read the full case study →</a>
-            <a class="btn btn-outline" href="/htmls/portfolio.html#featured-case-study">See it on the portfolio</a>
-          </div>
-        </div>
-      </section>
-
-      <!-- ============ AUTOMATIONS GALLERY ============ -->
-      <section class="section" id="automations-gallery">
-
-        <div class="section-head">
-          <span class="eyebrow-label">Valle Del Sol Cabo · Featured Build</span>
-          <h2 style="font-size:clamp(1.5rem,3vw,2rem)">OpenTable → Make.com → GHL Reservation Campaigns</h2>
-          <p>Every OpenTable reservation at Torote, the on-site restaurant for Valle Del Sol's development, flows into GoHighLevel and triggers a branching WhatsApp, email, and SMS sequence — one of several event-driven systems running behind the live site at <a href="https://valledelsolcabo.com/" target="_blank" rel="noopener" class="link-more" style="display:inline-flex;padding:0">valledelsolcabo.com →</a>.</p>
-        </div>
-
-        <div class="automation-card automation-card-wide">
-          <div class="shot glow-always" data-cursor="expand">
-            <div class="shot-glow" style="background:var(--accent-bright)"></div>
-            <img src="/images/complex-workflows.png" alt="Valle Del Sol reservation follow-up workflow with WhatsApp, email, and SMS branching" onerror="this.style.display='none'">
-            <span class="shot-label">vds-automation-reservation-campaign.jpg</span>
-          </div>
-          <div class="automation-caption"><strong>Reservation Reminder &amp; Confirmation Sequence</strong>Fires on a 7-day, 24-hour, and 2-minute countdown to every reservation — branches on guest reply ("Yes, Walk Me Through" / "No, Just Dinner" / timed out) and fans out into WhatsApp confirmations, backup emails, and an internal team notification the moment a guest responds. Delivery is tracked end to end on every channel.</div>
-        </div>
-
-        <div class="automations-grid" style="margin-top:1.5rem">
-          <div class="automation-card">
-            <div class="shot" data-cursor="expand">
-              <div class="shot-glow" style="background:var(--accent-bright)"></div>
-              <img src="/images/vds-automation-opentable-make-scenario.jpg" alt="Make.com scenario syncing OpenTable reservations into GoHighLevel contacts" onerror="this.style.display='none'">
-              <span class="shot-label">vds-automation-opentable-make-scenario.jpg</span>
-            </div>
-            <div class="automation-caption"><strong>OpenTable → GHL Contact Sync (Make.com)</strong>A scheduled Make.com scenario authenticates with the OpenTable API, pulls the live reservation list, iterates every guest, skips cancellations and no-shows, and upserts each one straight into GoHighLevel as a contact — the data source feeding the campaign above.</div>
-          </div>
-
-          <div class="automation-card">
-            <div class="shot" data-cursor="expand">
-              <div class="shot-glow" style="background:var(--accent-bright)"></div>
-              <img src="/images/vds-automation-workflow-overview.jpg" alt="Full reservation automation workflow tree from tag trigger to multi-channel outreach" onerror="this.style.display='none'">
-              <span class="shot-label">vds-automation-workflow-overview.jpg</span>
-            </div>
-            <div class="automation-caption"><strong>Full Workflow, Trigger to Outcome</strong>The complete tree — tag-based trigger, opportunity creation, a venue/date condition split, then three parallel time-gated branches that each run their own WhatsApp → email/SMS → delivery-tracking sequence.</div>
-          </div>
-        </div>
-
-        <p class="fineprint" style="text-align:center">Live on <a href="https://valledelsolcabo.com/" target="_blank" rel="noopener" class="link-more" style="display:inline-flex;padding:0">valledelsolcabo.com</a> — reservation reminders, confirmations, and internal alerts all run automatically, with no manual follow-up required.</p>
-
-        <div class="section-head" style="margin-top:2rem">
-          <span class="eyebrow-label">North City Roofing</span>
-          <h2 style="font-size:clamp(1.5rem,3vw,2rem)">Internal Ops Dashboard Automations</h2>
-          <p>Seven production workflows connect the roofing team's booking form, the internal dashboard, and Jobnimbus — all currently live.</p>
-        </div>
-
-        <div class="automations-grid">
-          <div class="automation-card automation-card-wide">
-            <div class="shot" data-cursor="expand">
-              <div class="shot-glow" style="background:var(--accent-bright)"></div>
-              <img src="/images/nc-automation-formintake.jpg" alt="North City Roofing Automation A form intake workflow" onerror="this.style.display='none'">
-              <span class="shot-label">nc-automation-formintake.jpg</span>
-            </div>
-            <div class="automation-caption"><strong>Automation A — Form Intake</strong>Branches new leads by urgency and source, tags and scores the contact, creates the matching GHL opportunity, and routes the notification path — all from one inbound webhook trigger. 6 live runs.</div>
-          </div>
-
-          <div class="automation-card">
-            <div class="shot" data-cursor="expand">
-              <div class="shot-glow" style="background:var(--accent-bright)"></div>
-              <img src="/images/nc-automation-visitinspection.jpg" alt="North City Roofing Visit Inspection Completed workflow" onerror="this.style.display='none'">
-              <span class="shot-label">nc-automation-visitinspection.jpg</span>
-            </div>
-            <div class="automation-caption"><strong>Visit Inspection Completed</strong>Fires when a field inspection wraps — creates the contact, updates the opportunity stage, and pushes the result to Jobnimbus via three chained custom webhooks. 28 live runs.</div>
-          </div>
-
-          <div class="automation-card">
-            <div class="shot" data-cursor="expand">
-              <div class="shot-glow" style="background:var(--accent-bright)"></div>
-              <img src="/images/supabase.png" alt="North City Roofing dashboard sign-in screen" onerror="this.style.display='none'">
-              <span class="shot-label">nc-dashboard-login.jpg</span>
-            </div>
-            <div class="automation-caption"><strong>Contact to Dashboard (Supabase)</strong>Every new contact created by these workflows syncs straight into the Supabase-backed dashboard behind this sign-in screen — 35 live runs, the busiest workflow in the build.</div>
-          </div>
-        </div>
-
-        <p class="fineprint" style="text-align:center">Full run stats — Contact to Dashboard: 35 · Visit Inspection Completed: 28 · Calendar Form Webhook: 19 · Call Completed → Supabase: 16 · Form Intake: 6 · Inspection Assign Rep: 6 · AI Intake: 0. See the full case study on the <a href="/htmls/portfolio.html#north-city-roofing" class="link-more" style="display:inline-flex;padding:0">Portfolio page →</a></p>
-
-        <div class="section-head" style="margin-top:2rem">
-          <span class="eyebrow-label">Valle Del Sol · Zapier · monday.com</span>
-          <h2 style="font-size:clamp(1.5rem,3vw,2rem)">Cross-Platform Builds</h2>
-          <p>Two more from live client accounts — a smart-branching form webhook, and a Zapier bridge that keeps a GHL proposal in sync with a monday.com board.</p>
-        </div>
-
-        <div class="automations-grid">
-          <div class="automation-card">
-            <div class="shot" data-cursor="expand">
-              <div class="shot-glow" style="background:var(--accent-bright)"></div>
-              <img src="/images/vds-automation-webhook.png" alt="Valle Del Sol form webhook workflow with opt-in branching" onerror="this.style.display='none'">
-              <span class="shot-label">vds-automation-webhook.png</span>
-            </div>
-            <div class="automation-caption"><strong>VDS Form Webhook — Opt-In Branching</strong>One inbound webhook creates the contact and opportunity, tags and notifies the team, then branches on brochure_opt_in and newsletter_opt_in — sending the right email combination and a matching source tag for every path.</div>
-          </div>
-
-          <div class="automation-card">
-            <div class="shot" data-cursor="expand">
-              <div class="shot-glow" style="background:var(--accent-bright)"></div>
-              <img src="/images/zapier-monday-proposal-sync.png" alt="Zapier workflow sending a GHL proposal and syncing monday.com" onerror="this.style.display='none'">
-              <span class="shot-label">zapier-monday-proposal-sync.png</span>
-            </div>
-            <div class="automation-caption"><strong>Proposal Send → monday.com Sync</strong>Zapier catches the trigger, fires a custom request straight into GHL's LeadConnector API to send the proposal, then finds and updates the matching item on the monday.com board — no manual status updates.</div>
-          </div>
-        </div>
-
-        <div class="section-head" style="margin-top:2rem">
-          <span class="eyebrow-label">General Purpose</span>
-          <h2 style="font-size:clamp(1.5rem,3vw,2rem)">More Sample Workflows</h2>
-        </div>
-
-        <div class="automations-grid">
-          <div class="automation-card">
-            <div class="shot" data-cursor="expand">
-              <div class="shot-glow" style="background:var(--accent-bright)"></div>
-              <img src="/automations/automation-callagent.png" alt="Post-Call Self-Selling Demo AI voice agent workflow" onerror="this.style.display='none'">
-              <span class="shot-label">automation-callagent.png</span>
-            </div>
-            <div class="automation-caption"><strong>Post-Call AI Self-Selling Demo</strong>AI voice-agent workflow — evaluates call duration and quality, updates contact tags, prompts the AI dynamically mid-call, and routes to a "Closer" or "Cold" path with automated follow-up actions.</div>
-          </div>
-
-          <div class="automation-card">
-            <div class="shot" data-cursor="expand">
-              <div class="shot-glow" style="background:var(--accent-bright)"></div>
-              <img src="/automations/automation-compliance.png" alt="Unsubscribe, Bounced, and Complained compliance workflow" onerror="this.style.display='none'">
-              <span class="shot-label">automation-compliance.png</span>
-            </div>
-            <div class="automation-caption"><strong>Unsubscribe / Bounced / Complained Compliance</strong>Catches every opt-out signal — SMS stop replies, email bounces, spam complaints — and automatically sets the right DND channel so contacts never get messaged after opting out.</div>
-          </div>
-
-          <div class="automation-card">
-            <div class="shot" data-cursor="expand">
-              <div class="shot-glow" style="background:var(--accent-bright)"></div>
-              <img src="/automations/automation-webhook.png" alt="Make.com webhook to GoHighLevel contact sync scenario" onerror="this.style.display='none'">
-              <span class="shot-label">automation-webhook.png</span>
-            </div>
-            <div class="automation-caption"><strong>Webhook → Data Store → GHL Sync</strong>Make.com scenario: a custom webhook parses incoming text, stores the record, then creates or updates the matching GoHighLevel contact — with branch/skip logic for invalid data.</div>
-          </div>
-
-          <div class="automation-card">
-            <div class="shot" data-cursor="expand">
-              <div class="shot-glow" style="background:var(--accent-bright)"></div>
-              <img src="/automations/automation-reservation.png" alt="Reservation Review Follow-up GHL workflow" onerror="this.style.display='none'">
-              <span class="shot-label">automation-reservation.png</span>
-            </div>
-            <div class="automation-caption"><strong>Reservation Review Follow-up</strong>Confirmed reservation tags the contact, creates an opportunity, waits until the appointment ends, then sends a WhatsApp review request and updates the opportunity — all condition-branched.</div>
-          </div>
-
-          <div class="automation-card automation-card-wide">
-            <div class="shot" data-cursor="expand">
-              <div class="shot-glow" style="background:var(--accent-bright)"></div>
-              <img src="/automations/automation-appointment.png" alt="Appointment Confirmation and Follow-up full GHL workflow" onerror="this.style.display='none'">
-              <span class="shot-label">automation-appointment.png</span>
-            </div>
-            <div class="automation-caption"><strong>Appointment Confirmation &amp; Follow-up</strong>The full end-to-end appointment lifecycle — new booking vs. reschedule branching, confirmation emails, 24-hour reminder logic, and post-appointment review-request tracking in one build.</div>
-          </div>
-        </div>
-
-        <p class="fineprint" style="text-align:center">Real GHL and Make.com builds.</p>
-      </section>
-
-      <section class="cta">
-        <div class="cta-dots"></div>
-        <p class="cta-title">Want a workflow built like this for your business?</p>
-        <p class="cta-sub">I'll map your process and build the automation behind it — end to end.</p>
-        <a href="/htmls/contact.html" class="btn btn-light">Start a project</a>
-      </section>
-
     </div>
+  </section>
 
-    <footer class="footer">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <h5>Website</h5>
-          <a href="/index.html">Home</a>
-          <a href="/htmls/services.html">Services</a>
-          <a href="/htmls/portfolio.html">Portfolio</a>
-          <a href="/htmls/automations.html">Automations</a>
-          <a href="/htmls/about.html">About</a>
-          <a href="/htmls/contact.html">Contact</a>
-        </div>
-        <div class="footer-col">
-          <h5>Projects</h5>
-          <a href="/htmls/portfolio.html#north-city-roofing">North City Roofing</a>
-          <a href="/htmls/portfolio.html#meridian-plumbing">Meridian Plumbing — AI Voice Agent</a>
-          <a href="https://thumberacademy.com/" target="_blank" rel="noopener">Thumber Academy</a>
-          <a href="https://edigishark.com/" target="_blank" rel="noopener">eDigiShark</a>
-          <a href="/htmls/portfolio.html#social-agent">Social Media AI Agent</a>
-        </div>
-        <div class="footer-col">
-          <h5>Social</h5>
-          <a href="/htmls/contact.html">Contact Form</a>
-          <a href="mailto:shuakai15@gmail.com">Email</a>
-          <a href="tel:+639696171479">Phone</a>
-          <div class="icon-links">
-            <a href="https://wa.me/639696171479" target="_blank" rel="noopener" class="icon-link" aria-label="WhatsApp">
-              <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12.031 6.172c-5.055 0-9.363 4.109-9.365 9.163a9.32 9.32 0 001.24 4.657l-1.313 4.792 4.917-1.288a9.36 9.36 0 004.514 1.15h.004c5.055 0 9.365-4.109 9.367-9.163a9.099 9.099 0 00-2.652-6.503 9.061 9.061 0 00-6.712-2.808zm5.518 13.028c-.235.663-1.377 1.267-1.898 1.336-.484.065-1.09.093-1.756-.11-.405-.121-.923-.284-1.594-.559-2.807-1.212-4.634-4.02-4.777-4.208-.14-.187-1.144-1.522-1.144-2.905 0-1.383.727-2.06.984-2.34.256-.279.56-.348.746-.348.187 0 .373.001.535.008.171.007.4-.065.628.481.235.56.797 1.943.867 2.087.07.14.117.303.023.489-.093.187-.14.302-.28.465-.14.164-.294.365-.42.49-.14.14-.286.29-.123.567.163.279.727 1.198 1.56 1.94 1.072.956 1.977 1.253 2.256 1.394.28.14.443.117.606-.07.163-.187.703-.82.89-1.1.187-.28.375-.234.634-.14.258.093 1.638.774 1.918.913.28.14.466.211.535.328.07.117.07.678-.163 1.34z"></path></svg>
-            </a>
-            <a href="https://www.instagram.com/shuamndz/" target="_blank" rel="noopener" class="icon-link" aria-label="Instagram">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-            </a>
-            <a href="https://www.facebook.com/shuamndz1123/" target="_blank" rel="noopener" class="icon-link" aria-label="Facebook">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-            </a>
-            <a href="https://www.linkedin.com/in/joshua-mendoza-461a23374/" target="_blank" rel="noopener" class="icon-link" aria-label="LinkedIn">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4V8h4v1.5A6 6 0 0 1 16 8z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-            </a>
-          </div>
-        </div>
+  <!-- ============ NORTH CITY ROOFING LEAD ENGINE ============ -->
+  <section class="sec band grid-bg" id="ncr-lead-engine">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="label">Case Study · North City Roofing</p>
+        <h2 class="h-mix">A <span class="hl">17-workflow</span> lead engine for a roofing company</h2>
+        <p class="sub">Website and Yelp leads used to land in separate inboxes and get retyped into JobNimbus by hand. Now GoHighLevel catches every lead, keeps the field app in sync, and hands each qualified job to sales exactly once.</p>
       </div>
-      <div class="footer-bottom">
-        <span>Copyright © 2026 Joshua Mendoza</span>
-        <img src="/images/logo-x.png" alt="" class="footer-mark">
-        <span>Web design from Antipolo, Rizal, PH</span>
-        <a href="https://docs.google.com/document/d/1_9f7_35_VIZ7tW7r9_ZqNNBKtGsROb4l/edit?usp=drive_link&ouid=113330667437187831590&rtpof=true&sd=true" target="_blank" rel="noopener" class="link-more">Click here to view my resume</a>
-        <div class="footer-legal"><a href="/htmls/legal-notice.html">Legal notice</a><a href="/htmls/privacy-policy.html">Privacy policy</a></div>
+
+      <div class="flow reveal" aria-label="Lead flow">
+        <div class="flow-node brk"><span class="label">Source</span><b>Website + Yelp</b><small>Form &amp; Zapier sync</small></div>
+        <span class="flow-arrow" aria-hidden="true">→</span>
+        <div class="flow-node flow-node--hub brk"><span class="label">Hub</span><b>GoHighLevel</b><small>17 live workflows</small></div>
+        <span class="flow-arrow" aria-hidden="true">→</span>
+        <div class="flow-node brk"><span class="label">Field app</span><b>Ops dashboard</b><small>React + Supabase</small></div>
+        <span class="flow-arrow" aria-hidden="true">→</span>
+        <div class="flow-node brk"><span class="label">Gate</span><b>Qualified job</b><small>6-step inspection</small></div>
+        <span class="flow-arrow" aria-hidden="true">→</span>
+        <div class="flow-node brk"><span class="label">Handoff</span><b>JobNimbus</b><small>Tag-guarded, sent once</small></div>
       </div>
-    </footer>
-  </main>
-</div>
 
-<button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
-  <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="26" height="26"><path d="m18 15-6-6-6 6"></path></svg>
-</button>
-<div class="popup" id="popup"><button class="popup-close" id="popupClose">✕</button><div class="popup-img" id="popupImg"></div></div>
+      <div class="stat-grid">
+        <div class="stat brk"><b data-count="17">17</b><span>Live workflows</span></div>
+        <div class="stat brk"><b data-count="43000">43,000</b><span>Duplicates removed</span></div>
+        <div class="stat brk"><b>5 → 1</b><span>Tools merged</span></div>
+        <div class="stat brk"><b data-count="6">6</b><span>Step inspection</span></div>
+      </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/darkroomengineering/lenis@1.1.13/dist/lenis.min.js"></script>
-<script src="/script.js"></script>
+      <div class="gal gal--3">
+        <figure class="shot-card brk reveal">
+          <button class="shot-btn" type="button" data-full="/assets/case-studies/north-city-roofing/ncr-workflows-website.webp" data-cap="Website lead workflows">
+            <img src="/assets/case-studies/north-city-roofing/ncr-workflows-website.webp" alt="The six website lead workflows in GoHighLevel" loading="lazy">
+          </button>
+          <figcaption class="shot-body">
+            <span class="shot-count">6 workflows</span>
+            <h3>Website leads</h3>
+            <p>Every booking-form submission becomes a tagged contact and opportunity the moment it arrives.</p>
+          </figcaption>
+        </figure>
+        <figure class="shot-card brk reveal">
+          <button class="shot-btn" type="button" data-full="/assets/case-studies/north-city-roofing/ncr-workflows-yelp.webp" data-cap="Yelp lead workflows">
+            <img src="/assets/case-studies/north-city-roofing/ncr-workflows-yelp.webp" alt="The seven Yelp lead workflows in GoHighLevel" loading="lazy">
+          </button>
+          <figcaption class="shot-body">
+            <span class="shot-count">7 workflows</span>
+            <h3>Yelp leads</h3>
+            <p>Zapier pulls leads out of the Yelp inbox so they get the same instant follow-up as website leads.</p>
+          </figcaption>
+        </figure>
+        <figure class="shot-card brk reveal">
+          <button class="shot-btn" type="button" data-full="/assets/case-studies/north-city-roofing/ncr-workflows-supabase.webp" data-cap="Dashboard sync workflows">
+            <img src="/assets/case-studies/north-city-roofing/ncr-workflows-supabase.webp" alt="The four Supabase dashboard sync workflows" loading="lazy">
+          </button>
+          <figcaption class="shot-body">
+            <span class="shot-count">4 workflows</span>
+            <h3>Dashboard sync</h3>
+            <p>Keeps the Supabase ops app in step with GoHighLevel, so the team sees new jobs in real time.</p>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="split reveal">
+        <div>
+          <p class="label">Deep Dive</p>
+          <h3>The JobNimbus handoff, without duplicates</h3>
+          <p>When an inspector marks a job qualified, one webhook carries the full assessment into GoHighLevel, which creates the matching JobNimbus job. A tag check runs before every send.</p>
+          <ul class="ticks">
+            <li><strong>One payload per assessment.</strong> Nothing is retyped or half-filled.</li>
+            <li><strong>Tag guards on every send.</strong> Already-handed-off jobs are skipped.</li>
+            <li><strong>43,000 duplicates removed.</strong> The guards keep them from coming back.</li>
+          </ul>
+        </div>
+        <figure class="shot-card brk">
+          <button class="shot-btn" type="button" data-full="/assets/case-studies/north-city-roofing/ncr-ghl-jobnimbus-workflow.webp" data-cap="GoHighLevel → JobNimbus workflow">
+            <img src="/assets/case-studies/north-city-roofing/ncr-ghl-jobnimbus-workflow.webp" alt="GoHighLevel workflow that sends qualified jobs to JobNimbus" loading="lazy">
+          </button>
+        </figure>
+      </div>
+
+      <div class="gal">
+        <figure class="shot-card brk wide reveal">
+          <button class="shot-btn" type="button" data-full="/images/nc-automation-formintake.jpg" data-cap="Automation A — Form Intake">
+            <img src="/images/nc-automation-formintake.jpg" alt="North City Roofing form intake workflow" loading="lazy">
+          </button>
+          <figcaption class="shot-body">
+            <h3>Automation A: Form Intake</h3>
+            <p>Branches new leads by urgency and source, tags and scores the contact, creates the GHL opportunity and routes the notification path from one inbound webhook.</p>
+          </figcaption>
+        </figure>
+        <figure class="shot-card brk reveal">
+          <button class="shot-btn" type="button" data-full="/images/nc-automation-visitinspection.jpg" data-cap="Visit Inspection Completed">
+            <img src="/images/nc-automation-visitinspection.jpg" alt="Visit Inspection Completed workflow" loading="lazy">
+          </button>
+          <figcaption class="shot-body">
+            <h3>Visit Inspection Completed</h3>
+            <p>Updates the opportunity stage and pushes the result to JobNimbus via three chained webhooks. 28 live runs.</p>
+          </figcaption>
+        </figure>
+        <figure class="shot-card brk reveal">
+          <button class="shot-btn" type="button" data-full="/images/supabase.png" data-cap="Contact to Dashboard (Supabase)">
+            <img src="/images/supabase.png" alt="North City Roofing dashboard sign-in screen" loading="lazy">
+          </button>
+          <figcaption class="shot-body">
+            <h3>Contact to Dashboard</h3>
+            <p>Every new contact syncs into the Supabase-backed dashboard. 35 live runs, the busiest workflow in the build.</p>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VALLE DEL SOL ============ -->
+  <section class="sec" id="valle-del-sol">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="label">Valle Del Sol Cabo · Featured Build</p>
+        <h2 class="h-mix">OpenTable → Make.com → <span class="hl">GHL</span> reservation campaigns</h2>
+        <p class="sub">Every reservation at Torote flows into GoHighLevel and triggers a branching WhatsApp, email and SMS sequence. Live on <a href="https://valledelsolcabo.com/" target="_blank" rel="noopener" style="color:var(--accent-bright)">valledelsolcabo.com</a>.</p>
+      </div>
+      <div class="gal">
+        <figure class="shot-card brk wide reveal">
+          <button class="shot-btn" type="button" data-full="/images/complex-workflows.png" data-cap="Reservation reminder &amp; confirmation sequence">
+            <img src="/images/complex-workflows.png" alt="Reservation follow-up workflow with WhatsApp, email and SMS branching" loading="lazy">
+          </button>
+          <figcaption class="shot-body">
+            <h3>Reminder &amp; confirmation sequence</h3>
+            <p>Fires on a 7-day, 24-hour and 2-minute countdown, branches on the guest's reply, and alerts the team the moment a guest responds.</p>
+          </figcaption>
+        </figure>
+        <figure class="shot-card brk reveal">
+          <button class="shot-btn" type="button" data-full="/images/vds-automation-opentable-make-scenario.jpg" data-cap="OpenTable → GHL contact sync">
+            <img src="/images/vds-automation-opentable-make-scenario.jpg" alt="Make.com scenario syncing OpenTable reservations into GoHighLevel" loading="lazy">
+          </button>
+          <figcaption class="shot-body">
+            <h3>OpenTable → GHL sync</h3>
+            <p>Pulls live reservations, skips cancellations and no-shows, and upserts each guest into GoHighLevel.</p>
+          </figcaption>
+        </figure>
+        <figure class="shot-card brk reveal">
+          <button class="shot-btn" type="button" data-full="/images/vds-automation-workflow-overview.jpg" data-cap="Full workflow, trigger to outcome">
+            <img src="/images/vds-automation-workflow-overview.jpg" alt="Full reservation workflow tree" loading="lazy">
+          </button>
+          <figcaption class="shot-body">
+            <h3>Trigger to outcome</h3>
+            <p>Tag trigger, opportunity creation, a venue/date split, then three time-gated outreach branches.</p>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MORE WORKFLOWS ============ -->
+  <section class="sec band" id="more">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="label">Cross-Platform &amp; General</p>
+        <h2 class="h-mix">More <span class="hl">sample workflows</span></h2>
+      </div>
+      <div class="gal">
+        <figure class="shot-card brk reveal">
+          <button class="shot-btn" type="button" data-full="/images/vds-automation-webhook.png" data-cap="VDS form webhook, opt-in branching">
+            <img src="/images/vds-automation-webhook.png" alt="Form webhook workflow with opt-in branching" loading="lazy">
+          </button>
+          <figcaption class="shot-body"><h3>Form webhook with opt-in branching</h3><p>Creates the contact and opportunity, then sends the right email combination for each opt-in path.</p></figcaption>
+        </figure>
+        <figure class="shot-card brk reveal">
+          <button class="shot-btn" type="button" data-full="/images/zapier-monday-proposal-sync.png" data-cap="Proposal send → monday.com sync">
+            <img src="/images/zapier-monday-proposal-sync.png" alt="Zapier workflow sending a GHL proposal and syncing monday.com" loading="lazy">
+          </button>
+          <figcaption class="shot-body"><h3>Proposal send → monday.com</h3><p>Sends the GHL proposal via API, then updates the matching monday.com item automatically.</p></figcaption>
+        </figure>
+        <figure class="shot-card brk reveal">
+          <button class="shot-btn" type="button" data-full="/automations/automation-callagent.png" data-cap="Post-call AI self-selling demo">
+            <img src="/automations/automation-callagent.png" alt="AI voice agent post-call workflow" loading="lazy">
+          </button>
+          <figcaption class="shot-body"><h3>Post-call AI demo</h3><p>Scores the call, updates tags and routes to a "Closer" or "Cold" follow-up path.</p></figcaption>
+        </figure>
+        <figure class="shot-card brk reveal">
+          <button class="shot-btn" type="button" data-full="/automations/automation-compliance.png" data-cap="Unsubscribe / bounce / complaint compliance">
+            <img src="/automations/automation-compliance.png" alt="Opt-out compliance workflow" loading="lazy">
+          </button>
+          <figcaption class="shot-body"><h3>Opt-out compliance</h3><p>Catches stop replies, bounces and spam complaints and sets the right DND channel.</p></figcaption>
+        </figure>
+        <figure class="shot-card brk reveal">
+          <button class="shot-btn" type="button" data-full="/automations/automation-webhook.png" data-cap="Webhook → data store → GHL sync">
+            <img src="/automations/automation-webhook.png" alt="Make.com webhook to GoHighLevel sync scenario" loading="lazy">
+          </button>
+          <figcaption class="shot-body"><h3>Webhook → GHL sync</h3><p>Parses incoming data, stores it, then creates or updates the GoHighLevel contact.</p></figcaption>
+        </figure>
+        <figure class="shot-card brk reveal">
+          <button class="shot-btn" type="button" data-full="/automations/automation-reservation.png" data-cap="Reservation review follow-up">
+            <img src="/automations/automation-reservation.png" alt="Reservation review follow-up workflow" loading="lazy">
+          </button>
+          <figcaption class="shot-body"><h3>Review follow-up</h3><p>Waits until the appointment ends, then sends a WhatsApp review request.</p></figcaption>
+        </figure>
+        <figure class="shot-card brk wide reveal">
+          <button class="shot-btn" type="button" data-full="/automations/automation-appointment.png" data-cap="Appointment confirmation &amp; follow-up">
+            <img src="/automations/automation-appointment.png" alt="Appointment confirmation and follow-up workflow" loading="lazy">
+          </button>
+          <figcaption class="shot-body"><h3>Appointment confirmation &amp; follow-up</h3><p>New booking vs. reschedule branching, confirmations, 24-hour reminders and post-appointment review tracking.</p></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="sec grid-bg">
+    <div class="wrap center">
+      <h2 class="h-mix reveal">Want a workflow like this <span class="hl">for your business?</span></h2>
+      <p class="sub">I'll map your process and build the automation behind it, end to end.</p>
+      <div class="actions" style="justify-content:center">
+        <a class="btn btn-cta btn-lg" href="https://wa.me/639696171479" target="_blank" rel="noopener">Chat on WhatsApp</a>
+        <a class="btn btn-stripe btn-lg" href="mailto:shuakai15@gmail.com">Email me</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="footer-word" href="/">AINE<span class="logo-x">X</span></a>
+        <p>GoHighLevel builds, AI agents and automations from Antipolo, Rizal, PH.</p>
+      </div>
+      <div class="footer-col">
+        <a href="/">Home</a>
+        <a href="#appointwise">Appointwise</a>
+        <a href="#ncr-lead-engine">Lead Engine</a>
+      </div>
+      <div class="footer-col">
+        <a href="#valle-del-sol">Reservations</a>
+        <a href="#more">More workflows</a>
+      </div>
+      <div class="footer-contact">
+        <p>WhatsApp</p><a href="https://wa.me/639696171479" target="_blank" rel="noopener">+63 969 617 1479</a>
+        <p>Email</p><a href="mailto:shuakai15@gmail.com">shuakai15@gmail.com</a>
+      </div>
+    </div>
+    <div class="footer-bar"><span>© <span data-year>2026</span> AINEX</span><span>Built with GoHighLevel</span></div>
+  </div>
+</footer>
+
+<a class="float-chat" href="https://wa.me/639696171479" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <span>Questions? Chat with me</span>
+  <i><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.5 13.9c-.2.6-1.3 1.2-1.8 1.3-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6-2.7-1.2-4.4-3.9-4.6-4.1-.1-.2-1.1-1.4-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.1.1.3 0 .5l-.3.4-.4.5c-.1.1-.3.3-.1.5.2.3.7 1.1 1.5 1.8 1 .9 1.9 1.2 2.2 1.3.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.8.9c.3.1.4.2.5.3.1.1.1.6-.1 1.2z"/></svg></i>
+</a>
+
+<!-- Screenshot viewer -->
+<dialog class="lb" id="lb" aria-label="Screenshot viewer">
+  <button class="lb-close" type="button" aria-label="Close">✕</button>
+  <img src="" alt="">
+  <p></p>
+</dialog>
+
+<script src="/site.js"></script>
+<script>
+  // Hide screenshot cards whose image file is missing, and open the rest full size
+  (() => {
+    document.querySelectorAll('.shot-btn img').forEach(img => {
+      img.addEventListener('error', () => { img.closest('.shot-btn').style.display = 'none'; });
+    });
+    const lb = document.getElementById('lb');
+    if (!lb || !lb.showModal) return;
+    const img = lb.querySelector('img'), cap = lb.querySelector('p');
+    document.querySelectorAll('.shot-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        img.src = btn.dataset.full;
+        img.alt = btn.querySelector('img').alt;
+        cap.innerHTML = btn.dataset.cap || '';
+        lb.showModal();
+      });
+    });
+    lb.querySelector('.lb-close').addEventListener('click', () => lb.close());
+    lb.addEventListener('click', e => { if (e.target === lb) lb.close(); });
+  })();
+</script>
 </body>
 </html>
