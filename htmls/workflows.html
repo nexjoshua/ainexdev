@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sample Automations — Joshua Mendoza | Ainex</title>
+<meta name="description" content="Real GoHighLevel, Make.com and Zapier automations built for live client accounts — booking agents, lead engines, reservation campaigns and CRM syncs.">
+<link rel="icon" href="/images/logo-x.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inria+Sans:wght@400;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="workflows.css">
+</head>
+<body>
+
+<!-- Background: same looping logo video as the homepage -->
+<div class="ax-bg" aria-hidden="true">
+  <video src="/videos/video.mp4" autoplay muted loop playsinline></video>
+  <div class="ax-bg-overlay"></div>
+</div>
+
+<!-- ============ HEADER ============ -->
+<header class="ax-header" id="axHeader">
+  <a class="ax-brand" href="/index.html" aria-label="Ainex home">
+    <img src="/images/ainex-logowhite.png" alt="Ainex" width="140" height="38">
+  </a>
+
+  <nav class="ax-nav" id="axNav" aria-label="Main">
+    <a href="/index.html">Home</a>
+    <a href="/htmls/services.html">Services</a>
+    <a href="/htmls/portfolio.html">Portfolio</a>
+    <a href="/htmls/workflows.html" class="is-active" aria-current="page">Automations</a>
+    <a href="/htmls/about.html">About</a>
+    <a href="/htmls/contact.html" class="ax-nav-cta">Work With Us →</a>
+  </nav>
+
+  <div class="ax-actions">
+    <a class="ax-social" href="https://wa.me/639696171479" target="_blank" rel="noopener" aria-label="WhatsApp">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.5 13.9c-.2.6-1.3 1.2-1.8 1.3-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6-2.7-1.2-4.4-3.9-4.6-4.1-.1-.2-1.1-1.4-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.1.1.3 0 .5l-.3.4-.4.5c-.1.1-.3.3-.1.5.2.3.7 1.1 1.5 1.8 1 .9 1.9 1.2 2.2 1.3.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.8.9c.3.1.4.2.5.3.1.1.1.6-.1 1.2z"/></svg>
+    </a>
+    <a class="ax-social" href="https://www.instagram.com/shuamndz/" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+    </a>
+    <a class="ax-social" href="https://www.facebook.com/shuamndz1123/" target="_blank" rel="noopener" aria-label="Facebook">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+    </a>
+    <a class="ax-social" href="https://www.linkedin.com/in/joshua-mendoza-461a23374/" target="_blank" rel="noopener" aria-label="LinkedIn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4V8h4v1.5A6 6 0 0 1 16 8z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+    </a>
+    <a class="ax-btn ax-btn-light ax-btn-sm" href="/htmls/contact.html">Work With Us →</a>
+  </div>
+
+  <button class="ax-burger" id="axBurger" aria-label="Open menu" aria-expanded="false" aria-controls="axNav">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<main>
+
+  <!-- ============ BANNER ============ -->
+  <section class="ax-banner">
+    <span class="ax-eyebrow">Inside The Build</span>
+    <h1>Sample <span class="ax-grad">Automations</span></h1>
+    <p>Real GoHighLevel workflows, pipelines and webhook logic built for live client accounts. Click any screenshot or video to see it full size.</p>
+    <div class="ax-row ax-center">
+      <a class="ax-btn ax-btn-light" href="/htmls/contact.html">Get one built for you</a>
+      <a class="ax-btn ax-btn-outline" href="#ncr">See the lead engine</a>
+    </div>
+  </section>
+
+  <!-- ============ TOOLS ============ -->
+  <section class="ax-tools" aria-label="Tools">
+    <p class="ax-tools-label">Powered by the tools our team uses every day:</p>
+    <div class="ax-marquee">
+      <div class="ax-marquee-track" id="axMarquee">
+        <span>GoHighLevel</span><span>Claude</span><span>ChatGPT</span><span>Gemini</span>
+        <span>GitHub</span><span>VS Code</span><span>Vercel</span><span>n8n</span>
+        <span>Make</span><span>Zapier</span><span>Supabase</span><span>JobNimbus</span>
+        <span>OpenTable</span><span>monday.com</span><span>Manus</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ APPOINTWISE ============ -->
+  <section class="ax-section" id="appointwise">
+    <div class="ax-panel ax-reveal">
+      <div class="ax-head ax-center">
+        <span class="ax-eyebrow">Appointwise · Featured Automation</span>
+        <h2>Appointwise — A Booking Agent Wired Straight Into GoHighLevel</h2>
+        <p>A conversational AI agent built entirely inside GoHighLevel's conversation builder — qualifying leads, answering questions, handling objections, and booking the call without a human ever touching the conversation.</p>
+      </div>
+
+      <div class="ax-split">
+        <figure class="ax-card">
+          <button class="ax-shot" type="button" data-full="/New%20videos/appointwise-workflow.jpg">
+            <img src="/New%20videos/appointwise-workflow.jpg" alt="Appointwise conversation builder inside GoHighLevel" loading="lazy">
+            <span class="ax-tag">GHL Wired</span>
+          </button>
+          <figcaption>
+            <strong>The Full Conversation Builder</strong>
+            Every branch of the agent — qualification questions, objection handling, booking hand-off, and lost/won outcomes.
+          </figcaption>
+        </figure>
+
+        <figure class="ax-card ax-phone-card">
+          <button class="ax-phone" type="button" data-full="/New%20videos/appointwise-demo-video.mp4" data-type="video" aria-label="Watch the Appointwise demo full size">
+            <video src="/New%20videos/appointwise-demo-video.mp4" autoplay muted loop playsinline></video>
+            <span class="ax-play" aria-hidden="true">▶</span>
+          </button>
+          <figcaption>
+            <strong>Appointwise, Live in Conversation</strong>
+            A real conversation — the agent qualifies the lead and books the appointment automatically.
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ NORTH CITY ROOFING ============ -->
+  <section class="ax-section" id="ncr">
+    <div class="ax-panel ax-reveal">
+      <div class="ax-head ax-center">
+        <span class="ax-eyebrow">Featured Case Study · North City Roofing</span>
+        <h2>A 17-Workflow Lead Engine, From First Click to Signed Job</h2>
+        <p>Website and Yelp leads used to land in separate inboxes and get retyped into JobNimbus by hand. Now GoHighLevel catches every lead, keeps the field app in sync, and hands each qualified job to sales exactly once.</p>
+      </div>
+
+      <div class="ax-flow" aria-label="Lead flow">
+        <div class="ax-node"><small>Source</small><b>Website + Yelp</b><span>Form &amp; Zapier sync</span></div>
+        <i class="ax-line" aria-hidden="true"></i>
+        <div class="ax-node is-hub"><small>Hub</small><b>GoHighLevel</b><span>17 live workflows</span></div>
+        <i class="ax-line" aria-hidden="true"></i>
+        <div class="ax-node"><small>Field app</small><b>Ops Dashboard</b><span>React + Supabase</span></div>
+        <i class="ax-line" aria-hidden="true"></i>
+        <div class="ax-node"><small>Gate</small><b>Qualified Job</b><span>6-step inspection</span></div>
+        <i class="ax-line" aria-hidden="true"></i>
+        <div class="ax-node"><small>Handoff</small><b>JobNimbus</b><span>Sent once, tag-guarded</span></div>
+      </div>
+
+      <div class="ax-stats">
+        <div class="ax-stat"><strong data-count="17">17</strong><span>Live automations</span></div>
+        <div class="ax-stat"><strong data-count="43000">43,000</strong><span>Duplicates eliminated</span></div>
+        <div class="ax-stat"><strong>5 → 1</strong><span>Tools into one app</span></div>
+      </div>
+
+      <div class="ax-grid ax-grid-3">
+        <figure class="ax-card">
+          <button class="ax-shot" type="button" data-full="/assets/case-studies/north-city-roofing/ncr-workflows-website.webp">
+            <img src="/assets/case-studies/north-city-roofing/ncr-workflows-website.webp" alt="The six website lead workflows" loading="lazy">
+          </button>
+          <figcaption><em>6 workflows</em><strong>Website leads</strong>Every booking-form submission becomes a tagged contact and opportunity the moment it arrives.</figcaption>
+        </figure>
+        <figure class="ax-card">
+          <button class="ax-shot" type="button" data-full="/assets/case-studies/north-city-roofing/ncr-workflows-yelp.webp">
+            <img src="/assets/case-studies/north-city-roofing/ncr-workflows-yelp.webp" alt="The seven Yelp lead workflows" loading="lazy">
+          </button>
+          <figcaption><em>7 workflows</em><strong>Yelp leads</strong>Zapier pulls leads out of the Yelp inbox so they get the same instant follow-up as website leads.</figcaption>
+        </figure>
+        <figure class="ax-card">
+          <button class="ax-shot" type="button" data-full="/assets/case-studies/north-city-roofing/ncr-workflows-supabase.webp">
+            <img src="/assets/case-studies/north-city-roofing/ncr-workflows-supabase.webp" alt="The four Supabase dashboard sync workflows" loading="lazy">
+          </button>
+          <figcaption><em>4 workflows</em><strong>Dashboard sync</strong>Keeps the Supabase ops app in step with GoHighLevel so the team sees new jobs in real time.</figcaption>
+        </figure>
+      </div>
+
+      <div class="ax-split ax-split-copy">
+        <div class="ax-copy">
+          <span class="ax-eyebrow">Deep Dive</span>
+          <h3>The JobNimbus handoff, without duplicates</h3>
+          <p>When an inspector marks a job qualified, one webhook carries the full assessment into GoHighLevel, which creates the matching JobNimbus job. A tag check runs before every send, so the same lead can't be pushed twice.</p>
+          <ul class="ax-checks">
+            <li><strong>One payload per assessment.</strong> Nothing is retyped or half-filled.</li>
+            <li><strong>Tag guards on every send.</strong> Jobs already handed off are skipped.</li>
+            <li><strong>43,000 duplicates eliminated.</strong> The guards keep them from coming back.</li>
+          </ul>
+        </div>
+        <figure class="ax-card">
+          <button class="ax-shot" type="button" data-full="/assets/case-studies/north-city-roofing/ncr-ghl-jobnimbus-workflow.webp">
+            <img src="/assets/case-studies/north-city-roofing/ncr-ghl-jobnimbus-workflow.webp" alt="GoHighLevel workflow that sends qualified jobs to JobNimbus" loading="lazy">
+            <span class="ax-tag">GHL → JobNimbus</span>
+          </button>
+        </figure>
+      </div>
+
+      <div class="ax-grid ax-grid-2">
+        <figure class="ax-card ax-wide">
+          <button class="ax-shot ax-shot-wide" type="button" data-full="/images/nc-automation-formintake.jpg">
+            <img src="/images/nc-automation-formintake.jpg" alt="North City Roofing form intake workflow" loading="lazy">
+          </button>
+          <figcaption><strong>Automation A — Form Intake</strong>Branches new leads by urgency and source, tags and scores the contact, creates the GHL opportunity, and routes the notification path — all from one inbound webhook.</figcaption>
+        </figure>
+        <figure class="ax-card">
+          <button class="ax-shot" type="button" data-full="/images/nc-automation-visitinspection.jpg">
+            <img src="/images/nc-automation-visitinspection.jpg" alt="Visit Inspection Completed workflow" loading="lazy">
+          </button>
+          <figcaption><strong>Visit Inspection Completed</strong>Updates the opportunity stage and pushes the result to JobNimbus via three chained webhooks. 28 live runs.</figcaption>
+        </figure>
+        <figure class="ax-card">
+          <button class="ax-shot" type="button" data-full="/images/supabase.png">
+            <img src="/images/supabase.png" alt="North City Roofing dashboard sign-in screen" loading="lazy">
+          </button>
+          <figcaption><strong>Contact to Dashboard (Supabase)</strong>Every new contact syncs into the Supabase-backed dashboard. 35 live runs — the busiest workflow in the build.</figcaption>
+        </figure>
+      </div>
+
+      <div class="ax-row ax-center">
+        <a class="ax-btn ax-btn-light" href="/case-study-north-city-roofing.html">Read the full case study →</a>
+        <a class="ax-btn ax-btn-outline" href="/assets/case-studies/north-city-roofing/north-city-roofing-case-study.pdf" target="_blank" rel="noopener">View PDF</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VALLE DEL SOL ============ -->
+  <section class="ax-section" id="valle-del-sol">
+    <div class="ax-panel ax-reveal">
+      <div class="ax-head ax-center">
+        <span class="ax-eyebrow">Valle Del Sol Cabo · Featured Build</span>
+        <h2>OpenTable → Make.com → GHL Reservation Campaigns</h2>
+        <p>Every OpenTable reservation at Torote, the on-site restaurant for Valle Del Sol's development, flows into GoHighLevel and triggers a branching WhatsApp, email and SMS sequence — live at <a href="https://valledelsolcabo.com" target="_blank" rel="noopener">valledelsolcabo.com →</a></p>
+      </div>
+
+      <div class="ax-flow" aria-label="Reservation flow">
+        <div class="ax-node"><small>Trigger</small><b>OpenTable</b><span>New reservation</span></div>
+        <i class="ax-line" aria-hidden="true"></i>
+        <div class="ax-node"><small>Router</small><b>Make.com</b><span>Filter &amp; upsert</span></div>
+        <i class="ax-line" aria-hidden="true"></i>
+        <div class="ax-node is-hub"><small>Hub</small><b>GoHighLevel</b><span>Contact + pipeline</span></div>
+        <i class="ax-line" aria-hidden="true"></i>
+        <div class="ax-node"><small>Channels</small><b>WhatsApp · Email · SMS</b><span>Plus team alert</span></div>
+      </div>
+
+      <div class="ax-stats">
+        <div class="ax-stat"><strong>3-Stage</strong><span>Countdown sequence</span></div>
+        <div class="ax-stat"><strong>4</strong><span>Channels triggered</span></div>
+        <div class="ax-stat"><strong>24/7</strong><span>Live &amp; fully automated</span></div>
+      </div>
+
+      <div class="ax-grid ax-grid-2">
+        <figure class="ax-card ax-wide">
+          <button class="ax-shot ax-shot-wide" type="button" data-full="/images/complex-workflows.png">
+            <img src="/images/complex-workflows.png" alt="GoHighLevel reservation reminder campaign with branching WhatsApp, email and SMS" loading="lazy">
+            <span class="ax-tag">Live</span>
+          </button>
+          <figcaption><strong>Reservation Reminder &amp; Confirmation Sequence</strong>Fires on a 7-day, 24-hour and 2-minute countdown, branches on the guest's reply ("Yes, Walk Me Through" / "No, Just Dinner" / timed out), and alerts the team the moment a guest responds.</figcaption>
+        </figure>
+        <figure class="ax-card">
+          <button class="ax-shot" type="button" data-full="/images/vds-automation-opentable-make-scenario.jpg">
+            <img src="/images/vds-automation-opentable-make-scenario.jpg" alt="Make.com scenario syncing OpenTable reservations into GoHighLevel" loading="lazy">
+          </button>
+          <figcaption><strong>OpenTable → GHL Contact Sync</strong>Polls OpenTable, skips cancelled guests and no-shows, and pushes each one into GHL via <code>/contacts/upsert</code>.</figcaption>
+        </figure>
+        <figure class="ax-card">
+          <button class="ax-shot" type="button" data-full="/images/vds-automation-workflow-overview.jpg">
+            <img src="/images/vds-automation-workflow-overview.jpg" alt="Full reservation workflow tree" loading="lazy">
+          </button>
+          <figcaption><strong>Full Workflow, Trigger to Outcome</strong>Tag trigger, opportunity creation, a venue/date split, then three time-gated outreach branches.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AUTOMATIONS IN ACTION ============ -->
+  <section class="ax-section" id="in-action">
+    <div class="ax-panel ax-reveal">
+      <div class="ax-head ax-center">
+        <span class="ax-eyebrow">Automations In Action</span>
+        <h2>See It Running, Live</h2>
+        <p>Automated Google review requests and missed-call text-backs — both fire instantly, 24/7, with zero manual work. Tap the phone to watch the demo.</p>
+      </div>
+      <div class="ax-action">
+        <button class="ax-phone ax-phone-lg" type="button" data-full="/videos/phone-demo.mp4" data-type="video" aria-label="Watch the automation demo full size">
+          <video src="/videos/phone-demo.mp4" autoplay muted loop playsinline></video>
+          <span class="ax-play" aria-hidden="true">▶</span>
+        </button>
+        <div class="ax-features">
+          <div class="ax-feature">
+            <h4>Automated Google Reviews</h4>
+            <p>The moment a job is marked complete, the customer gets a text asking for a review — with a direct link to the Google listing.</p>
+          </div>
+          <div class="ax-feature">
+            <h4>Missed Call Text Back</h4>
+            <p>Miss a call and the caller instantly gets a text back, so no lead goes cold just because nobody picked up in time.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MORE WORKFLOWS ============ -->
+  <section class="ax-section" id="more">
+    <div class="ax-head ax-reveal">
+      <span class="ax-eyebrow">Cross-Platform &amp; General Purpose</span>
+      <h2>More Sample Workflows</h2>
+      <p>Smart-branching webhooks, Zapier bridges, AI voice-agent follow-ups and compliance handling from live client accounts.</p>
+    </div>
+    <div class="ax-grid ax-grid-2">
+      <figure class="ax-card ax-reveal">
+        <button class="ax-shot" type="button" data-full="/images/vds-automation-webhook.png">
+          <img src="/images/vds-automation-webhook.png" alt="Form webhook workflow with opt-in branching" loading="lazy">
+        </button>
+        <figcaption><strong>Form Webhook — Opt-In Branching</strong>Creates the contact and opportunity, then branches on brochure and newsletter opt-ins to send the right email combination.</figcaption>
+      </figure>
+      <figure class="ax-card ax-reveal">
+        <button class="ax-shot" type="button" data-full="/images/zapier-monday-proposal-sync.png">
+          <img src="/images/zapier-monday-proposal-sync.png" alt="Zapier workflow sending a GHL proposal and syncing monday.com" loading="lazy">
+        </button>
+        <figcaption><strong>Proposal Send → monday.com Sync</strong>Sends the GHL proposal through the LeadConnector API, then updates the matching monday.com item.</figcaption>
+      </figure>
+      <figure class="ax-card ax-reveal">
+        <button class="ax-shot" type="button" data-full="/automations/automation-callagent.png">
+          <img src="/automations/automation-callagent.png" alt="AI voice agent post-call workflow" loading="lazy">
+        </button>
+        <figcaption><strong>Post-Call AI Self-Selling Demo</strong>Scores call duration and quality, updates tags, and routes to a "Closer" or "Cold" follow-up path.</figcaption>
+      </figure>
+      <figure class="ax-card ax-reveal">
+        <button class="ax-shot" type="button" data-full="/automations/automation-compliance.png">
+          <img src="/automations/automation-compliance.png" alt="Opt-out compliance workflow" loading="lazy">
+        </button>
+        <figcaption><strong>Unsubscribe / Bounced / Complained</strong>Catches every opt-out signal and sets the right DND channel so contacts are never messaged after opting out.</figcaption>
+      </figure>
+      <figure class="ax-card ax-reveal">
+        <button class="ax-shot" type="button" data-full="/automations/automation-webhook.png">
+          <img src="/automations/automation-webhook.png" alt="Make.com webhook to GoHighLevel sync scenario" loading="lazy">
+        </button>
+        <figcaption><strong>Webhook → Data Store → GHL Sync</strong>Parses incoming data, stores it, then creates or updates the matching GoHighLevel contact.</figcaption>
+      </figure>
+      <figure class="ax-card ax-reveal">
+        <button class="ax-shot" type="button" data-full="/automations/automation-reservation.png">
+          <img src="/automations/automation-reservation.png" alt="Reservation review follow-up workflow" loading="lazy">
+        </button>
+        <figcaption><strong>Reservation Review Follow-up</strong>Waits until the appointment ends, then sends a WhatsApp review request and updates the opportunity.</figcaption>
+      </figure>
+      <figure class="ax-card ax-wide ax-reveal">
+        <button class="ax-shot ax-shot-wide" type="button" data-full="/automations/automation-appointment.png">
+          <img src="/automations/automation-appointment.png" alt="Appointment confirmation and follow-up workflow" loading="lazy">
+        </button>
+        <figcaption><strong>Appointment Confirmation &amp; Follow-up</strong>New booking vs. reschedule branching, confirmation emails, 24-hour reminders, and post-appointment review tracking in one build.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="ax-cta ax-reveal">
+    <h2>Ready to build a system that scales?</h2>
+    <p>Tell me about your business and where the bottleneck is — I'll tell you what it'll take to automate it.</p>
+    <a class="ax-btn ax-btn-light" href="/htmls/contact.html">Work With Us →</a>
+  </section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="ax-footer">
+  <div class="ax-footer-grid">
+    <div class="ax-footer-col">
+      <h5>Website</h5>
+      <a href="/index.html">Home</a>
+      <a href="/htmls/services.html">Services</a>
+      <a href="/htmls/portfolio.html">Portfolio</a>
+      <a href="/htmls/workflows.html">Automations</a>
+      <a href="/htmls/about.html">About</a>
+      <a href="/htmls/contact.html">Contact</a>
+    </div>
+    <div class="ax-footer-col">
+      <h5>Projects</h5>
+      <a href="/htmls/portfolio.html#valle-del-sol">Valle Del Sol</a>
+      <a href="/htmls/portfolio.html#north-city-roofing">North City Roofing</a>
+      <a href="/htmls/portfolio.html#nc-mobile-dashboard">NC Roofing — Mobile Dashboard</a>
+      <a href="/htmls/portfolio.html#meridian-plumbing">Meridian Plumbing — AI Voice Agent</a>
+      <a href="https://thumberacademy.com/" target="_blank" rel="noopener">Thumber Academy</a>
+      <a href="https://edigishark.com/" target="_blank" rel="noopener">eDigiShark</a>
+    </div>
+    <div class="ax-footer-col">
+      <h5>Social</h5>
+      <a href="/htmls/contact.html">Contact Form</a>
+      <a href="mailto:shuakai15@gmail.com">Email</a>
+      <a href="tel:+639696171479">Phone</a>
+      <div class="ax-footer-social">
+        <a class="ax-social" href="https://wa.me/639696171479" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.5 13.9c-.2.6-1.3 1.2-1.8 1.3-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6-2.7-1.2-4.4-3.9-4.6-4.1-.1-.2-1.1-1.4-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.1.1.3 0 .5l-.3.4-.4.5c-.1.1-.3.3-.1.5.2.3.7 1.1 1.5 1.8 1 .9 1.9 1.2 2.2 1.3.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.8.9c.3.1.4.2.5.3.1.1.1.6-.1 1.2z"/></svg></a>
+        <a class="ax-social" href="https://www.instagram.com/shuamndz/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a class="ax-social" href="https://www.facebook.com/shuamndz1123/" target="_blank" rel="noopener" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a class="ax-social" href="https://www.linkedin.com/in/joshua-mendoza-461a23374/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4V8h4v1.5A6 6 0 0 1 16 8z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+      </div>
+    </div>
+  </div>
+  <div class="ax-footer-bottom">
+    <span>© <span id="axYear">2026</span> Ainex · Founded by Joshua Mendoza</span>
+    <img src="/images/logo-x.png" alt="" width="22" height="22">
+    <span>Automation &amp; growth agency · Antipolo, Rizal, PH</span>
+    <span class="ax-legal"><a href="/htmls/legal-notice.html">Legal notice</a><a href="/htmls/privacy-policy.html">Privacy policy</a></span>
+  </div>
+</footer>
+
+<!-- Full-size viewer -->
+<div class="ax-lightbox" id="axLightbox" role="dialog" aria-modal="true" aria-label="Full-size preview" hidden>
+  <button class="ax-lightbox-close" type="button" aria-label="Close">✕</button>
+  <div class="ax-lightbox-body" id="axLightboxBody"></div>
+</div>
+
+<script src="workflows.js"></script>
+</body>
+</html>
