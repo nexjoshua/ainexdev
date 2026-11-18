@@ -261,7 +261,7 @@ window.SITE = {
       work: 'Workflows, client support, troubleshooting and onboarding' },
     { name: 'Chetana Gandhara', role: 'Owner', company: 'eDigiShark', url: 'https://edigishark.com/',
       photo: './images/testimonials/chetana-gandhara.jpg', tag: 'One-man team',
-      q: "I'm grateful to have Joshua on my side. He's a *one-man team*.",
+      q: "Josh is a true professional who takes pride in his work and is easy to work with. He helped with GoHighLevel, building websites, and creating Meta and Google Ads, always bringing a positive, can-do attitude to every project. I enjoyed having him work for me and would happily recommend him.",
       work: 'GHL funnels, automations, CRM, web development, ads and design' },
     { name: 'Russell Sage', role: 'Owner', company: 'Thumber Academy', url: 'https://thumberacademy.com/',
       photo: './images/testimonials/russell-sage.jpg', tag: 'Great work',
